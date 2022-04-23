@@ -1,11 +1,11 @@
 @font-face {
     font-family: 'Gilroy';
-    src: url('./fonts/Gilroy-Medium.otf');
+    src: url('/fonts/Gilroy-Medium.otf');
 }
 
 @font-face {
     font-family: 'Shaloems';
-    src: url('./fonts/Shaloems.ttf');
+    src: url('/fonts/Shaloems.ttf');
 }
 
 * {

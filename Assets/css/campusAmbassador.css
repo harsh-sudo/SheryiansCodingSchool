@@ -1,15 +1,15 @@
 @font-face {
-    src: url("fonts/Gilroy-Medium.otf");
+    src: url("/fonts/Gilroy-Medium.otf");
     font-family: "gilroy";
 }
 
 @font-face {
-    src: url("fonts/Vanguard_CF.ttf");
+    src: url("/fonts/Vanguard_CF.ttf");
     font-family: "Vanguard CF";
 }
 
 @font-face {
-    src: url("fonts/Helvetica.ttf");
+    src: url("/ fonts/Helvetica.ttf");
     font-family: "helvetica";
 }
 
