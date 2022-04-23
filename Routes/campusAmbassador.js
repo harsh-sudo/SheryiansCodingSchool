@@ -5,5 +5,4 @@ const campusAmbassadorController = require('../controllers/campusAmbassador_cont
 router.get('/',campusAmbassadorController.getCampusAmbassador); // get campus ambassador
 
 
-
 module.exports = router; // export router
