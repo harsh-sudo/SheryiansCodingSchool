@@ -5,7 +5,9 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title><%= title%></title>
+    <title>
+        <%= title%>
+    </title>
     <link rel="apple-touch-icon" sizes="57x57" href="/images/Sheryians Logo.png">
     <link rel="apple-touch-icon" sizes="60x60" href="/images/Sheryians Logo.png">
     <link rel="apple-touch-icon" sizes="72x72" href="/images/Sheryians Logo.png">
@@ -72,7 +74,7 @@
         <div id="page3">
             <!-- Ye bhi mai bna dunga stories vala part -->
             <div id="page3part1">
-                <h1 id="page3part1heading">St<span><img src="./img/Group 14.png" alt=""></span>ries</h1>
+                <h1 id="page3part1heading">St<span><img src="/images/Group 14.png" alt=""></span>ries</h1>
                 <div id="page3part1div">
                     <h3>Lorem ipsum dolor sit, amet consectetur adipisicing. <br>
                         Lorem ipsum dolor sit amet lofsa consectetur. <br>
@@ -104,6 +106,21 @@
                         alt="" id="img4">
                 </div>
                 <div class="card" id="card5">
+                    <h1>Sarthak Sharma</h1><img
+                        src="https://images.unsplash.com/photo-1469460340997-2f854421e72f?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1887&q=80"
+                        alt="" id="img5">
+                </div>
+                <div class="card" id="card6">
+                    <h1>Sarthak Sharma</h1><img
+                        src="https://images.unsplash.com/photo-1469460340997-2f854421e72f?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1887&q=80"
+                        alt="" id="img5">
+                </div>
+                <div class="card" id="card7">
+                    <h1>Sarthak Sharma</h1><img
+                        src="https://images.unsplash.com/photo-1469460340997-2f854421e72f?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1887&q=80"
+                        alt="" id="img5">
+                </div>
+                <div class="card" id="card8">
                     <h1>Sarthak Sharma</h1><img
                         src="https://images.unsplash.com/photo-1469460340997-2f854421e72f?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1887&q=80"
                         alt="" id="img5">
@@ -144,14 +161,62 @@
         </div>
 
     </div>
-
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.10.4/ScrollTrigger.min.js"
+        integrity="sha512-v8B8T8l8JiiJRGomPd2k+bPS98RWBLGChFMJbK1hmHiDHYq0EjdQl20LyWeIs+MGRLTWBycJGEGAjKkEtd7w5Q=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.10.4/gsap.min.js"
+        integrity="sha512-VEBjfxWUOyzl0bAwh4gdLEaQyDYPvLrZql3pw1ifgb6fhEvZl9iDDehwHZ+dsMzA0Jfww8Xt7COSZuJ/slxc4Q=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script src="https://cdn.jsdelivr.net/npm/locomotive-scroll@3.5.4/dist/locomotive-scroll.min.js"></script>
     <script>
-
-        const scroller = new LocomotiveScroll({
+        gsap.registerPlugin(ScrollTrigger);
+        const locoScroll = new LocomotiveScroll({
             el: document.querySelector("#main"),
-            smooth: true
+            smooth: true,
+
+            // for tablet smooth
+            tablet: { smooth: true },
+
+            // for mobile
+            smartphone: { smooth: true }
+        });
+        locoScroll.on("scroll", ScrollTrigger.update);
+
+        ScrollTrigger.scrollerProxy("#main", {
+            scrollTop(value) {
+                return arguments.length
+                    ? locoScroll.scrollTo(value, 0, 0)
+                    : locoScroll.scroll.instance.scroll.y;
+            },
+            getBoundingClientRect() {
+                return {
+                    top: 0,
+                    left: 0,
+                    width: window.innerWidth,
+                    height: window.innerHeight
+                };
+            }
+        });
+
+        ScrollTrigger.addEventListener("refresh", () => locoScroll.update());
+
+        ScrollTrigger.refresh();
+
+
+        gsap.to(".card", {
+            scrollTrigger: {
+                trigger:".card",
+                scroller: "#main",
+                start:"top 60%",
+                end:"top 10%",
+                scrub:2,
+                markers: true,
+            },
+            x: "-137vw",
+            ease:Power0.easeNone
+
         });
     </script>
 </body>
+
 </html>
