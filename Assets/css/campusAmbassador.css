@@ -468,26 +468,14 @@ margin-top: 30px;
 #page3part2 {
     height: 54vh;
     white-space: nowrap;
-    /* overflow-x: auto;
-    overflow-y: hidden; */
+    overflow-x: auto;
+    overflow-y: hidden;
     scroll-behavior: smooth;
-    overflow: hidden; 
-    display: inline-block; 
-     animation: page3part2 10s linear infinite;
 }
 
 #page3part2::-webkit-scrollbar {
     display: none;
 }
-
-@keyframes page3part2 {
-    0% {
-      transform: translate3d(0, 0, 0);
-    }
-    100% {
-      transform: translate3d(-40%, 0, 0);
-    }
-  }
 
 .card {
     width: 30vw;
@@ -535,6 +523,15 @@ margin-top: 30px;
 
 #card5 {
     background-color: rgb(255, 180, 105);
+}
+#card6 {
+    background-color: rgb(203, 255, 105);
+}
+#card7 {
+    background-color: rgb(105, 255, 205);
+}
+#card8 {
+    background-color: rgb(255, 105, 228);
 }
 
 @media(max-width: 600px) {
