@@ -24,11 +24,49 @@
             <p>
                 <a href="/adminPanel/courses/add">Add course</a>
             </p>
+            <div id="addCourse">
+                <form action="/adminPanel/addCourse" method="post">
+                    <input type="text" name="course_name" id="courseName" placeholder="Course Name" required>
+                    <textarea name="description" id="courseDescription" cols="30" rows="10" placeholder="Description for Course" required></textarea>
+                    <input type="text" name="fees" id="coursePrice" placeholder="Price" required>
+                    <input type="text" name="image" id="courseImage" placeholder="Add img/gif" required>
+                    <input type="text" name="duration" id="Duration" placeholder="Duration" required>
+                    <input type="text" name="level" id="level" placeholder="Level" required>
+                    <input type="text" name="course_id" id="course_id" placeholder="Course ID" required>
+                    <input type="submit" value="Add Course">
+                </form>
+            </div>
             <p>
                 <a href="/adminPanel/courses/edit">Edit course</a>
             </p>
+            <div id="editCourse">
+                <form action="/adminPanel/findCourse" method="post">
+                    <input type="text" name="course_name" id="courseName" placeholder="Course Name" required>
+                    <input type="text" name="course_id" id="courseName" placeholder="Course_ID" required>
+                    <input type="submit" value="Find Course">
+                </form>
+            </div>
+            <div id="updateCourse">
+                <form action="/adminPanel/updateCourse" method="post">
+                    <input type="text" name="course_name" id="courseName" placeholder="Course Name" required value="<%=course.course_name%>">
+                    <textarea name="description" id="courseDescription" cols="30" rows="10" placeholder="Description for Course" required><%=course.description%></textarea>
+                    <input type="text" name="fees" id="coursePrice" placeholder="Price" required value="<%=course.fees%>">
+                    <input type="text" name="image" id="courseImage" placeholder="Add img/gif" required value=" <%=course.image%>">
+                    <input type="text" name="duration" id="Duration" placeholder="Duration" required value="<%=course.duration%>">
+                    <input type="text" name="level" id="level" placeholder="Level" required value="<%=course.level%>">
+                    <input type="text" name="course_id" id="course_id" placeholder="Course ID" required value="<%=course.course_id%>" readonly>
+                    <input type="submit" value="Update Course">
+                </form>
+            </div>
             <p>
                 <a href="/adminPanel/courses/delete">Delete course</a>
+                <div id="deleteCourse">
+                    <form action="/adminPanel/deleteCourse" method="post">
+                        <input type="text" name="course_name" id="courseName" placeholder="Course Name" required>
+                        <input type="text" name="course_id" id="courseName" placeholder="Course_ID" required>
+                        <input type="submit" value="Delete Course">
+                    </form>
+                </div>
             </p>
         </div>
 

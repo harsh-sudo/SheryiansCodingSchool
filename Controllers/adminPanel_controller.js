@@ -1,5 +1,6 @@
 module.exports.getadminPanel = function(req, res) {
     res.render('adminPanel', {
-        title: 'Admin Panel'
+        title: 'Admin Panel',
+        course: []
     })
 }

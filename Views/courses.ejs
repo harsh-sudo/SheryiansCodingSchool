@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sheryians Creative Courses</title>
+    <title><%=title%></title>
     <link rel="apple-touch-icon" sizes="57x57" href="./Images/Sheryians Logo.png">
     <link rel="apple-touch-icon" sizes="60x60" href="./Images/Sheryians Logo.png">
     <link rel="apple-touch-icon" sizes="72x72" href="./Images/Sheryians Logo.png">
@@ -68,18 +68,24 @@
                     sequi?</p>
             </div>
             <div id="page2-cards">
-                <div class="course-card" id="card1">
-                    <div class="card-part1" id="card1-part1">
-                        <button>Free</button>
+                <% let card_count = 1 %> 
+                <% for(let i of courses){ %> 
+                    <% let part_count = 1 %> 
+                    <div class="course-card" id="card<%=card_count%>">
+                    <div class="card-part<%= part_count %>" id="card<%=card_count%>-part<%=part_count%>">
+                        <button><%=i.fees%> </button>
                     </div>
-                    <div class="card-part2" id="card1-part2">
-                        <h4><a href="#">Get Started With HTML</a></h4>
-                        <h5><span></span>Beginner</h5>
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eos assumenda ad provident odit
-                            asperiores necessitatibus. Vel ab amet illo cumque?</p>
+                    <% part_count++ %> 
+                    <div class="card-part<%= part_count %>" id="card<%=card_count%>-part<%=part_count%>">
+                        <h4><a href="#"><%= i.course_name %></a></h4>
+                        <h5><span></span><%= i.level %> </h5>
+                        <p><%= i.description %></p>
                     </div>
-                </div>
-                <div class="course-card" id="card2">
+                    </div>
+                    <% card_count++ %> 
+                <% } %> 
+               
+                <!-- <div class="course-card" id="card2">
                     <div class="card-part1" id="card2-part1">
                         <button>Free</button>
                     </div>
@@ -134,7 +140,7 @@
                             asperiores necessitatibus. Vel ab amet illo cumque?</p>
                     </div>
                 </div>
-            </div>
+            </div> -->
             <div id="page3-bottom">
                 <button><a href="">View All Courses</a></button>
             </div>

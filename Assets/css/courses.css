@@ -979,7 +979,7 @@ body {
 
     #page2 {
         width: 100%;
-        min-height: 100vh;
+        min-height: 50vh;
         padding: 50px 0;
         background-color: #fefefe;
     }
@@ -1016,12 +1016,12 @@ body {
     }
 
     #page2-cards {
-        min-height: 110vh;
+        min-height: 60vh;
         width: 100vw;
         position: relative;
         display: -webkit-box;
         display: -ms-flexbox;
-        display: flex;
+        display: flex; 
         -ms-flex-pack: distribute;
         justify-content: space-around;
         -webkit-box-align: center;
