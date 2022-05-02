@@ -1,53 +1,84 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title><%= title %> </title>
+    <title>Admin Panel | Sheryians</title>
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css" rel="stylesheet">
+    <link rel="stylesheet" href="/css/adminPanel.css">
 </head>
+
 <body>
     <div id="main">
-        <div id="header">
-            <h1>Sheryians Coding School</h1>
-        </div>
-        <div id="nav">
-            <ul>
-                <li><a href="/admin-panel/courses">Courses</a></li>
-                <li><a href="/admin-panel/campusAmbassador">Campus Ambassador</a></li>
-                <li><a href="/admin-panel/GirlsWhoCode">GirlsWhoCode</a></li>
-            </ul>
+        <div id="navbar">
+            <!-- this is nav bar -->
+            <div id="navpart1">
+                <img src="/images/Sheryians Logo.png" alt="">
+                <a href="#">Home</a>
+                <a href="/admin-panel/courses">Courses</a>
+                <a href="/admin-panel/campusAmbassador">Campus Ambassador</a>
+                <a href="/admin-panel/GirlsWhoCode">Girls Who Code</a>
+            </div>
+            <div id="navpart2">
+                <a href="./home.ejs"><i class="ri-menu-fill"></i></a>
+            </div>
         </div>
         <div id="courses-admin-panel">
-            <h2>Admin Panel of Courses</h2>
+            <h2>Admin Panel of <span>Courses</span></h2>
             <p>Welcome to the admin panel of Courses</p>
-            <p>
-                <a href="/adminPanel/courses/add">Add course</a>
-            </p>
-            <p>
-                <a href="/adminPanel/courses/edit">Edit course</a>
-            </p>
-            <p>
-                <a href="/adminPanel/courses/delete">Delete course</a>
-            </p>
-        </div>
 
-        <div id="CampusAmbassador-admin-panel">
-            <h2>Admin Panel of Campus Ambassador</h2>
+            <div id="courses-links">
+                <h4 class="course-feature" id="courses-add">Add course</h4>
+                <h4 class="course-feature" id="courses-edit">Edit course</h4>
+                <h4 class="course-feature" id="courses-delete">Delete course</h4>
+            </div>
+        </div>
+        <div id="campusAmbassador-admin-panel">
+            <h2>Admin Panel of <span>Campus Ambassador</span></h2>
             <p>Welcome to the admin panel of Campus Ambassador</p>
-            <p>
-                <a href="/adminPanel/campusAmbassador/add">Add campusAmbassador</a>
-            </p>
-            <p>
-                <a href="/adminPanel/campusAmbassador/edit">Edit campusAmbassador</a>
-            </p>
-            <p>
-                <a href="/adminPanel/campusAmbassador/delete">Delete campusAmbassador</a>
-            </p>
+            <div id="campusAmbassador-links">
+                <h4 class="campusAmbassador-feature" id="campusAmbassador-add">Add campusAmbassador</h4>
+                <h4 class="campusAmbassador-feature" id="campusAmbassador-edit">Edit campusAmbassador</h4>
+                <h4 class="campusAmbassador-feature" id="campusAmbassador-delete">Delete campusAmbassador</h4>
+            </div>
         </div>
         <div id="footer">
             <p>&copy; Sheryans Coding School</p>
         </div>
+        <div class="courses-window">
+            <h5 class="back"><i class="ri-arrow-left-s-line"></i></h5>
+            <form>
+                <h1>Akarsh Bhenkaloda</h1>
+            </form>
+        </div>
+        <div class="campus-window">
+            <h5 class="back"><i class="ri-arrow-left-s-line"></i></h5>
+            <h1>Harsh Bohot bada Bhenkaloda</h1>
+        </div>
     </div>
+    <script>
+        var courseFeature = document.querySelectorAll(".course-feature");
+        courseFeature.forEach(feature => {
+            feature.addEventListener("click", () => {
+                document.querySelector(".courses-window").style.display = "Initial";
+            })
+        });
+        var campusFeature = document.querySelectorAll(".campusAmbassador-feature");
+        campusFeature.forEach(feature => {
+            feature.addEventListener("click", () => {
+                document.querySelector(".campus-window").style.display = "Initial";
+            })
+        });
+        var back = document.querySelectorAll('.back');
+        back.forEach(back => {
+            back.addEventListener("click", () => {
+                document.querySelector(".courses-window").style.display = "none";
+                document.querySelector(".campus-window").style.display = "none";
+            })
+        });
+    </script>
 </body>
+
 </html>
