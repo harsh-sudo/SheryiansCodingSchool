@@ -25,11 +25,11 @@
                 <a href="/adminPanel/courses/add">Add course</a>
             </p>
             <div id="addCourse">
-                <form action="/adminPanel/addCourse" method="post">
+                <form action="/adminPanel/addCourse" method="post" enctype="multipart/form-data">
                     <input type="text" name="course_name" id="courseName" placeholder="Course Name" required>
                     <textarea name="description" id="courseDescription" cols="30" rows="10" placeholder="Description for Course" required></textarea>
                     <input type="text" name="fees" id="coursePrice" placeholder="Price" required>
-                    <input type="text" name="image" id="courseImage" placeholder="Add img/gif" required>
+                    <input type="file" name="image" id="courseImage" placeholder="Add img/gif" required>
                     <input type="text" name="duration" id="Duration" placeholder="Duration" required>
                     <input type="text" name="level" id="level" placeholder="Level" required>
                     <input type="text" name="course_id" id="course_id" placeholder="Course ID" required>
@@ -47,11 +47,11 @@
                 </form>
             </div>
             <div id="updateCourse">
-                <form action="/adminPanel/updateCourse" method="post">
+                <form action="/adminPanel/updateCourse/<%= course._id %>" method="post" enctype="multipart/form-data">
                     <input type="text" name="course_name" id="courseName" placeholder="Course Name" required value="<%=course.course_name%>">
                     <textarea name="description" id="courseDescription" cols="30" rows="10" placeholder="Description for Course" required><%=course.description%></textarea>
                     <input type="text" name="fees" id="coursePrice" placeholder="Price" required value="<%=course.fees%>">
-                    <input type="text" name="image" id="courseImage" placeholder="Add img/gif" required value=" <%=course.image%>">
+                    <input type="file" name="image" id="courseImage" placeholder="Add img/gif" value=" <%=course.image%>">
                     <input type="text" name="duration" id="Duration" placeholder="Duration" required value="<%=course.duration%>">
                     <input type="text" name="level" id="level" placeholder="Level" required value="<%=course.level%>">
                     <input type="text" name="course_id" id="course_id" placeholder="Course ID" required value="<%=course.course_id%>" readonly>
@@ -64,7 +64,7 @@
                     <form action="/adminPanel/deleteCourse" method="post">
                         <input type="text" name="course_name" id="courseName" placeholder="Course Name" required>
                         <input type="text" name="course_id" id="courseName" placeholder="Course_ID" required>
-                        <input type="submit" value="Delete Course">
+                        <input type="submit" value="Delete Course"d>
                     </form>
                 </div>
             </p>
@@ -76,12 +76,64 @@
             <p>
                 <a href="/adminPanel/campusAmbassador/add">Add campusAmbassador</a>
             </p>
+
+            <div id="addCampusAmbassador">
+                <form action="/adminPanel/addCampusAmbassador" method="post" enctype="multipart/form-data">
+                    <input type="text" name="name" id="name" placeholder="Name" required>
+                    <input type="text" name="email" id="email" placeholder="Email" required>
+                    <input type="text" name="phone" id="phone" placeholder="Phone" required>
+                    <input type="text" name="college" id="college" placeholder="College" required>
+                    <input type="text" name="course" id="course" placeholder="Course" required>
+                    <input type="text" name="branch" id="branch" placeholder="Branch" required>
+                    <input type="text" name="year" id="year" placeholder="Year" required>
+                    <input type="text" name="city" id="city" placeholder="City" required>
+                    <input type="file" name="image" id="image" placeholder="Add DP for Ambassador" required>
+                    <input type="submit" value="Add Campus Ambassador">
+                </form>
+            </div>
+
             <p>
                 <a href="/adminPanel/campusAmbassador/edit">Edit campusAmbassador</a>
             </p>
+
+            <div id="editCampusAmbassador">
+                <form action="/adminPanel/findCampusAmbassador" method="post">
+                    <input type="text" name="name" id="name" placeholder="Name" required>
+                    <input type="text" name="college" id="college" placeholder="College(If you know)">
+                    <input type="submit" value="Find Campus Ambassador">
+                </form>
+            </div>
+
+            <div id="updateCampusAmbassador">
+            <% if(campusAmbassador.length > 0){ %>
+                <% for(let i of campusAmbassador){ %> 
+                <form action="/adminPanel/updateCampusAmbassador/<%= i._id %>" method="post" enctype="multipart/form-data">
+                    <input type="text" name="name" id="name" placeholder="Name" required value="<%= i.name %>">
+                    <input type="text" name="email" id="email" placeholder="Email" required value="<%= i.email  %>">
+                    <input type="text" name="phone" id="phone" placeholder="Phone" required value="<%= i.phone%>" readonly >
+                    <input type="text" name="college" id="college" placeholder="College" required value="<%= i.college %>">
+                    <input type="text" name="course" id="course" placeholder="Course" required value="<%= i.course %>">
+                    <input type="text" name="branch" id="branch" placeholder="Branch" required value="<%= i.branch %>">
+                    <input type="text" name="year" id="year" placeholder="Year" required value="<%= i.year %>">
+                    <input type="text" name="city" id="city" placeholder="City" required value="<%= i.city  %>">
+                    <input type="file" name="image" id="image" placeholder="Add DP for Ambassador">
+                    <input type="submit" value="Add Campus Ambassador">
+                </form>
+                <% } %> 
+            <% } %> 
+            </div>
+
             <p>
                 <a href="/adminPanel/campusAmbassador/delete">Delete campusAmbassador</a>
             </p>
+
+            <div id="deleteCourse">
+                <form action="/adminPanel/deleteCampusAmbassador" method="post">
+                    <input type="text" name="name" id="name" placeholder="Student Name" required>
+                    <input type="text" name="phone" id="phone" placeholder="Contact No." required>
+                    <input type="submit" value="Delete Course"d>
+                </form>
+            </div>
         </div>
         <div id="footer">
             <p>&copy; Sheryans Coding School</p>

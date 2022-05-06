@@ -8,7 +8,8 @@ const port = process.env.PORT || 7000; // set port
 
 app.set('view engine', 'ejs'); // set view engine to ejs
 app.use('views', express.static(__dirname + '/views')); // set views folder
-app.use(express.static('assets')); // set assets folder
+app.use(express.static('Assets')); // set assets folder
+app.use('/Assets', express.static(__dirname + '/Assets')); // set assets folder
 
 app.use('/',require('./Routes')); // use index.js
 

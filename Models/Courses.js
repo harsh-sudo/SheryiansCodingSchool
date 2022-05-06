@@ -1,5 +1,10 @@
 const mongoose = require('mongoose');
 
+const multer = require('multer');
+const path = require('path');
+
+const course_gif = path.join('/Assets/images/courses');
+
 const CourseSchema = new mongoose.Schema({
     course_name:{
         type:String,
@@ -32,6 +37,20 @@ const CourseSchema = new mongoose.Schema({
 },{
     timestamps:true
 });
+
+let storage = multer.diskStorage({
+    destination: function(req, file, cb) {
+        cb(null, path.join(__dirname, '..', '/Assets/images/courses'));
+    },
+    filename: function(req, file, cb) {
+        cb(null, req.body.course_name + '-' + file.fieldname + '_' + Date.now() + path.extname(file.originalname))
+    }
+});
+
+//statics
+CourseSchema.statics.course_gif = multer({storage: storage}).single('image');
+CourseSchema.statics.course_gif_path = course_gif;
+
 
 const Course = mongoose.model('Course',CourseSchema);
 
