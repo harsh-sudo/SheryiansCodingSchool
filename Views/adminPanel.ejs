@@ -5,26 +5,48 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title><%= title %> </title>
+    <link rel="stylesheet" href="/css/adminPanel.css">
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@2.2.0/fonts/remixicon.css" rel="stylesheet">
 </head>
-<body>
-    <div id="main">
-        <div id="header">
-            <h1>Sheryians Coding School</h1>
-        </div>
-        <div id="nav">
-            <ul>
-                <li><a href="/admin-panel/courses">Courses</a></li>
-                <li><a href="/admin-panel/campusAmbassador">Campus Ambassador</a></li>
-                <li><a href="/admin-panel/GirlsWhoCode">GirlsWhoCode</a></li>
-            </ul>
-        </div>
-        <div id="courses-admin-panel">
-            <h2>Admin Panel of Courses</h2>
-            <p>Welcome to the admin panel of Courses</p>
-            <p>
-                <a href="/adminPanel/courses/add">Add course</a>
-            </p>
-            <div id="addCourse">
+    <body>
+        <div id="main">
+            <div id="navbar">
+                <!-- this is nav bar -->
+                <div id="navpart1">
+                    <img src="/images/Sheryians Logo.png" alt="">
+                    <a href="#">Home</a>
+                    <a href="/admin-panel/courses">Courses</a>
+                    <a href="/admin-panel/campusAmbassador">Campus Ambassador</a>
+                    <a href="/admin-panel/GirlsWhoCode">Girls Who Code</a>
+                </div>
+                <div id="navpart2">
+                    <a href="./home.ejs"><i class="ri-menu-fill"></i></a>
+                </div>
+            </div>
+            <div id="courses-admin-panel">
+                <h2>Admin Panel of <span>Courses</span></h2>
+                <p>Welcome to the admin panel of Courses</p>
+    
+                <div id="courses-links">
+                    <h4 class="course-feature" id="courses-add">Add course</h4>
+                    <h4 class="course-feature" id="courses-edit">Edit course</h4>
+                    <h4 class="course-feature" id="courses-delete">Delete course</h4>
+                </div>
+            </div>
+            <div id="campusAmbassador-admin-panel">
+                <h2>Admin Panel of <span>Campus Ambassador</span></h2>
+                <p>Welcome to the admin panel of Campus Ambassador</p>
+                <div id="campusAmbassador-links">
+                    <h4 class="campusAmbassador-feature" id="campusAmbassador-add">Add campusAmbassador</h4>
+                    <h4 class="campusAmbassador-feature" id="campusAmbassador-edit">Edit campusAmbassador</h4>
+                    <h4 class="campusAmbassador-feature" id="campusAmbassador-delete">Delete campusAmbassador</h4>
+                </div>
+            </div>
+            <div id="footer">
+                <p>&copy; Sheryans Coding School</p>
+            </div>
+            <div class="courses-window" id="courses-add-window">
+                <h5 class="back" id="courses-add-window"><i id="courses-add-window" class="ri-arrow-left-s-line"></i></h5>
                 <form action="/adminPanel/addCourse" method="post" enctype="multipart/form-data">
                     <input type="text" name="course_name" id="courseName" placeholder="Course Name" required>
                     <textarea name="description" id="courseDescription" cols="30" rows="10" placeholder="Description for Course" required></textarea>
@@ -36,30 +58,30 @@
                     <input type="submit" value="Add Course">
                 </form>
             </div>
-            <p>
-                <a href="/adminPanel/courses/edit">Edit course</a>
-            </p>
-            <div id="editCourse">
-                <form action="/adminPanel/findCourse" method="post">
-                    <input type="text" name="course_name" id="courseName" placeholder="Course Name" required>
-                    <input type="text" name="course_id" id="courseName" placeholder="Course_ID" required>
-                    <input type="submit" value="Find Course">
-                </form>
+            <div class="courses-window" id="courses-edit-window">
+                <h5 class="back" id="courses-edit-window"><i id="courses-edit-window" class="ri-arrow-left-s-line"></i></h5>
+                <div id="findCourse">
+                    <form action="/adminPanel/findCourse" method="post">
+                        <input type="text" name="course_name" id="courseName" placeholder="Course Name" required>
+                        <input type="text" name="course_id" id="courseName" placeholder="Course_ID" required>
+                        <input type="submit" value="Find Course">
+                    </form>
+                </div>
+                <div id="updateCourse">
+                    <form action="/adminPanel/updateCourse/<%= course._id %>" method="post" enctype="multipart/form-data">
+                        <input type="text" name="course_name" id="courseName" placeholder="Course Name" required value="<%=course.course_name%>">
+                        <textarea name="description" id="courseDescription" cols="30" rows="10" placeholder="Description for Course" required><%=course.description%></textarea>
+                        <input type="text" name="fees" id="coursePrice" placeholder="Price" required value="<%=course.fees%>">
+                        <input type="file" name="image" id="courseImage" placeholder="Add img/gif" value=" <%=course.image%>">
+                        <input type="text" name="duration" id="Duration" placeholder="Duration" required value="<%=course.duration%>">
+                        <input type="text" name="level" id="level" placeholder="Level" required value="<%=course.level%>">
+                        <input type="text" name="course_id" id="course_id" placeholder="Course ID" required value="<%=course.course_id%>" readonly>
+                        <input type="submit" value="Update Course">
+                    </form>
+                </div>
             </div>
-            <div id="updateCourse">
-                <form action="/adminPanel/updateCourse/<%= course._id %>" method="post" enctype="multipart/form-data">
-                    <input type="text" name="course_name" id="courseName" placeholder="Course Name" required value="<%=course.course_name%>">
-                    <textarea name="description" id="courseDescription" cols="30" rows="10" placeholder="Description for Course" required><%=course.description%></textarea>
-                    <input type="text" name="fees" id="coursePrice" placeholder="Price" required value="<%=course.fees%>">
-                    <input type="file" name="image" id="courseImage" placeholder="Add img/gif" value=" <%=course.image%>">
-                    <input type="text" name="duration" id="Duration" placeholder="Duration" required value="<%=course.duration%>">
-                    <input type="text" name="level" id="level" placeholder="Level" required value="<%=course.level%>">
-                    <input type="text" name="course_id" id="course_id" placeholder="Course ID" required value="<%=course.course_id%>" readonly>
-                    <input type="submit" value="Update Course">
-                </form>
-            </div>
-            <p>
-                <a href="/adminPanel/courses/delete">Delete course</a>
+            <div class="courses-window" id="courses-delete-window">
+                <h5 class="back" id="courses-delete-window"><i id="courses-delete-window" class="ri-arrow-left-s-line"></i></h5>
                 <div id="deleteCourse">
                     <form action="/adminPanel/deleteCourse" method="post">
                         <input type="text" name="course_name" id="courseName" placeholder="Course Name" required>
@@ -67,77 +89,85 @@
                         <input type="submit" value="Delete Course"d>
                     </form>
                 </div>
-            </p>
-        </div>
-
-        <div id="CampusAmbassador-admin-panel">
-            <h2>Admin Panel of Campus Ambassador</h2>
-            <p>Welcome to the admin panel of Campus Ambassador</p>
-            <p>
-                <a href="/adminPanel/campusAmbassador/add">Add campusAmbassador</a>
-            </p>
-
-            <div id="addCampusAmbassador">
-                <form action="/adminPanel/addCampusAmbassador" method="post" enctype="multipart/form-data">
-                    <input type="text" name="name" id="name" placeholder="Name" required>
-                    <input type="text" name="email" id="email" placeholder="Email" required>
-                    <input type="text" name="phone" id="phone" placeholder="Phone" required>
-                    <input type="text" name="college" id="college" placeholder="College" required>
-                    <input type="text" name="course" id="course" placeholder="Course" required>
-                    <input type="text" name="branch" id="branch" placeholder="Branch" required>
-                    <input type="text" name="year" id="year" placeholder="Year" required>
-                    <input type="text" name="city" id="city" placeholder="City" required>
-                    <input type="file" name="image" id="image" placeholder="Add DP for Ambassador" required>
-                    <input type="submit" value="Add Campus Ambassador">
-                </form>
             </div>
-
-            <p>
-                <a href="/adminPanel/campusAmbassador/edit">Edit campusAmbassador</a>
-            </p>
-
-            <div id="editCampusAmbassador">
-                <form action="/adminPanel/findCampusAmbassador" method="post">
-                    <input type="text" name="name" id="name" placeholder="Name" required>
-                    <input type="text" name="college" id="college" placeholder="College(If you know)">
-                    <input type="submit" value="Find Campus Ambassador">
-                </form>
+            <div class="campus-window" id="campusAmbassador-add-window">
+                <h5 class="back" id="campusAmbassador-add-window"><i id="campusAmbassador-add-window" class="ri-arrow-left-s-line"></i></h5>
+                <div id="addCampusAmbassador">
+                    <form action="/adminPanel/addCampusAmbassador" method="post" enctype="multipart/form-data">
+                        <input type="text" name="name" id="name" placeholder="Name" required>
+                        <input type="text" name="email" id="email" placeholder="Email" required>
+                        <input type="text" name="phone" id="phone" placeholder="Phone" required>
+                        <input type="text" name="college" id="college" placeholder="College" required>
+                        <input type="text" name="course" id="course" placeholder="Course" required>
+                        <input type="text" name="branch" id="branch" placeholder="Branch" required>
+                        <input type="text" name="year" id="year" placeholder="Year" required>
+                        <input type="text" name="city" id="city" placeholder="City" required>
+                        <input type="file" name="image" id="image" placeholder="Add DP for Ambassador" required>
+                        <input type="submit" value="Add Campus Ambassador">
+                    </form>
+                </div>
             </div>
-
-            <div id="updateCampusAmbassador">
-            <% if(campusAmbassador.length > 0){ %>
-                <% for(let i of campusAmbassador){ %> 
-                <form action="/adminPanel/updateCampusAmbassador/<%= i._id %>" method="post" enctype="multipart/form-data">
-                    <input type="text" name="name" id="name" placeholder="Name" required value="<%= i.name %>">
-                    <input type="text" name="email" id="email" placeholder="Email" required value="<%= i.email  %>">
-                    <input type="text" name="phone" id="phone" placeholder="Phone" required value="<%= i.phone%>" readonly >
-                    <input type="text" name="college" id="college" placeholder="College" required value="<%= i.college %>">
-                    <input type="text" name="course" id="course" placeholder="Course" required value="<%= i.course %>">
-                    <input type="text" name="branch" id="branch" placeholder="Branch" required value="<%= i.branch %>">
-                    <input type="text" name="year" id="year" placeholder="Year" required value="<%= i.year %>">
-                    <input type="text" name="city" id="city" placeholder="City" required value="<%= i.city  %>">
-                    <input type="file" name="image" id="image" placeholder="Add DP for Ambassador">
-                    <input type="submit" value="Add Campus Ambassador">
-                </form>
+            <div class="campus-window" id="campusAmbassador-edit-window">
+                <h5 class="back" id="campusAmbassador-edit-window"><i id="campusAmbassador-edit-window" class="ri-arrow-left-s-line"></i></h5>
+                
+                <div id="editCampusAmbassador">
+                    <form action="/adminPanel/findCampusAmbassador" method="post">
+                        <input type="text" name="name" id="name" placeholder="Name" required>
+                        <input type="text" name="college" id="college" placeholder="College(If you know)">
+                        <input type="submit" value="Find Campus Ambassador">
+                    </form>
+                </div>
+    
+                <div id="updateCampusAmbassador">
+                <% if(campusAmbassador.length > 0){ %>
+                    <% for(let i of campusAmbassador){ %> 
+                    <form action="/adminPanel/updateCampusAmbassador/<%= i._id %>" method="post" enctype="multipart/form-data">
+                        <input type="text" name="name" id="name" placeholder="Name" required value="<%= i.name %>">
+                        <input type="text" name="email" id="email" placeholder="Email" required value="<%= i.email  %>">
+                        <input type="text" name="phone" id="phone" placeholder="Phone" required value="<%= i.phone%>" readonly >
+                        <input type="text" name="college" id="college" placeholder="College" required value="<%= i.college %>">
+                        <input type="text" name="course" id="course" placeholder="Course" required value="<%= i.course %>">
+                        <input type="text" name="branch" id="branch" placeholder="Branch" required value="<%= i.branch %>">
+                        <input type="text" name="year" id="year" placeholder="Year" required value="<%= i.year %>">
+                        <input type="text" name="city" id="city" placeholder="City" required value="<%= i.city  %>">
+                        <input type="file" name="image" id="image" placeholder="Add DP for Ambassador">
+                        <input type="submit" value="Add Campus Ambassador">
+                    </form>
+                    <% } %> 
                 <% } %> 
-            <% } %> 
+                </div>
             </div>
-
-            <p>
-                <a href="/adminPanel/campusAmbassador/delete">Delete campusAmbassador</a>
-            </p>
-
-            <div id="deleteCourse">
-                <form action="/adminPanel/deleteCampusAmbassador" method="post">
-                    <input type="text" name="name" id="name" placeholder="Student Name" required>
-                    <input type="text" name="phone" id="phone" placeholder="Contact No." required>
-                    <input type="submit" value="Delete Course"d>
-                </form>
+            <div class="campus-window" id="campusAmbassador-delete-window">
+                <h5 class="back" id="campusAmbassador-delete-window"><i id="campusAmbassador-delete-window" class="ri-arrow-left-s-line"></i></h5>
+                <div id="deleteCourse">
+                    <form action="/adminPanel/deleteCampusAmbassador" method="post">
+                        <input type="text" name="name" id="name" placeholder="Student Name" required>
+                        <input type="text" name="phone" id="phone" placeholder="Contact No." required>
+                        <input type="submit" value="Delete Course"d>
+                    </form>
+                </div>
             </div>
         </div>
-        <div id="footer">
-            <p>&copy; Sheryans Coding School</p>
-        </div>
-    </div>
-</body>
+        <script>
+            var courseFeature = document.querySelectorAll(".course-feature");
+            courseFeature.forEach(feature => {
+                feature.addEventListener("click", (dets) => {
+                    document.querySelector(`#${dets.target.id}-window`).style.display = "Initial";
+                })
+            });
+            var campusFeature = document.querySelectorAll(".campusAmbassador-feature");
+            campusFeature.forEach(feature => {
+                feature.addEventListener("click", (dets) => {
+                    document.querySelector(`#${dets.target.id}-window`).style.display = "Initial";
+                })
+            });
+            var back = document.querySelectorAll('.back');
+            back.forEach(back => {
+                back.addEventListener("click", (dets) => {
+                    document.querySelector(`#${dets.target.id}`).style.display = "none";
+                    document.querySelector(`#${dets.target.id}`).style.display = "none";
+                })
+            });
+        </script>
+    </body>
 </html>
