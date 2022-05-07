@@ -1,4 +1,4 @@
-module.exports.home = (req, res)=>{
+module.exports.getHome = (req, res)=>{
     res.render('home', {
         title: 'Sheryians Coding School',
     });

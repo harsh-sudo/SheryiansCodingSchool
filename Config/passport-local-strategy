@@ -1,0 +1,52 @@
+const { response } = require('express');
+const passport = require('passport')
+const passportLocal = require('passport-local')
+const User = require('../models/user')
+
+const LocalStategy = passportLocal.Strategy;
+
+
+passport.use(new LocalStategy({
+    usernameField:'email',
+    passwordField:'password'
+},(email,password,done)=>{
+    User.findOne({email:email},(err,user)=>{
+        if(err){
+            console.log(err);
+        }
+
+        if(!user){
+            return done(err,false);
+        }
+
+        if(user.password != password){  
+            return done(err,false);
+        }
+        return done(null,user);
+    })
+}));
+
+passport.checkAuthentication = (req,res,next)=>{
+    if(req.isAuthenticated()){
+        return next();
+    }
+    return res.redirect('/signIn');
+}
+
+passport.setAuthenticatedUser = (req,res,next)=>{
+    if(req.isAuthenticated()){  // req.isAuthenticated() will return true if user is logged in
+        res.locals.user = req.user; // req.user contains the user object
+    }
+    next();
+}
+
+passport.serializeUser((user,done)=>{
+    done(null,user.id);
+});
+
+passport.deserializeUser((id,done)=>{
+    User.findById(id,(err,user)=>{
+        done(err,user);
+    })
+});
+

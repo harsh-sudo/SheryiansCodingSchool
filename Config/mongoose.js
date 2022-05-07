@@ -9,3 +9,5 @@ db.on('error',console.error.bind(console,"connetion error while connecting to Da
 db.once('open',()=>{
     console.log("Successfully connected to the DataBase");
 })
+
+module.exports = db;
