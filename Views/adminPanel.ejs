@@ -82,6 +82,64 @@
                     </form>
                 </div>
             </div>
+            </div>
+            <div id="courses-admin-panel">
+                <h2>Admin Panel of <span>Courses</span></h2>
+                <p>Welcome to the admin panel of Courses</p>
+    
+                <div id="courses-links">
+                    <h4 class="course-feature" id="courses-add">Add course</h4>
+                    <h4 class="course-feature" id="courses-edit">Edit course</h4>
+                    <h4 class="course-feature" id="courses-delete">Delete course</h4>
+                </div>
+            </div>
+            <div id="campusAmbassador-admin-panel">
+                <h2>Admin Panel of <span>Campus Ambassador</span></h2>
+                <p>Welcome to the admin panel of Campus Ambassador</p>
+                <div id="campusAmbassador-links">
+                    <h4 class="campusAmbassador-feature" id="campusAmbassador-add">Add campusAmbassador</h4>
+                    <h4 class="campusAmbassador-feature" id="campusAmbassador-edit">Edit campusAmbassador</h4>
+                    <h4 class="campusAmbassador-feature" id="campusAmbassador-delete">Delete campusAmbassador</h4>
+                </div>
+            </div>
+            <div id="footer">
+                <p>&copy; Sheryans Coding School</p>
+            </div>
+            <div class="courses-window" id="courses-add-window">
+                <h5 class="back" id="courses-add-window"><i id="courses-add-window" class="ri-arrow-left-s-line"></i></h5>
+                <form action="/adminPanel/addCourse" method="post" enctype="multipart/form-data">
+                    <input type="text" name="course_name" id="courseName" placeholder="Course Name" required>
+                    <textarea name="description" id="courseDescription" cols="30" rows="10" placeholder="Description for Course" required></textarea>
+                    <input type="text" name="fees" id="coursePrice" placeholder="Price" required>
+                    <input type="file" name="image" id="courseImage" placeholder="Add img/gif" required>
+                    <input type="text" name="duration" id="Duration" placeholder="Duration" required>
+                    <input type="text" name="level" id="level" placeholder="Level" required>
+                    <input type="text" name="course_id" id="course_id" placeholder="Course ID" required>
+                    <input type="submit" value="Add Course">
+                </form>
+            </div>
+            <div class="courses-window" id="courses-edit-window">
+                <h5 class="back" id="courses-edit-window"><i id="courses-edit-window" class="ri-arrow-left-s-line"></i></h5>
+                <div id="findCourse">
+                    <form action="/adminPanel/findCourse" method="post">
+                        <input type="text" name="course_name" id="courseName" placeholder="Course Name" required>
+                        <input type="text" name="course_id" id="courseName" placeholder="Course_ID" required>
+                        <input type="submit" value="Find Course">
+                    </form>
+                </div>
+                <div id="updateCourse">
+                    <form action="/adminPanel/updateCourse/<%= course._id %>" method="post" enctype="multipart/form-data">
+                        <input type="text" name="course_name" id="courseName" placeholder="Course Name" required value="<%=course.course_name%>">
+                        <textarea name="description" id="courseDescription" cols="30" rows="10" placeholder="Description for Course" required><%=course.description%></textarea>
+                        <input type="text" name="fees" id="coursePrice" placeholder="Price" required value="<%=course.fees%>">
+                        <input type="file" name="image" id="courseImage" placeholder="Add img/gif" value=" <%=course.image%>">
+                        <input type="text" name="duration" id="Duration" placeholder="Duration" required value="<%=course.duration%>">
+                        <input type="text" name="level" id="level" placeholder="Level" required value="<%=course.level%>">
+                        <input type="text" name="course_id" id="course_id" placeholder="Course ID" required value="<%=course.course_id%>" readonly>
+                        <input type="submit" value="Update Course">
+                    </form>
+                </div>
+            </div>
             <div class="courses-window" id="courses-delete-window">
                 <h5 class="back" id="courses-delete-window"><i id="courses-delete-window" class="ri-arrow-left-s-line"></i></h5>
                 <div id="deleteCourse">
@@ -111,7 +169,6 @@
             </div>
             <div class="campus-window" id="campusAmbassador-edit-window">
                 <h5 class="back" id="campusAmbassador-edit-window"><i id="campusAmbassador-edit-window" class="ri-arrow-left-s-line"></i></h5>
-                
                 <div id="editCampusAmbassador">
                     <form action="/adminPanel/findCampusAmbassador" method="post">
                         <input type="text" name="name" id="name" placeholder="Name" required>
@@ -146,6 +203,12 @@
                         <input type="text" name="name" id="name" placeholder="Student Name" required>
                         <input type="text" name="phone" id="phone" placeholder="Contact No." required>
                         <input type="submit" value="Delete Campus Ambassador">
+
+                <div id="deleteCourse">
+                    <form action="/adminPanel/deleteCampusAmbassador" method="post">
+                        <input type="text" name="name" id="name" placeholder="Student Name" required>
+                        <input type="text" name="phone" id="phone" placeholder="Contact No." required>
+                        <input type="submit" value="Delete Course"d>
                     </form>
                 </div>
             </div>
