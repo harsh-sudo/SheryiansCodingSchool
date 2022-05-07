@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>
+        <%= title %>
+    </title>
+    <link rel="stylesheet" href="/css/signIn.css">
+</head>
+
+<body>
+    <div id="main">
+        <div id="nav">
+            <h1>SignIN</h1>
+        </div>
+        <div id="signIn-form">
+            <form action="/signIn/auth-user" method="post">
+                <input type="text" placeholder="Email" required name="email">
+                <input type="password" placeholder="password" required name="password">
+                <br>
+                <button type="submit">SignIn</button>
+            </form>
+        </div>
+    </div>
+</body>
+
+</html>
