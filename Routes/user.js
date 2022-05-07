@@ -11,7 +11,7 @@ router.use(cookieParser());
 
 router.get('/',userController.signIn);
 router.get('/bye',userController.signout);
-router.get ('/newuser',userController.signup);
+// router.get ('/newuser',userController.signup);
 router.post('/auth-user',passport.authenticate(
     'local',
     {failureRedirect:'/signIn'}

@@ -1,70 +1,90 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title><%=title%></title>
+    <title>
+        <%=title%>
+    </title>
     <link href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css" rel="stylesheet">
     <link rel="stylesheet" href="https://www.griffininsight.com/css/animate.css">
     <meta name="msapplication-TileColor" content="#ffffff">
     <meta name="msapplication-TileImage" content="/ms-icon-144x144.png">
     <meta name="theme-color" content="#ffffff">
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700;800;900&display=swap"
-    rel="stylesheet">
+        rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/locomotive-scroll@3.5.4/dist/locomotive-scroll.css">
     <link href="https://cdn.jsdelivr.net/npm/remixicon@2.2.0/fonts/remixicon.css" rel="stylesheet">
     <link rel="stylesheet" href="css/home.css">
 </head>
+
 <body>
     <div id="main">
         <div id="page1">
-           <div id="page1-main">
-               <div id="nav-main">
-                   <div id="left-main-nav">
-                       <img src="/images/Sheryians Logo.png" alt="">
-                       <div id="nav-main-line"></div>
-                       <a href=""><h4>Sheryians Coding School</h4></a>
-                   </div>
-                   <div id="right-main-nav">
-                       <a href=""><h4>Home</h4></a>
-                       <a href="/Courses"><h4>Courses</h4></a>
-                       <a href="/CampusAmbassador"><h4>Campus Ambassador</h4></a>
-                       <a href="/GirlsWhoCode"><h4>Girls Who Code</h4></a>
-                   </div>
-               </div>
-               <div id="attention-seeker">
-                <div class="container">
-                    <p><span class="typed-text">Creative for everyone</span><span class="cursor">&nbsp;</span></p>
-                  </div>
-                   <div id="attention-seeker-desc">
-                       <h4>Bring all your peers in More Than A Coaching</h4>
-                   </div>
-
-                   <div id="attention-seeker-buttons">
-                       <div id="attention-seeker-button1">
-                           <h3>Live Courses</h3>
-                       </div>
-                       <div id="attention-seeker-button2">
-                        <i class="ri-play-line"></i>
-                        <h3>Watch Video</h3>
-                       </div>
-                   </div>
-               </div>
-               <div id="background-3d-design">
-                   <div id="except"><img src="/images/bottom.png" alt=""></div>
-                   <div id="mousemove">
-                       <img src="/images/bottom-left.png" alt="">
-                       <img src="/images/center.png" alt="">
-                       <img src="/images/left.png" alt="">
-                       <img src="/images/right.png" alt="">
-                       <img src="/images/upper.png" alt="">
-                       <img src="/images/upper2.png" alt="">
-                   </div>
-                   <div id="background-3d-circle"></div>
+            <div id="fullscreen-nav">
+                <h4><a href="#">Home</a></h4>
+                <h4><a href="/Courses">Courses</a></h4>
+                <h4><a href="/CampusAmbassador">Campus Ambassador</a></h4>
+                <h4><a href="/GirlsWhoCode">Girls Who Code</a></h4>
+                <h5 id="cross"><i class="ri-close-fill"></i></h5>
+            </div>
+            <div id="page1-main">
+                <div id="nav-main">
+                    <div id="left-main-nav">
+                        <img src="/images/Sheryians Logo.png" alt="">
+                        <div id="nav-main-line"></div>
+                        <a href="">
+                            <h4><span>Sheryians</span> Coding School</h4>
+                        </a>
+                    </div>
+                    <div id="right-main-nav">
+                        <a href="">
+                            <h4>Home</h4>
+                        </a>
+                        <a href="/Courses">
+                            <h4>Courses</h4>
+                        </a>
+                        <a href="/CampusAmbassador">
+                            <h4>Campus Ambassador</h4>
+                        </a>
+                        <a href="/GirlsWhoCode">
+                            <h4>Girls Who Code</h4>
+                        </a>
+                        <i id="menu-icon" class="ri-menu-3-line"></i>
+                    </div>
                 </div>
-           </div>
+                <div id="attention-seeker">
+                    <div class="container">
+                        <p><span class="typed-text">Creative for everyone</span><span class="cursor">&nbsp;</span></p>
+                    </div>
+                    <div id="attention-seeker-desc">
+                        <h4>Bring all your peers in More Than A Coaching</h4>
+                    </div>
+                    <div id="attention-seeker-buttons">
+                        <div id="attention-seeker-button1">
+                            <h3>Live Courses</h3>
+                        </div>
+                        <div id="attention-seeker-button2">
+                            <h3><i class="ri-play-line"></i>Watch Video</h3>
+                        </div>
+                    </div>
+                </div>
+                <div id="background-3d-design">
+                    <div id="except"><img src="/images/bottom.png" alt=""></div>
+                    <div id="mousemove">
+                        <img src="/images/bottom-left.png" alt="">
+                        <img src="/images/center.png" alt="">
+                        <img src="/images/left.png" alt="">
+                        <img src="/images/right.png" alt="">
+                        <img src="/images/upper.png" alt="">
+                        <img src="/images/upper2.png" alt="">
+                    </div>
+                    <div id="background-3d-circle"></div>
+                </div>
+            </div>
         </div>
         <div id="nextpages">
             <div id="entryLevel">
@@ -237,7 +257,12 @@
             el: document.querySelector("#main"),
             smooth: true
         });
-
+        document.querySelector("#menu-icon").addEventListener("click", function () {
+            document.querySelector("#fullscreen-nav").style.left = "0vw"
+        })
+        document.querySelector("#cross").addEventListener("click", function () {
+            document.querySelector("#fullscreen-nav").style.left = "-100vw"
+        })
     </script>
 
     <h1>HOME PAGE</h1>

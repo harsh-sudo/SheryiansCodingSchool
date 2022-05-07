@@ -14,4 +14,5 @@ router.use('/girlsWhoCode',require('./girlsWhoCode')); // use girls who code
 router.use('/adminPanel',require('./adminPanel')); // use admin panel 
 router.use('/courses',require('./courses')); // use courses
 router.use('/signin', require('./user'));
+// router.use('/signup',require('./user'))
 module.exports = router; // export router

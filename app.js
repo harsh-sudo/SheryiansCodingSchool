@@ -29,7 +29,7 @@ app.use(session({
         maxAge: (1000 * 60 * 100)
     },
     store: MongoStore.create({
-        mongoUrl: 'mongodb://localhost/campusAmbassador_db', // set mongo url,
+        mongoUrl: 'mongodb://0.0.0.0:27017/campusAmbassador_db', // set mongo url,
         autoRemove: 'disabled' // keep data in db after closing the browser
     }, function (err) { // callback function
         console.log(err || 'connect-mongodb setup ok'); // log error or success
