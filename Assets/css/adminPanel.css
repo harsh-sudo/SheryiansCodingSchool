@@ -280,3 +280,261 @@ body {
     left: 50%;
     transform: translate(-50%, -50%)
 }
+#add-course{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);   
+}
+#add-course input{
+    padding: 10px 20px;
+    color: #000;
+    background-color: white;
+    border: none;
+    border-radius: 50px;
+    margin: 10px;
+}
+#add-course textarea{
+    padding: 10px 20px;
+    color: #000;
+    width: 400px;
+    height: 100px;
+    background-color: white;
+    border: none;
+    border-radius: 10px;
+    margin: 20px 40px;
+    margin-left: 5vw;
+}
+#add-course input:nth-child(1){
+    margin-left: 11vw;
+    width: 22vw;
+}
+#add-course input:nth-last-child(1){
+    padding: 8px 30px;
+    background-color: transparent;
+    border: 2px solid #fff;
+    color: #fff;
+    border-radius: 50px;
+    margin-left: 20vw;
+    margin-top: 50px;
+    cursor: pointer;
+}
+#add-course input:nth-last-child(1):hover{
+    background-color: #fff;
+    color: #222;
+    font-weight: 600;
+}
+#findCourse{
+    position: absolute;
+    top: 30%;
+    left: 50%;
+    transform: translate(-50%,-50%);  
+}
+#findCourse input{
+    padding: 10px 40px;
+    color: #000;
+    background-color: white;
+    border: none;
+    border-radius: 50px;
+    margin: 10px;
+}
+#updateCourse{
+    position: absolute;
+    border-top: 2px solid #fff;
+    top: 70%;
+    left: 50%;
+    margin-top: -20px;
+    transform: translate(-50%,-50%);  
+}
+#updateCourse input{
+    padding: 10px 20px;
+    color: #000;
+    background-color: white;
+    border: none;
+    border-radius: 50px;
+    margin: 5px;
+}
+#updateCourse textarea{
+    padding: 10px 20px;
+    color: #000;
+    width: 400px;
+    height: 100px;
+    background-color: white;
+    border: none;
+    border-radius: 10px;
+    margin: 5px 10px;
+    margin-left: 5vw;
+}
+
+#updateCourse input:nth-child(1){
+    margin-top: 7vh;
+    margin-left: 11vw;
+    width: 22vw;
+}
+#updateCourse input:nth-last-child(1){
+    padding: 8px 30px;
+    background-color: transparent;
+    border: 2px solid #fff;
+    color: #fff;
+    border-radius: 50px;
+    margin-left: 17vw;
+    margin-top: 20px;
+    cursor: pointer;
+}
+#updateCourse input:nth-last-child(1):hover{
+    background-color: #fff;
+    color: #222;
+    font-weight: 600;
+}
+#findCourse input:nth-last-child(1):hover{
+    background-color: #fff;
+    color: #222;
+    font-weight: 600;
+}
+#findCourse input:nth-last-child(1){
+    padding: 8px 30px;
+    background-color: transparent;
+    border: 2px solid #fff;
+    color: #fff;
+    border-radius: 50px;
+    margin-left: 13vw;  
+    cursor: pointer;
+}
+#deleteCourse{
+    position: absolute;
+    top: 50%;
+    left: 53%;
+    transform: translate(-50%,-50%); 
+}
+#deleteCourse input{
+    padding: 10px 40px;
+    color: #000;
+    background-color: white;
+    border: none;
+    border-radius: 50px;
+    margin: 10px;
+}
+#deleteCourse input:nth-last-child(1){
+    padding: 8px 30px;
+    background-color: transparent;
+    border: 2px solid #fff;
+    color: #fff;
+    border-radius: 50px;
+    margin-top: 6vh;
+    margin-left: 13vw;  
+    cursor: pointer;
+}
+#addCampusAmbassador{
+    position: absolute;
+    top: 50%;
+    left: 53%;
+    transform: translate(-50%,-50%); 
+}
+#addCampusAmbassador input{
+    padding: 10px 40px;
+    color: #000;
+    background-color: white;
+    border: none;
+    border-radius: 50px;
+    margin: 10px;
+}
+#addCampusAmbassador input:nth-last-child(1){
+    padding: 8px 30px;
+    background-color: transparent;
+    border: 2px solid #fff;
+    color: #fff;
+    border-radius: 50px;
+    margin-top: 6vh;
+    margin-left: 10vw;  
+    cursor: pointer;
+}
+
+#editCampusAmbassador{
+    position: absolute;
+    top: 50%;
+    left: 53%;
+    transform: translate(-50%,-50%); 
+}
+#editCampusAmbassador input{
+    padding: 10px 40px;
+    color: #000;
+    background-color: white;
+    border: none;
+    border-radius: 50px;
+    margin: 10px;
+}
+#editCampusAmbassador input:nth-last-child(1){
+    padding: 8px 30px;
+    background-color: transparent;
+    border: 2px solid #fff;
+    color: #fff;
+    border-radius: 50px;
+    margin-top: 6vh;
+    margin-left: 10vw;  
+    cursor: pointer;
+}
+
+#editCampusAmbassador input:nth-last-child(1):hover{
+    background-color: #fff;
+    color: #222;
+    font-weight: 600;
+}
+
+#updateCampusAmbassador{
+    position: absolute;
+    top: 50%;
+    left: 53%;
+    transform: translate(-50%,-50%); 
+}
+#updateCampusAmbassador input{
+    padding: 10px 40px;
+    color: #000;
+    background-color: white;
+    border: none;
+    border-radius: 50px;
+    margin: 10px;
+}
+#updateCampusAmbassador input:nth-last-child(1){
+    padding: 8px 30px;
+    background-color: transparent;
+    border: 2px solid #fff;
+    color: rgb(255, 255, 255);
+    border-radius: 50px;
+    margin-top: 6vh;
+    margin-left: 10vw;  
+    cursor: pointer;
+}
+#updateCampusAmbassador input:nth-last-child(1):hover{
+    background-color: #fff;
+    color: #222;
+    font-weight: 600;
+}
+#deleteCampusAmbassador{
+    position: absolute;
+    top: 50%;
+    left: 53%;
+    transform: translate(-50%,-50%); 
+}
+#deleteCampusAmbassador input{
+    padding: 10px 40px;
+    color: #000;
+    background-color: white;
+    border: none;
+    border-radius: 50px;
+    margin: 10px;
+}
+#deleteCampusAmbassador input:nth-last-child(1){
+    padding: 8px 30px;
+    background-color: transparent;
+    border: 2px solid #fff;
+    color: rgb(255, 255, 255);
+    border-radius: 50px;
+    margin-top: 6vh;
+    margin-left: 10vw;  
+    cursor: pointer;
+}
+#deleteCampusAmbassador input:nth-last-child(1):hover{
+    background-color: #fff;
+    color: #222;
+    font-weight: 600;
+}
