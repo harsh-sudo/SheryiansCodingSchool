@@ -72,11 +72,12 @@
                 <% for(let i of courses){ %> 
                     <% let part_count = 1 %> 
                     <div class="course-card" id="card<%=card_count%>">
-                    <div class="card-part<%= part_count %>" id="card<%=card_count%>-part<%=part_count%>">
+                    <div class="card-part<%= part_count %>" id="card1-part1">
+                         <img src="<%= i.image %> " alt="">
                         <button><%=i.fees%> </button>
                     </div>
                     <% part_count++ %> 
-                    <div class="card-part<%= part_count %>" id="card<%=card_count%>-part<%=part_count%>">
+                    <div class="card-part<%= part_count %>" id="card1-part1">
                         <h4><a href="#"><%= i.course_name %></a></h4>
                         <h5><span></span><%= i.level %> </h5>
                         <p><%= i.description %></p>

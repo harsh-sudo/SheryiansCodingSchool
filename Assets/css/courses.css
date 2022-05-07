@@ -301,29 +301,11 @@ body {
     padding: 1vh 1vw 0 0;
 }
 
-.course-card #card1-part1 {
-    background-image: url(https://superhi-assets.imgix.net/assets/products/67afaeea-2bd4-41b5-a7d6-db9752cb29e6/original-HV33IF2MFIDDY6GSNTLA.png?ixlib=js-2.3.2&fit=max&auto=format&w=619&fm=png8);
-    background-image: url(https://i.pinimg.com/originals/b0/b1/f5/b0b1f5d33de00e3c21ad29bbba25e31b.gif);
-}
-
-.course-card #card2-part1 {
-    background-image: url(https://superhi-assets.imgix.net/assets/products/576d47aa-d643-4887-95fd-ac02ab25cbbd/original-FP3GTRJ5FGQ77YD2MU4B.png?ixlib=js-2.3.2&fit=max&auto=format&w=619&fm=png8);
-}
-
-.course-card #card3-part1 {
-    background-image: url(https://superhi-assets.imgix.net/assets/products/eee4b1c4-50a2-4e1f-81cf-fce959253903/original-HX3NTTHS7W4N43B4OCZJ.png?ixlib=js-2.3.2&fit=max&auto=format&w=619&fm=png8);
-}
-
-.course-card #card4-part1 {
-    background-image: url(https://superhi-assets.imgix.net/assets/products/0d087e1c-1807-4b49-b93f-bf619277f2bc/original-CCDUFCJ2MIODWWT75R2Q.png?ixlib=js-2.3.2&fit=max&auto=format&w=619&fm=png8);
-}
-
-.course-card #card5-part1 {
-    background-image: url(https://superhi-assets.imgix.net/assets/products/8abf0c68-2efe-40ca-97ad-1e19b43b107c/original-QO5SKYQAWZO6EOQXYDFX.png?ixlib=js-2.3.2&fit=max&auto=format&w=619&fm=png8);
-}
-
-.course-card #card6-part1 {
-    background-image: url(https://superhi-assets.imgix.net/assets/products/7ff7b5cf-2611-41c6-a1e9-c45bd1df6df4/original-A4D2T7NWAY2JRVZKXGJC.png?ixlib=js-2.3.2&fit=max&auto=format&w=619&fm=png8);
+.course-card #card1-part1 img{
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    object-position: center;
 }
 
 #page3-bottom {

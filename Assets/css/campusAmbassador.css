@@ -477,11 +477,28 @@ margin-top: 30px;
     display: none;
 }
 
-.card {
+.card:nth-child(1n) {
     width: 30vw;
     height: 54vh;
     display: inline-block;
     position: relative;
+    background-color:rgb(255, 242, 0);
+}
+
+.card:nth-child(2n) {
+    width: 30vw;
+    height: 54vh;
+    display: inline-block;
+    position: relative;
+    background-color:rgb(255, 128, 168);
+}
+
+.card:nth-child(3n) {
+    width: 30vw;
+    height: 54vh;
+    display: inline-block;
+    position: relative;
+    background-color:rgb(56, 212, 255);
 }
 
 .card img {
@@ -505,34 +522,6 @@ margin-top: 30px;
 
 }
 
-#card1 {
-    background-color: rgb(255, 242, 0);
-}
-
-#card2 {
-    background-color: rgb(255, 128, 168);
-}
-
-#card3 {
-    background-color: rgb(255, 127, 58);
-}
-
-#card4 {
-    background-color: rgb(83, 83, 83);
-}
-
-#card5 {
-    background-color: rgb(255, 180, 105);
-}
-#card6 {
-    background-color: rgb(203, 255, 105);
-}
-#card7 {
-    background-color: rgb(105, 255, 205);
-}
-#card8 {
-    background-color: rgb(255, 105, 228);
-}
 
 @media(max-width: 600px) {
     #page3part1heading {
