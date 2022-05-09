@@ -13,6 +13,19 @@ const userSchema = new mongoose.Schema({
     name:{
         type:String,
         require:true
+    },
+    email:{
+        type:String,
+        require:true,
+        unique:true
+    },
+    phoneNumber:{
+        type:String,
+        require:true
+    },
+    admin:{
+        type:Boolean,
+        default:false
     }
 },{
     timestamps:true

@@ -6,9 +6,9 @@ const userController = require('../controllers/user_controller');
 
 const cookieParser = require('cookie-parser');
 router.use(express.urlencoded({extended:true}));
-router.use(cookieParser());
+router.use(cookieParser()); 
 
-
+ 
 router.get('/',userController.signIn);
 router.get('/bye',userController.signout);
 router.get ('/newuser',userController.signup);

@@ -17,8 +17,7 @@
     box-sizing: border-box;
 }
 
-html,
-body {
+html,body {
     height: 100%;
     width: 100%;
 }
@@ -270,6 +269,18 @@ body {
     color:white;
     font-size: 0.8vw;
     cursor: pointer;
+    border: none;
+    outline: none;
+}
+
+#attention-seeker-button1 a{
+    color:white;
+    text-decoration: none;
+}
+
+#attention-seeker-button2 a{
+    color:#222;
+    text-decoration: none;
 }
 
 #attention-seeker-button2{

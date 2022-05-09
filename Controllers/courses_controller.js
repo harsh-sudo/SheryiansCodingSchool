@@ -102,3 +102,17 @@ module.exports.getCourses = function(req, res) {
         });
     });
 };
+
+module.exports.getlvCourses = function(req, res) {
+    Course.find({}, (err, course) => {
+        if(err){
+            console.log(err);
+            return;
+        }
+        console.log(course);
+        res.render('lvcourses', {
+            title: 'Courses', 
+            courses: course
+        });
+    });
+};
