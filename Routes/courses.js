@@ -4,7 +4,7 @@ const courses = require('../controllers/courses_controller'); // import courses 
 const passport = require('passport'); // import passport
 
 
-router.get('/',passport.checkAuthentication, courses.getCourses); // get courses
+router.get('/', courses.getCourses); // get courses
 router.get('/lvCourses', courses.getlvCourses); // get courses
 router.use('/CoursesDetails', require('./CoursesDetails')); // use live courses
 

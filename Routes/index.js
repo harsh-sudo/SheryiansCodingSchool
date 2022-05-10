@@ -8,7 +8,8 @@ router.use(cookieParser());
 
 
 // get and post of all routes
-router.get('/',passport.checkAuthentication,homeController.getHome); // get home with authentication
+// router.get('/',passport.checkAuthentication,homeController.getHome); // get home with authentication
+router.get('/',homeController.getHome); // get home with authentication
 router.use('/signin', require('./user')); // use user routes
 router.use('/signOut', require('./user')); // use user routes
 router.use('/signup', require('./user')); // use user routes

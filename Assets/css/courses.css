@@ -209,7 +209,7 @@ body {
     position: absolute;
     right: 5%;
     top: 10%;
-    width: 4.7vw;
+    padding: 0 1vw;
     height: 4.7vh;
     border-radius: 30px;
     font-family: bandeins;
@@ -225,8 +225,8 @@ body {
     position: absolute;
     right: 25%;
     top: 110%;
-    width: 4.7vw;
     height: 4.7vh;
+    padding: 0 1vw;
     border-radius: 30px;
     text-transform: none;
     font-family: 'gilroy';
@@ -246,6 +246,7 @@ body {
     text-transform:none;
     background-color: rgb(61, 107, 247);
     color:white;
+    padding: 0 1vw;
     top:110%;
     cursor: pointer;
 }
