@@ -5,8 +5,119 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title><%= title %> </title>
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/locomotive-scroll@3.5.4/dist/locomotive-scroll.min.css">
+    <link rel="stylesheet" href="css/liveCourses.css">
 </head>
 <body>
-    <h1>LiveCourses</h1>
+    <div id="main">
+        <div id="fullscreen-nav">
+            <h4><a href="#">Home</a></h4>
+            <h4><a href="/Courses">Courses</a></h4>
+            <h4><a href="/CampusAmbassador">Campus Ambassador</a></h4>
+            <h4><a href="/GirlsWhoCode">Girls Who Code</a></h4>
+            <h5 id="cross"><i class="ri-close-fill"></i></h5>
+        </div>
+        <div id="page1">
+            <div id="nav">
+                <div id="part1">
+                    <a href="#">Sheryians Coding School</a>
+                    <div id="line"></div>
+                    <h3>Academy</h3>
+                </div>
+                <div id="part2">
+                    <a href="#">Home</a>
+                    <a href="#">About</a>
+                    <a href="#">Pricing</a>
+                </div>
+                <div id="part3">
+                    <i id="icon" class="ri-menu-3-line"></i>
+                </div>
+            </div>
+            <div id="main-page-center">
+                <div id="center-part1">
+                    <div id="center-image">
+                        <img src="./Geometric Doodle.png" alt="">
+                        <h4><i class="ri-check-line"></i>Some Details about Course</h4>
+                        <h4><i class="ri-check-line"></i>Some Details about Course</h4>
+                        <h4><i class="ri-check-line"></i>Some Details about Course</h4>
+                        <h4><i class="ri-check-line"></i>Some Detailsabout Course</h4>
+                    </div>
+                </div>
+                <div id="center-part2">
+                    <h1>Some Course Heading.</h1>
+                    <h5>some detail About Course in 2 lines only</h5>
+                    <div id="elems">
+                        <div id="elem1">
+                            <h6>Type</h6>
+                            <h5>Live Course</h5>
+                        </div>
+                        <div id="elem2">
+                            <h6>Time</h6>
+                            <h5>55-60 Classes</h5>
+                        </div>
+                        <div id="elem3">
+                            <h6>Starting on</h6>
+                            <h5>31st February</h5>
+                        </div>
+                    </div>
+                    <div id="price-n-class">
+                        <h3>Rs 4500 </h3>
+                        <a href="#"><i class="ri-play-fill"></i>Try 3 Classes for free</a>
+                    </div>
+                    <div id="details">
+                        <h3>Details</h3>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.earum
+                            laboriosam aspernatur quo dicta nobis sequi quia.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="page2">
+            <h1 id="page2-head">Project Overview</h1>
+            <div id="page2-part2">
+                <div class="card" id="card1">
+                    <div class="card-top" id="card1-top"><img src="" alt=""></div>
+                    <div class="card-bottom" id="card1-bottom">
+                        <h3>Project Overview</h3>
+                        <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Facilis illo atque ea!</p>
+                    </div>
+                </div>
+                <div class="card" id="card2">
+                    <div class="card-top" id="card2-top"><img src="" alt=""></div>
+                    <div class="card-bottom" id="card2-bottom">
+                        <h3>Project Overview</h3>
+                        <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Facilis illo atque ea!</p>
+                    </div>
+                </div>
+                <div class="card" id="card3">
+                    <div class="card-top" id="card3-top"><img src="" alt=""></div>
+                    <div class="card-bottom" id="card3-bottom">
+                        <h3>Project Overview</h3>
+                        <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Facilis illo atque ea!</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="page3">
+            <h2>Sample Live Lecture (it's fun)</h2>
+            <h3>so that you know, not every online class is boring.</h3>
+            <div id="page3-box"></div>
+        </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/locomotive-scroll@3.5.4/dist/locomotive-scroll.min.js"></script>
+    <script>
+        const scroll = new LocomotiveScroll({
+            el: document.querySelector('#main'),
+            smooth: true
+        });
+
+        document.querySelector("#icon").addEventListener("click", function () {
+            document.querySelector("#fullscreen-nav").style.left = 0;
+        })
+        document.querySelector("#cross").addEventListener("click", function () {
+            document.querySelector("#fullscreen-nav").style.left = "-100vw"
+        })
+    </script>
 </body>
 </html>
