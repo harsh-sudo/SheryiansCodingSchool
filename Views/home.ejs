@@ -1,247 +1,283 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title><%=title%></title>
+    <title>
+        <%=title%>
+    </title>
     <link href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css" rel="stylesheet">
     <link rel="stylesheet" href="https://www.griffininsight.com/css/animate.css">
     <meta name="msapplication-TileColor" content="#ffffff">
     <meta name="msapplication-TileImage" content="/ms-icon-144x144.png">
     <meta name="theme-color" content="#ffffff">
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700;800;900&display=swap"
-    rel="stylesheet">
+        rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/locomotive-scroll@3.5.4/dist/locomotive-scroll.css">
     <link href="https://cdn.jsdelivr.net/npm/remixicon@2.2.0/fonts/remixicon.css" rel="stylesheet">
     <link rel="stylesheet" href="css/home.css">
 </head>
+
 <body>
     <div id="main">
         <div id="page1">
-           <div id="page1-main">
-               <div id="nav-main">
-                   <div id="left-main-nav">
-                       <img src="/images/Sheryians Logo.png" alt="">
-                       <div id="nav-main-line"></div>
-                       <a href=""><h4>Sheryians Coding School</h4></a>
-                   </div>
-                   <div id="right-main-nav">
-                       <a href=""><h4>Home</h4></a>
-                       <a href="/Courses"><h4>Courses</h4></a>
-                       <a href="/CampusAmbassador"><h4>Campus Ambassador</h4></a>
-                       <a href="/GirlsWhoCode"><h4>Girls Who Code</h4></a>
-                       <a href="/SignIn"><h4>Log in</h4></a>
-                   </div>
-               </div>
-               <div id="attention-seeker">
-                <div class="container">
-                    <p><span class="typed-text">Creative for everyone</span><span class="cursor">&nbsp;</span></p>
-                  </div>
-                   <div id="attention-seeker-desc">
-                       <h4>Bring all your peers in More Than A Coaching</h4>
-                   </div>
+            <div id="fullscreen-nav">
+                <h4><a href="#">Home</a></h4>
+                <h4><a href="/Courses">Courses</a></h4>
+                <h4><a href="/CampusAmbassador">Campus Ambassador</a></h4>
+                <h4><a href="/GirlsWhoCode">Girls Who Code</a></h4>
+                <h5 id="cross"><i class="ri-close-fill"></i></h5>
+            </div>
+                    <div id="page1-main">
+                        <div id="nav-main">
+                            <div id="left-main-nav">
+                                <img src="/images/Sheryians Logo.png" alt="">
+                                <div id="nav-main-line"></div>
+                                <a href="">
+                                    <h4>Sheryians Coding School</h4>
+                                </a>
+                            </div>
+                            <div id="right-main-nav">
+                                <a href="">
+                                    <h4>Home</h4>
+                                </a>
+                                <a href="/Courses">
+                                    <h4>Courses</h4>
+                                </a>
+                                <a href="/CampusAmbassador">
+                                    <h4>Campus Ambassador</h4>
+                                </a>
+                                <a href="/GirlsWhoCode">
+                                    <h4>Girls Who Code</h4>
+                                </a>
+                                <a href="/SignIn">
+                                    <h4>Log in</h4>
+                                </a>
+                        <i id="menu-icon" class="ri-menu-3-line"></i>
+                            </div>
+                        </div>
+                        <div id="attention-seeker">
+                            <div class="container">
+                                <p><span class="typed-text">Creative for everyone</span><span
+                                        class="cursor">&nbsp;</span></p>
+                            </div>
+                            <div id="attention-seeker-desc">
+                                <h4>Bring all your peers in More Than A Coaching</h4>
+                            </div>
+                            <div id="attention-seeker-buttons">
+                                <div onclick="window.location.href = '/courses/lvCourses'" id="attention-seeker-button1">
+                                    <h3>Live Courses</h3>
+                                </div>
+                                <div onclick="window.location.href = '/courses/lvCourses'" id="attention-seeker-button2">
+                                    <h3><i class="ri-play-line"></i>Watch Video</h3>
+                                </div>
+                            </div>
+                        </div>
+                        <div id="background-3d-design">
+                            <div id="except"><img src="/images/bottom.png" alt=""></div>
+                            <div id="mousemove">
+                                <img src="/images/bottom-left.png" alt="">
+                                <img src="/images/center.png" alt="">
+                                <img src="/images/left.png" alt="">
+                                <img src="/images/right.png" alt="">
+                                <img src="/images/upper.png" alt="">
+                                <img src="/images/upper2.png" alt="">
+                            </div>
+                            <div id="background-3d-circle"></div>
+                        </div>
+                    </div>
+                </div>
+                <div id="nextpages">
+                    <div id="entryLevel">
+                        <h2 class="entrelem">Entry Level Courses</h2>
+                        <p class="entrelem">starting your coding journey ?, here's what you can start with, these are
+                            our entry
+                            level
+                            beginner freindly courses.</p>
+                        <div class="entrelem" id="entrcourses">
+                            <div class="entrelem crs">
+                                <h3>UI/UX Web Design & Development</h3>
+                                <div class="crsimg">
+                                    <img src="https://i.pinimg.com/originals/74/13/eb/7413eb389b7360e1c6f96a8114995989.jpg"
+                                        alt="">
+                                </div>
+                            </div>
+                            <div class="entrelem crs">
+                                <h3>Java for Humans</h3>
+                                <div class="crsimg">
+                                    <img src="https://qph.fs.quoracdn.net/main-qimg-317f4ff0db8d0ba328fc6d627af72d89"
+                                        alt="">
+                                </div>
+                            </div>
+                            <div class="entrelem crs">
+                                <h3>Python for Beginners.</h3>
+                                <div class="crsimg">
+                                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c3/Python-logo-notext.svg/768px-Python-logo-notext.svg.png"
+                                        alt="">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="courseBanner">
+                        <div class="leftcrsbnr">
+                            <div class="crselem crsimage">
+                                <img src="/images/78cab4563af88db36daeece00868745b.png" alt="">
+                            </div>
+                        </div>
+                        <div class="crselem rightcrsbnr">
+                            <h1>Most Cutting-Edge, Latest Trends Based<br><span>Web Development Course</span>.</h1>
+                            <h3>In this course, we learn to create awesome websites,<br> web experiences/designs & apps.
+                            </h3>
+                            <p>Out of many, Web Development is one of our most selling course, it's completely based on
+                                projects
+                                and
+                                learning great coding & designing practices.</p>
+                            <a href="tel:7828994540">Get Info. about the course.</a>
+                        </div>
+                    </div>
+                    <div id="brandswork">
+                        <h1 class="brelem">Services we offer to help you with your career.</h1>
+                        <div class="brands">
+                            <h4 class="brelem">User Interface Design</h4>
+                            <h4 class="brelem">User Experience Design</h4>
+                            <h4 class="brelem">Java</h4>
+                            <h4 class="brelem">Python</h4>
+                            <h4 class="brelem">BackEnd Development</h4>
+                            <h4 class="brelem">mySQL & mongoDB</h4>
+                        </div>
+                        <div class="brands">
+                            <h4 class="brelem">node.js</h4>
+                            <h4 class="brelem">react.js</h4>
+                            <h4 class="brelem">react native & angular</h4>
+                        </div>
+                        <a class="brelem" href="tel:7828994540">
+                            <i class="ri-arrow-right-circle-line"></i> enroll now
+                        </a>
+                    </div>
+                    <div id="showcaseGreen">
+                        <div id="detsShwGreen">
+                            <h1 class="shwelem">" The need to be right all the time is the biggest bar there is to new
+                                ideas.
+                                "<br><br>We create designers and coders, who create great stuff.</h1>
+                            <a target="_blank" class="shwelem" href="https://instagram.com/sheryians_coding_school"><i
+                                    class="ri-arrow-drop-right-line"></i>Visit & Feel It</a>
+                        </div>
+                        <div id="imageWrapper">
+                            <img class="shwelem" src="/images/greenApp.png" alt="greenAppDesign">
+                        </div>
+                    </div>
+                    <div id="stats">
+                        <div id="statstext">
+                            <h5 class="sttselem">Join one of the most actively contributing <span>coding and
+                                    designing</span>
+                                institute
+                                of <b>Madhya Pradesh</b></h5>
+                            <h2 class="sttselem">We never wanted to be just one more <span id="cursv">coaching</span> in
+                                this
+                                city &
+                                that's why we became more than that.</h2>
+                        </div>
+                        <div id="cards">
+                            <div class="card">
+                                <img src="/images/codeSign.png" alt="">
+                                <div class="elements">
+                                    <h4>CODING</h4>
+                                    <h1>6</h1>
+                                    <h3>COURSES</h3>
+                                    <h5>FEATURE CODING</h5>
+                                    <p>Courses which are about coding the apps and creating the applications via coding,
+                                        in
+                                        these
+                                        courses you will learn how to code apps/server/database etc.</p>
+                                    <a href="tel:7828994540">Enquire About Courses</a>
+                                </div>
+                            </div>
+                            <div class="card">
+                                <img src="/images/designSign.png" alt="">
+                                <div class="elements">
+                                    <h4>DESIGNING</h4>
+                                    <h1>3</h1>
+                                    <h3>COURSES</h3>
+                                    <h5>FEATURE DESIGNING</h5>
+                                    <p>Courses which are about designing the web experiences or mobile apps and creating
+                                        their
+                                        look and
+                                        feel via designing tools, in these courses you will learn how to design
+                                        apps/server/database
+                                        with softwares like Photoshop, Figma, Adobe XD & Cinema 4D.</p>
+                                    <a href="tel:7828994540">Enquire About Courses</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="footer">
+                        <div class="leftftr">
+                            <h3>Talent is cheaper than table salt. What separates the talented individual from the
+                                successful
+                                one is a
+                                lot of hard work.</h3>
+                            <div class="imgsppl">
+                                <div class="imgppl"></div>
+                                <div class="imgppl"></div>
+                                <div class="imgppl"></div>
+                                <h6><i class="ri-add-line"></i> 500+ Student Projects</h6>
+                            </div>
+                        </div>
+                        <div class="rightftr">
+                            <h1>Quick Links</h1>
+                            <div id="ftrlinks">
+                                <a href="#nav">Move to top</a>
+                                <a href="tel:7828994540">Get our Course.</a>
+                                <a target="_blank" href="https://instagram.com/sheryians_coding_school">See student
+                                    work</a>
+                            </div>
+                        </div>
+                    </div>
 
-                   <div id="attention-seeker-buttons">
-                       <button onclick="window.location.href = '/courses/lvCourses';" id="attention-seeker-button1">
-                          <a href="/courses/lvCourses"><h3>Live Courses</h3></a> 
-                       </button>
-                       <div id="attention-seeker-button2">
-                        <i class="ri-play-line"></i>
-                        <a href="/"><h3>Watch Video</h3></a>
-                       </div>
-                   </div>
-               </div>
-               <div id="background-3d-design">
-                   <div id="except"><img src="/images/bottom.png" alt=""></div>
-                   <div id="mousemove">
-                       <img src="/images/bottom-left.png" alt="">
-                       <img src="/images/center.png" alt="">
-                       <img src="/images/left.png" alt="">
-                       <img src="/images/right.png" alt="">
-                       <img src="/images/upper.png" alt="">
-                       <img src="/images/upper2.png" alt="">
-                   </div>
-                   <div id="background-3d-circle"></div>
-                </div>
-           </div>
-        </div>
-        <div id="nextpages">
-            <div id="entryLevel">
-                <h2 class="entrelem">Entry Level Courses</h2>
-                <p class="entrelem">starting your coding journey ?, here's what you can start with, these are our entry
-                    level
-                    beginner freindly courses.</p>
-                <div class="entrelem" id="entrcourses">
-                    <div class="entrelem crs">
-                        <h3>UI/UX Web Design & Development</h3>
-                        <div class="crsimg">
-                            <img src="https://i.pinimg.com/originals/74/13/eb/7413eb389b7360e1c6f96a8114995989.jpg"
-                                alt="">
-                        </div>
-                    </div>
-                    <div class="entrelem crs">
-                        <h3>Java for Humans</h3>
-                        <div class="crsimg">
-                            <img src="https://qph.fs.quoracdn.net/main-qimg-317f4ff0db8d0ba328fc6d627af72d89" alt="">
-                        </div>
-                    </div>
-                    <div class="entrelem crs">
-                        <h3>Python for Beginners.</h3>
-                        <div class="crsimg">
-                            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c3/Python-logo-notext.svg/768px-Python-logo-notext.svg.png"
-                                alt="">
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div id="courseBanner">
-                <div class="leftcrsbnr">
-                    <div class="crselem crsimage">
-                        <img src="/images/78cab4563af88db36daeece00868745b.png" alt="">
-                    </div>
-                </div>
-                <div class="crselem rightcrsbnr">
-                    <h1>Most Cutting-Edge, Latest Trends Based<br><span>Web Development Course</span>.</h1>
-                    <h3>In this course, we learn to create awesome websites,<br> web experiences/designs & apps.</h3>
-                    <p>Out of many, Web Development is one of our most selling course, it's completely based on projects
-                        and
-                        learning great coding & designing practices.</p>
-                    <a href="tel:7828994540">Get Info. about the course.</a>
-                </div>
-            </div>
-            <div id="brandswork">
-                <h1 class="brelem">Services we offer to help you with your career.</h1>
-                <div class="brands">
-                    <h4 class="brelem">User Interface Design</h4>
-                    <h4 class="brelem">User Experience Design</h4>
-                    <h4 class="brelem">Java</h4>
-                    <h4 class="brelem">Python</h4>
-                    <h4 class="brelem">BackEnd Development</h4>
-                    <h4 class="brelem">mySQL & mongoDB</h4>
-                </div>
-                <div class="brands">
-                    <h4 class="brelem">node.js</h4>
-                    <h4 class="brelem">react.js</h4>
-                    <h4 class="brelem">react native & angular</h4>
-                </div>
-                <a class="brelem" href="tel:7828994540">
-                    <i class="ri-arrow-right-circle-line"></i> enroll now
-                </a>
-            </div>
-            <div id="showcaseGreen">
-                <div id="detsShwGreen">
-                    <h1 class="shwelem">" The need to be right all the time is the biggest bar there is to new ideas.
-                        "<br><br>We create designers and coders, who create great stuff.</h1>
-                    <a target="_blank" class="shwelem" href="https://instagram.com/sheryians_coding_school"><i
-                            class="ri-arrow-drop-right-line"></i>Visit & Feel It</a>
-                </div>
-                <div id="imageWrapper">
-                    <img class="shwelem" src="/images/greenApp.png" alt="greenAppDesign">
-                </div>
-            </div>
-            <div id="stats">
-                <div id="statstext">
-                    <h5 class="sttselem">Join one of the most actively contributing <span>coding and designing</span>
-                        institute
-                        of <b>Madhya Pradesh</b></h5>
-                    <h2 class="sttselem">We never wanted to be just one more <span id="cursv">coaching</span> in this
-                        city &
-                        that's why we became more than that.</h2>
-                </div>
-                <div id="cards">
-                    <div class="card">
-                        <img src="/images/codeSign.png" alt="">
-                        <div class="elements">
-                            <h4>CODING</h4>
-                            <h1>6</h1>
-                            <h3>COURSES</h3>
-                            <h5>FEATURE CODING</h5>
-                            <p>Courses which are about coding the apps and creating the applications via coding, in
-                                these
-                                courses you will learn how to code apps/server/database etc.</p>
-                            <a href="tel:7828994540">Enquire About Courses</a>
-                        </div>
-                    </div>
-                    <div class="card">
-                        <img src="/images/designSign.png" alt="">
-                        <div class="elements">
-                            <h4>DESIGNING</h4>
-                            <h1>3</h1>
-                            <h3>COURSES</h3>
-                            <h5>FEATURE DESIGNING</h5>
-                            <p>Courses which are about designing the web experiences or mobile apps and creating their
-                                look and
-                                feel via designing tools, in these courses you will learn how to design
-                                apps/server/database
-                                with softwares like Photoshop, Figma, Adobe XD & Cinema 4D.</p>
-                            <a href="tel:7828994540">Enquire About Courses</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div id="footer">
-                <div class="leftftr">
-                    <h3>Talent is cheaper than table salt. What separates the talented individual from the successful
-                        one is a
-                        lot of hard work.</h3>
-                    <div class="imgsppl">
-                        <div class="imgppl"></div>
-                        <div class="imgppl"></div>
-                        <div class="imgppl"></div>
-                        <h6><i class="ri-add-line"></i> 500+ Student Projects</h6>
-                    </div>
-                </div>
-                <div class="rightftr">
-                    <h1>Quick Links</h1>
-                    <div id="ftrlinks">
-                        <a href="#nav">Move to top</a>
-                        <a href="tel:7828994540">Get our Course.</a>
-                        <a target="_blank" href="https://instagram.com/sheryians_coding_school">See student work</a>
+                    <div id="hyy">
+                        <h5>Website Created with <i class="ri-heart-3-fill"></i> in The Sheryians Coding School by
+                            Akarsh and Aditya</h5>
                     </div>
                 </div>
             </div>
 
-            <div id="hyy">
-                <h5>Website Created with <i class="ri-heart-3-fill"></i> in The Sheryians Coding School by
-                    Akarsh and Aditya</h5>
-            </div>
-        </div>
-    </div>
 
-    
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/lettering.js/0.6.1/jquery.lettering.min.js"
-        integrity="sha512-VJ/iYbiu1eJ6yLimfTi65t2R9TFcG5D9X8ZCfbbEFhTfPnKJh8byoKXEawi5ScJZBYL1eiirL1+MczZDx0Tz9Q=="
-        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/textillate/0.4.0/jquery.textillate.min.js"
-        integrity="sha512-0bHMhYsdpiur1bT84kDH4D7cpxFQ9O7uA5yxVAqWC87h552Xt0swX4M+ZlXMKE8oPVRIJ5lAwXWO2UWeDwJJOw=="
-        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.10.2/gsap.min.js"
-        integrity="sha512-kVlGhj2qFy+KBCFuvjBJTGUMxbdqJKs4yK2jh0e0VPhWUPiPC87bzm4THmaaIee3Oj7j6sDpTTgm2EPPiESqBg=="
-        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.10.3/ScrollTrigger.min.js"
-        integrity="sha512-I+JeBiUY5B5/qJ6ey5CNqJ0yhAuNHBBbRjdM3alkabxCLz3++7hbeOScVSjyRouAihQIiint6Z2Or976vU2XuQ=="
-        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-        
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.4.2/gsap.min.js"
-    integrity="sha512-pCPP9sfLW9T7EZiw725jUl+ux032sjGhFE+ZAx00C1iO55ZmZJWpfNGbDf2ZF5b0UqxRqSW548PbZEWmH+S7pA=="
-        crossorigin="anonymous"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.4.2/ScrollTrigger.js"
-        integrity="sha512-SlylYdBDASiaMlfQSS5pvjaWTpGm4ma/FHHUivglIm0uwMK0wDlfmGTePHxqDCLWWmiT7GaXEF644y+ufU7njQ=="
-        crossorigin="anonymous"></script>
-        <script src="https://cdn.jsdelivr.net/npm/locomotive-scroll@3.5.4/dist/locomotive-scroll.min.js"></script>
-        <script>
-            const scroller = new LocomotiveScroll({
-                el: document.querySelector("#main"),
-                smooth: true
-            });
-            
+            <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/lettering.js/0.6.1/jquery.lettering.min.js"
+                integrity="sha512-VJ/iYbiu1eJ6yLimfTi65t2R9TFcG5D9X8ZCfbbEFhTfPnKJh8byoKXEawi5ScJZBYL1eiirL1+MczZDx0Tz9Q=="
+                crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/textillate/0.4.0/jquery.textillate.min.js"
+                integrity="sha512-0bHMhYsdpiur1bT84kDH4D7cpxFQ9O7uA5yxVAqWC87h552Xt0swX4M+ZlXMKE8oPVRIJ5lAwXWO2UWeDwJJOw=="
+                crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.10.2/gsap.min.js"
+                integrity="sha512-kVlGhj2qFy+KBCFuvjBJTGUMxbdqJKs4yK2jh0e0VPhWUPiPC87bzm4THmaaIee3Oj7j6sDpTTgm2EPPiESqBg=="
+                crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.10.3/ScrollTrigger.min.js"
+                integrity="sha512-I+JeBiUY5B5/qJ6ey5CNqJ0yhAuNHBBbRjdM3alkabxCLz3++7hbeOScVSjyRouAihQIiint6Z2Or976vU2XuQ=="
+                crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.4.2/gsap.min.js"
+                integrity="sha512-pCPP9sfLW9T7EZiw725jUl+ux032sjGhFE+ZAx00C1iO55ZmZJWpfNGbDf2ZF5b0UqxRqSW548PbZEWmH+S7pA=="
+                crossorigin="anonymous"></script>
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.4.2/ScrollTrigger.js"
+                integrity="sha512-SlylYdBDASiaMlfQSS5pvjaWTpGm4ma/FHHUivglIm0uwMK0wDlfmGTePHxqDCLWWmiT7GaXEF644y+ufU7njQ=="
+                crossorigin="anonymous"></script>
+            <script src="https://cdn.jsdelivr.net/npm/locomotive-scroll@3.5.4/dist/locomotive-scroll.min.js"></script>
+            <script>
+                const scroller = new LocomotiveScroll({
+                    el: document.querySelector("#main"),
+                    smooth: true
+                });
+                document.querySelector("#menu-icon").addEventListener("click", function () {
+                    document.querySelector("#fullscreen-nav").style.left = "0vw"
+                })
+                document.querySelector("#cross").addEventListener("click", function () {
+                    document.querySelector("#fullscreen-nav").style.left = "-100vw"
+                })
             </script>
-<script src="/js/home.js"></script>                  
-
-<h1>HOME PAGE</h1>
 </body>
 
 </html>
