@@ -8,11 +8,14 @@ router.use(cookieParser());
 
 
 // get and post of all routes
-router.get('/', homeController.getHome); // get home
+// router.get('/',passport.checkAuthentication,homeController.getHome); // get home with authentication
+router.get('/',homeController.getHome); // get home with authentication
+router.use('/signin', require('./user')); // use user routes
+router.use('/signOut', require('./user')); // use user routes
+router.use('/signup', require('./user')); // use user routes
 router.use('/campusAmbassador',require('./campusAmbassador')); // use campus ambassador
 router.use('/girlsWhoCode',require('./girlsWhoCode')); // use girls who code 
 router.use('/adminPanel',require('./adminPanel')); // use admin panel 
 router.use('/courses',require('./courses')); // use courses
-router.use('/signin', require('./user'));
-// router.use('/signup',require('./user'))
+router.use('/PaymentPortal',require('./PaymentPortal')); // use payment portal
 module.exports = router; // export router

@@ -370,7 +370,7 @@ body {
     position: absolute;
     right: 5%;
     top: 10%;
-    width: 4.7vw;
+    padding: 0 1vw;
     height: 4.7vh;
     border-radius: 30px;
     font-family: bandeins;
@@ -379,6 +379,37 @@ body {
     color: rgb(61, 107, 247);
     font-weight: 600;
     background-color: #fff;
+    z-index: 5;
+
+}
+#buy-now-button{
+    position: absolute;
+    right: 25%;
+    top: 110%;
+    height: 4.7vh;
+    padding: 0 1vw;
+    border-radius: 30px;
+    text-transform: none;
+    font-family: 'gilroy';
+    font-size: 0.7vw;
+    border: none;
+    color: white;
+    font-weight: 600;
+    background-color: #ff7835;
+    cursor: pointer;
+    font-size: 0.8vw;
+
+}
+
+#view-in-detail{
+    font-size: 0.8vw;
+    font-family: 'gilroy';
+    text-transform:none;
+    background-color: rgb(61, 107, 247);
+    color:white;
+    padding: 0 1vw;
+    top:110%;
+    cursor: pointer;
 }
 
 .course-card .card-part2 {
@@ -390,6 +421,7 @@ body {
 
 .course-card .card-part2>h4 {
     font-size: 1.5vw;
+    width: 10vw;
 }
 
 .card-part2>h4>a {
@@ -1188,6 +1220,21 @@ body {
         font-weight: 600;
         background-color: #fff;
         font-size: 11px;
+    }
+
+    #buy-now-button{
+        position: absolute;
+        right: 5%;
+        top: 110%;
+        width: 50px;
+        height: 25px;
+        border-radius: 50px;
+        font-family: 'gilroy';
+        border: none;
+        color: white;
+        font-weight: 600;
+        background-color: #ff7835;
+        font-size: 8px;
     }
 
     .course-card .card-part2 {

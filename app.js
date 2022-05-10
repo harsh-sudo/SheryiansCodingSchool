@@ -9,6 +9,20 @@ const app = express(); // create express app
 const path = require('path'); // import path
 const bodyParser = require('body-parser'); // import body parser
 
+//razorPay
+const Razorpay = require('razorpay'); 
+  
+// This razorpayInstance will be used to
+// access any resource from razorpay
+const razorpayInstance = new Razorpay({
+  
+    // Replace with your key_id
+    key_id: 'rzp_test_HysbsaSqSaFLE1',
+  
+    // Replace with your key_secret
+    key_secret: 'JvVplKEZ47gl2iWh7NqbblCc'
+});
+
 const port = process.env.PORT || 7000; // set port
 
 
@@ -16,6 +30,7 @@ app.set('view engine', 'ejs'); // set view engine to ejs
 app.use('views', express.static(__dirname + '/views')); // set views folder
 app.use(express.static('Assets')); // set assets folder
 app.use('/Assets', express.static(__dirname + '/Assets')); // set assets folder
+app.use(express.json());
 
 
 
@@ -39,6 +54,22 @@ app.use(session({
 app.use(passport.initialize());
 app.use(passport.session());
 app.use(passport.setAuthenticatedUser);
+
+app.post("/api/payment/verify",(req,res)=>{
+
+    let body=req.body.response.razorpay_order_id + "|" + req.body.response.razorpay_payment_id;
+   
+     var crypto = require("crypto");
+     var expectedSignature = crypto.createHmac('sha256', 'JvVplKEZ47gl2iWh7NqbblCc')
+                                     .update(body.toString())
+                                     .digest('hex');
+                                     console.log("sig received " ,req.body.response.razorpay_signature);
+                                     console.log("sig generated " ,expectedSignature);
+     var response = {"signatureIsValid":"false"}
+     if(expectedSignature === req.body.response.razorpay_signature)
+      response={signatureIsValid:"true"}
+         res.send(response);
+     });
 
 app.use('/',require('./Routes')); // use index.js
 

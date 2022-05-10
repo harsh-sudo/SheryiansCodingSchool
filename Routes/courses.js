@@ -1,8 +1,11 @@
 const express = require('express'); // import express
 const router = express.Router(); // create express router
 const courses = require('../controllers/courses_controller'); // import courses controll
+const passport = require('passport'); // import passport
+
 
 router.get('/', courses.getCourses); // get courses
-router.use('/liveCourses', require('./liveCourses')); // use live courses
+router.get('/lvCourses', courses.getlvCourses); // get courses
+router.use('/CoursesDetails', require('./CoursesDetails')); // use live courses
 
 module.exports = router; // export router

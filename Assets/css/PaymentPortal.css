@@ -1,0 +1,48 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+html , body{
+    height: 100%;
+    width: 100%;
+}
+
+#main{
+    height: 100%;
+    width: 100%;
+}
+
+#pay-box{
+    height:50vh;
+    width: 50vw;
+    background-color: rgb(253, 99, 43);
+    color:white;
+    position: relative;
+    top: 50%;
+    left:50%;
+    transform: translate(-50%,-50%);
+    border-radius: 3vh;
+}
+
+#pay-box h3{
+    margin-top: 3vh;
+    font-size: 3rem;
+    text-align: center;
+}
+
+#pay-box p{
+    margin-top: 5vh;
+    font-size: 1.2rem;
+    width: 50%;
+    position: relative;
+    left:50%;
+    transform: translateX(-50%);
+}
+
+span{
+    font-size: 1.2rem;
+    position: relative;
+    left:30%;
+    top: 10vh;
+}

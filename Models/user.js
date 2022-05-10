@@ -3,8 +3,6 @@ const mongoose = require('mongoose');
 const userSchema = new mongoose.Schema({
     username:{
         type:String,
-        require:true,
-        unique:true
     },
     password:{
         type:String,
@@ -13,7 +11,24 @@ const userSchema = new mongoose.Schema({
     name:{
         type:String,
         require:true
-    }
+    },
+    email:{
+        type:String,
+        require:true,
+        unique:true
+    },
+    phoneNumber:{
+        type:String,
+        require:true
+    },
+    admin:{
+        type:Boolean,
+        default:false
+    },
+    enrolledCourses:[{
+        type:mongoose.Schema.Types.ObjectId,
+        ref:'Courses'
+    }],
 },{
     timestamps:true
 })

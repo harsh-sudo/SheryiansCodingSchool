@@ -56,5 +56,9 @@ module.exports.signout = (req,res)=>{
 }
 
 module.exports.createSession = (req,res)=>{
+    console.log(req.user.admin);
+    if(req.user.admin === true){
     return res.redirect('/adminPanel');
+    }
+    return res.redirect('/');
 } 

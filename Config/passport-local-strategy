@@ -6,7 +6,7 @@ const User = require('../models/user')
 const LocalStategy = passportLocal.Strategy;
 
 
-passport.use(new LocalStategy({
+passport.use(new LocalStategy({ 
     usernameField:'email',
     passwordField:'password'
 },(email,password,done)=>{

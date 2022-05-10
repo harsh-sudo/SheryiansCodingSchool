@@ -14,7 +14,7 @@ router.use(bodyParser.urlencoded({extended:false}));
 
 // router.get('/', adminPanelController.getadminPanel); // get adminPanel
 router.get('/',passport.checkAuthentication,adminPanelController.getadminPanel); // get home with authentication
-router.use('/signin', require('./user'));
+router.use('/signin', require('./user')); 
 router.use('/signOut', require('./user'));
 router.post('/addCourse', courses.addCourse); // add courses
 router.post('/findCourse', courses.findCourse); // find courses for editing

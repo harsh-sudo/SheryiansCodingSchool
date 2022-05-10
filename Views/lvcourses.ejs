@@ -30,26 +30,18 @@
 
 <body>
     <div id="main">
-        <div id="fullscreen-nav">
-            <h4><a href="#">Home</a></h4>
-            <h4><a href="/Courses">Courses</a></h4>
-            <h4><a href="/CampusAmbassador">Campus Ambassador</a></h4>
-            <h4><a href="/GirlsWhoCode">Girls Who Code</a></h4>
-            <h5 id="cross"><i class="ri-close-fill"></i></h5>
-        </div>
         <!-- This is Wrapper div -->
         <div id="nav-main">
             <div id="left-main-nav">
                 <img src="/images/Sheryians Logo.png" alt="">
                 <div id="nav-main-line"></div>
-                <a href=""><h4><span>Sheryians</span> Coding School</h4></a>
+                <a href="/"><h4>Sheryians Coding School</h4></a>
             </div>
             <div id="right-main-nav">
-                <a href=""><h4>Home</h4></a>
+                <a href="/"><h4>Home</h4></a>
                 <a href="/Courses"><h4>Courses</h4></a>
                 <a href="/CampusAmbassador"><h4>Campus Ambassador</h4></a>
                 <a href="/GirlsWhoCode"><h4>Girls Who Code</h4></a>
-                <i id="menu-icon" class="ri-menu-3-line"></i>
             </div>
         </div>
         <div id="page1">
@@ -82,7 +74,7 @@
                     <div class="card-part<%= part_count %>" id="card1-part1">
                         <img src="<%= i.image %> " alt="">
                         <button> $<%=i.fees%> </button>
-                        <button id = "buy-now-button">Enroll For Free</button>
+                        <button id = "buy-now-button">Buy Now</button>
                         <button id = "view-in-detail">Details</button>
                     </div>
                     <% part_count++ %> 
@@ -177,7 +169,7 @@
                     </div>
                 </div>
                 <div class="card">
-                    <img src="images/designSign.png" alt="">
+                    <img src="/images/designSign.png" alt="">
                     <div class="elements">
                         <h4>DESIGNING</h4>
                         <h1>3</h1>
@@ -222,13 +214,7 @@
             el: document.querySelector("#main"),
             smooth: true
         });
-        document.querySelector("#menu-icon").addEventListener("click",function(){
-            document.querySelector("#fullscreen-nav").style.left = "0vw"
-        })
-        document.querySelector("#cross").addEventListener("click",function(){
-            document.querySelector("#fullscreen-nav").style.left = "-100vw"
-        })
-        // scroller.scrollTo(document.querySelector('#page2'));
+        scroller.scrollTo(document.querySelector('#page2'));
         document.querySelector('#page1 button').addEventListener('click', () => {
             scroller.scrollTo(document.querySelector('#page2'));
         });
