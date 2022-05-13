@@ -1,12 +1,142 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="/css/classroom.css">
 </head>
+
 <body>
-    <h1>Paste Your Code Here!</h1>
+    <div id="main">
+        <div id="fullscreen-nav">
+            <h4><a href="#">Home</a></h4>
+            <h4><a href="/Courses">Courses</a></h4>
+            <h4><a href="/CampusAmbassador">Campus Ambassador</a></h4>
+            <h4><a href="/GirlsWhoCode">Girls Who Code</a></h4>
+            <h5 id="cross"><i class="ri-close-fill"></i></h5>
+        </div>
+        <div id="nav-main">
+            <div id="left-main-nav">
+                <img src="/images/Sheryians Logo.png" alt="Sher">
+                <div id="nav-main-line"></div>
+                <a href="">
+                    <h4><span>Sheryians</span> Coding School</h4>
+                </a>
+            </div>
+            <div id="right-main-nav">
+                <a href="">
+                    <h4>Home</h4>
+                </a>
+                <a href="/Courses">
+                    <h4>Courses</h4>
+                </a>
+                <a href="/CampusAmbassador">
+                    <h4>Campus Ambassador</h4>
+                </a>
+                <a href="/GirlsWhoCode">
+                    <h4>Girls Who Code</h4>
+                </a>
+                <i id="menu-icon" class="ri-menu-3-line"></i>
+            </div>
+        </div>
+        <div id="center">
+            <div id="left-panel">
+                <h3 id="op1">
+                    <div id="sel1"></div><i class="ri-user-smile-line"></i>Your Profile
+                </h3>
+                <h3 id="op2">
+                    <div id="sel2"></div><i class="ri-medal-2-line"></i>Courses Enrolled
+                </h3>
+            </div>
+            <div id="right-panel">
+                <div id="right-page1">
+                    <div id="right-part1">
+                        <div id="user-image">
+                            <img src="/images/Sheryians Logo.png" alt="Sher">
+                        </div>
+                        <h3 id="user-name">Hello! Harshu</h3>
+                    </div>
+                    <div id="right-part2">
+                        <form action="">
+                            <input type="text" placeholder="Name">
+                            <input type="email" placeholder="Email" name="" id="">
+                            <input type="text" name="" id="" placeholder="Phone">
+                            <button>Update</button>
+                        </form>
+                    </div>
+                </div>
+                <div id="right-page2">
+                    <div class="card" id="card1">
+                        <div id="course1-img" class="course-img"><img src="" alt="course1-img"></div>
+                        <div id="course1-datails" class="course-details">
+                            <h3 class="course-name" id="course1-name">Sabse achha HTML</h3>
+                            <p class="course-para" id="course1-para">Lorem ipsum, dolor sit amet consectetur adipisicing
+                                elit. Fuga, accusantium?</p>
+                            <button class="fee-btn">Pay fees</button>
+                        </div>
+                    </div>
+                    <div class="card" id="card2">
+                        <div id="course2-img" class="course-img"><img src="" alt="course2-img"></div>
+                        <div id="course2-datails" class="course-details">
+                            <h3 class="course-name" id="course2-name">Us se bhi achha CSS</h3>
+                            <p class="course-para" id="course2-para">Lorem ipsum, dolor sit amet consectetur adipisicing
+                                elit. Fuga, accusantium?</p>
+                            <button class="fee-btn">Pay fees</button>
+                        </div>
+                    </div>
+                    <div class="card" id="card3">
+                        <div id="course3-img" class="course-img"><img src="" alt="course3-img"></div>
+                        <div id="course3-datails" class="course-details">
+                            <h3 class="course-name" id="course3-name">Gand fat jaye esa JS</h3>
+                            <p class="course-para" id="course3-para">Lorem ipsum, dolor sit amet consectetur adipisicing
+                                elit. Fuga, accusantium?</p>
+                            <button class="fee-btn">Pay fees</button>
+                        </div>
+                    </div>
+                    <div class="card" id="card4">
+                        <div id="course4-img" class="course-img"><img src="" alt="course4-img"></div>
+                        <div id="course4-datails" class="course-details">
+                            <h3 class="course-name" id="course4-name">Lund</h3>
+                            <p class="course-para" id="course4-para">Lorem ipsum, dolor sit amet consectetur adipisicing
+                                elit. Fuga, accusantium?</p>
+                            <button class="fee-btn">Pay fees</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        document.querySelector("#menu-icon").addEventListener("click", function () {
+            document.querySelector("#fullscreen-nav").style.left = "0vw"
+        })
+        document.querySelector("#cross").addEventListener("click", function () {
+            document.querySelector("#fullscreen-nav").style.left = "-100vw"
+        })
+        // scroller.scrollTo(document.querySelector('#page2'));
+        const rightPage1 = document.querySelector("#right-page1");
+        const rightPage2 = document.querySelector("#right-page2");
+        const sel1 = document.querySelector("#sel1")
+        const sel2 = document.querySelector("#sel2")
+        document.querySelector("#left-panel #op1").addEventListener("click",function(){
+            rightPage1.style.opacity = 1;
+            rightPage2.style.opacity = 0;
+            sel1.style.opacity = 1;
+            sel2.style.opacity = 0;
+
+        })
+        document.querySelector("#op2").addEventListener("click",function(){
+            rightPage1.style.opacity = 0;
+            rightPage2.style.opacity = 1;
+            sel1.style.opacity = 0;
+            sel2.style.opacity = 1;
+        })
+    </script>
 </body>
+
 </html>

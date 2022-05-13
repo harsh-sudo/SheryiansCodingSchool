@@ -9,4 +9,4 @@ module.exports.getHome = (req, res)=>{
         title: 'Sheryians Coding School',
         request: null
     });
-}
+} 
