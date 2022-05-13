@@ -1,5 +1,18 @@
+const courses = require('../Models/Courses');
+
 module.exports.getCoursesDetails = function(req, res) {
-    res.render('CoursesDetails', {
-        title: 'CoursesDetails'
-    });
+    courses.findOne({
+        course_id: req.params.id
+    }, (err, course) => {
+        if(err){ 
+            console.log(err);
+            return;
+        }
+        console.log(course);
+        return res.render('coursesDetails', {
+            title: 'Courses',
+            course: course
+        });
+    }
+    );
 };

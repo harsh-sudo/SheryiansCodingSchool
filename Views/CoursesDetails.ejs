@@ -37,16 +37,16 @@
             <div id="main-page-center">
                 <div id="center-part1">
                     <div id="center-image">
-                        <img src="./Geometric Doodle.png" alt="">
-                        <h4><i class="ri-check-line"></i>Some Details about Course</h4>
-                        <h4><i class="ri-check-line"></i>Some Details about Course</h4>
-                        <h4><i class="ri-check-line"></i>Some Details about Course</h4>
-                        <h4><i class="ri-check-line"></i>Some Detailsabout Course</h4>
+                        <img src="<%=course.image%>" alt="">
+                        <h4><i class="ri-check-line"></i><%= course.bullet_points[0].first%></h4>
+                        <h4><i class="ri-check-line"></i><%= course.bullet_points[0].second%></h4>
+                        <h4><i class="ri-check-line"></i><%= course.bullet_points[0].third%></h4>
+                        <h4><i class="ri-check-line"></i><%= course.bullet_points[0].fourth%></h4>
                     </div>
                 </div>
                 <div id="center-part2">
-                    <h1>Some Course Heading.</h1>
-                    <h5>some detail About Course in 2 lines only</h5>
+                    <h1><%= course.course_name %></h1>
+                    <h5><%= course.subHeading %></h5>
                     <div id="elems">
                         <div id="elem1">
                             <h6>Type</h6>
@@ -54,21 +54,20 @@
                         </div>
                         <div id="elem2">
                             <h6>Time</h6>
-                            <h5>55-60 Classes</h5>
+                            <h5><%= course.duration %></h5>
                         </div>
                         <div id="elem3">
                             <h6>Starting on</h6>
-                            <h5>31st February</h5>
+                            <h5><%= course.startOn %></h5>
                         </div>
                     </div>
                     <div id="price-n-class">
-                        <h3>Rs 4500 </h3>
+                        <h3>₹ <%=course.fees%></h3>
                         <a href="#"><i class="ri-play-fill"></i>Try 3 Classes for free</a>
                     </div>
                     <div id="details">
                         <h3>Details</h3>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.earum
-                            laboriosam aspernatur quo dicta nobis sequi quia.</p>
+                        <p><%= course.description %></p>
                     </div>
                 </div>
             </div>
@@ -77,24 +76,24 @@
             <h1 id="page2-head">Project Overview</h1>
             <div id="page2-part2">
                 <div class="card" id="card1">
-                    <div class="card-top" id="card1-top"><img src="" alt=""></div>
+                    <div class="card-top" id="card1-top"><img src="<%= course.projectOverview[0].image %>" alt=""></div>
                     <div class="card-bottom" id="card1-bottom">
-                        <h3>Project Overview</h3>
-                        <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Facilis illo atque ea!</p>
+                        <h3> <%=course.projectOverview[0].Heading %></h3>
+                        <p> <%=course.projectOverview[0].description %></p>
                     </div>
                 </div>
                 <div class="card" id="card2">
-                    <div class="card-top" id="card2-top"><img src="" alt=""></div>
+                    <div class="card-top" id="card2-top"><img src="<%= course.projectOverview[1].image %>" alt=""></div>
                     <div class="card-bottom" id="card2-bottom">
-                        <h3>Project Overview</h3>
-                        <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Facilis illo atque ea!</p>
+                        <h3> <%=course.projectOverview[1].Heading %></h3>
+                        <p><%=course.projectOverview[1].description %></p>
                     </div>
                 </div>
                 <div class="card" id="card3">
-                    <div class="card-top" id="card3-top"><img src="" alt=""></div>
+                    <div class="card-top" id="card3-top"><img src="<%= course.projectOverview[2].image %>" alt=""></div>
                     <div class="card-bottom" id="card3-bottom">
-                        <h3>Project Overview</h3>
-                        <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Facilis illo atque ea!</p>
+                        <h3> <%=course.projectOverview[2].Heading %></h3>
+                        <p> <%=course.projectOverview[2].description %></p>
                     </div>
                 </div>
             </div>
@@ -119,5 +118,17 @@
             document.querySelector("#fullscreen-nav").style.left = "-100vw"
         })
     </script>
+    <!-- <script>
+        var date = "<%= course.startOn %>";
+        date = date.split("-");
+
+        document.querySelector('#elem3 h5').innerHTML = date[2]+"th";
+    </script> -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/datejs/1.0/date.min.js" integrity="sha512-/n/dTQBO8lHzqqgAQvy0ukBQ0qLmGzxKhn8xKrz4cn7XJkZzy+fAtzjnOQd5w55h4k1kUC+8oIe6WmrGUYwODA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script>
+   var mydate = new Date("<%= course.startOn %>");
+   var str = mydate.toString("MMMM dS");
+   document.querySelector('#elem3 h5').innerHTML = str;
+</script>
 </body>
 </html>

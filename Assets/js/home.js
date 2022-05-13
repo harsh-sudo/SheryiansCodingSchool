@@ -10,6 +10,41 @@ document.querySelector('#page1-main').addEventListener('mousemove', function(det
 });
 } 
 
+var greet_text = document.querySelector('#greet-text');
+let counter = 0;
+function greetText(){
+    let counter2 = 0;
+let s = setInterval(() => {
+    if(counter2 === 3){
+        clearInterval(s)
+        counter2--;
+        reverseGreetText();
+    }
+    counter2 ++;
+    counter -= 2.8;
+    greet_text.style.transform = `translateY(${counter}vh)`
+    console.log("hi")
+}, 2000);
+}
+
+
+function reverseGreetText(){
+let counter2 = 0;
+let s = setInterval(() => {
+    if(counter2 === 3){
+        clearInterval(s)
+        greetText();
+    }
+    counter2 ++;
+    counter += 2.8;
+    greet_text.style.transform = `translateY(${counter}vh)`
+    console.log("hi")
+}, 2000);
+}
+
+
+greetText();
+
 // let live_course = document.querySelector('#attention-seeker-button1');
 
 // live_course.addEventListener('click', function(){

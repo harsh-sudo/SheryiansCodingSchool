@@ -82,12 +82,12 @@
                     <div class="card-part<%= part_count %>" id="card1-part1">
                         <img src="<%= i.image %> " alt="">
                         <button> ₹<%=i.fees%> </button>
-                        <button onclick="window.location.href='/enroll/<%= i._id %>'" id = "buy-now-button">Enroll For Free</button>
-                        <button onclick="window.location.href='/courseDetail/<%= i._id %>'" id = "view-in-detail">Details</button>
+                        <button onclick="window.location.href='/Courses/enroll/<%= i._id %>'" id = "buy-now-button">Try For Free</button>
+                        <button onclick="window.location.href='/Courses/CoursesDetails/<%=i.course_id%>'" id = "view-in-detail">Details</button>
                     </div>
                     <% part_count++ %> 
                     <div class="card-part<%= part_count %>" id="card1-part1">
-                        <h4><a href="/courseDetail/<%= i._id %>"><%= i.course_name %></a></h4>
+                        <h4><a href="/Courses/CoursesDetails/<%=i.course_id%>"><%= i.course_name %></a></h4>
                         <h5><span></span><%= i.level %> </h5>
                         <p><%= i.description %></p>
                     </div>
@@ -233,6 +233,7 @@
             scroller.scrollTo(document.querySelector('#page2'));
         });
     </script>
+
 </body>
 
 </html>

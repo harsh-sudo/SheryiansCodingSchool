@@ -1,5 +1,12 @@
 module.exports.getHome = (req, res)=>{
-    res.render('home', {
+    if(req.user){
+        return res.render('home', {
+            title: 'Sheryians Coding School',
+            request: req
+        });
+    }
+    return res.render('home', {
         title: 'Sheryians Coding School',
+        req: null
     });
 }

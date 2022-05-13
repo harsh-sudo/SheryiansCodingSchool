@@ -5,6 +5,9 @@ const courses = require('../controllers/courses_controller'); // import courses 
 const campusAmbassador = require('../controllers/campusAmbassador_controller'); // import campusAmbassador controller
 const bodyParser = require('body-parser'); // import body parser
 
+const Course = require('../Models/Courses');
+
+
 const passport = require('passport'); // import passport
 const homeController = require('../controllers/home_controller'); // import home controller
 const cookieParser = require('cookie-parser');

@@ -25,7 +25,7 @@
     <div id="main">
         <div id="page1">
             <div id="fullscreen-nav">
-                <h4><a href="#">Home</a></h4>
+                <h4><a href="/">Home</a></h4>
                 <h4><a href="/Courses">Courses</a></h4>
                 <h4><a href="/CampusAmbassador">Campus Ambassador</a></h4>
                 <h4><a href="/GirlsWhoCode">Girls Who Code</a></h4>
@@ -36,12 +36,12 @@
                             <div id="left-main-nav">
                                 <img src="/images/Sheryians Logo.png" alt="">
                                 <div id="nav-main-line"></div>
-                                <a href="">
+                                <a href="/">
                                     <h4>Sheryians Coding School</h4>
                                 </a>
                             </div>
                             <div id="right-main-nav">
-                                <a href="">
+                                <a href="/">
                                     <h4>Home</h4>
                                 </a>
                                 <a href="/Courses">
@@ -53,10 +53,32 @@
                                 <a href="/GirlsWhoCode">
                                     <h4>Girls Who Code</h4>
                                 </a>
-                                <a href="/SignIn">
-                                    <h4>Log in</h4>
+                                <% if(request.user){ %>
+                                    <a href="/classroom/<%=request.user._id%>">
+                                <% } else {%> 
+                                    <a href="/SignIn">
+                                <% } %>   
+                                    <h4>
+                                        <% if(request.user){ %> 
+                                       <span id = "changing-greeting-text">
+                                           <span id = "greet-text">
+                                            <h4>Hi</h4>
+                                            <h4>Hey</h4>
+                                            <h4>Oh</h4>
+                                            <h4>Wow</h4>
+                                            <h4>Yo</h4>
+                                           </span>
+                                        </span>,
+                                        <%= request.user.name.split(' ')[0]%>
+                                        
+                                        <% } %>
+                                        <% if(!request.user){ %>
+                                        Sign In
+                                        <% } %>
+                                    </h4>
                                 </a>
-                        <i id="menu-icon" class="ri-menu-3-line"></i>
+                                
+                                <i id="menu-icon" class="ri-menu-3-line"></i>
                             </div>
                         </div>
                         <div id="attention-seeker">
@@ -278,6 +300,7 @@
                     document.querySelector("#fullscreen-nav").style.left = "-100vw"
                 })
             </script>
+            <script src="/js/home.js"></script>
 </body>
 
 </html>

@@ -5,6 +5,7 @@ const passport = require('passport'); // import passport
 
 
 router.get('/', courses.getCourses); // get courses
+router.get('/enroll/:id', courses.enrollCourse); // enroll courses
 router.get('/lvCourses', courses.getlvCourses); // get courses
 router.use('/CoursesDetails', require('./CoursesDetails')); // use live courses
 

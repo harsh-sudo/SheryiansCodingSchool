@@ -148,6 +148,22 @@ html,body {
     font-weight: 500;
 }
 
+#changing-greeting-text {
+    display: inline-block;
+    overflow: hidden;
+    height: 2.8vh;
+    margin-bottom:-0.5vh;
+    width: 2.8vw;
+}
+
+#greet-text{
+    text-align: right;
+    display: inline-block;
+    transform: translateY(0vh); 
+    width: 2.8vw;
+    transition: all cubic-bezier(0.19, 1, 0.22, 1) 1s;
+}
+
 @media(max-width: 600px) {
     #nav-main {
         position: relative;
