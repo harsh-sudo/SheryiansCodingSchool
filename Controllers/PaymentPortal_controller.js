@@ -7,9 +7,7 @@ const razorpayInstance = new Razorpay({
 
 module.exports.getPaymentPortal = (req, res) => {
     res.render('PaymentPortal', {
-        title: 'Payment Portal',
-        // path: '/PaymentPortal',
-        // user: req.user
+        title: 'Payment Portal'
     });
 }
 

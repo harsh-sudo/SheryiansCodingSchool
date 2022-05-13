@@ -33,7 +33,30 @@ const CourseSchema = new mongoose.Schema({
     course_id:{
         type:String,
         required:true
-    }
+    },
+    startOn:{
+        type:String,
+        required:true
+    },
+    bullet_points:[
+        {
+            first:String,
+            second:String,
+            third:String,
+            fourth:String
+        }
+    ],
+    subHeading:{
+        type:String,
+        required:true
+    },
+    projectOverview:[
+        {
+            Heading:String,
+            description:String,
+            image:String
+        }
+    ]
 },{
     timestamps:true
 });
@@ -48,7 +71,7 @@ let storage = multer.diskStorage({
 });
 
 //statics
-CourseSchema.statics.course_gif = multer({storage: storage}).single('image');
+CourseSchema.statics.course_gif = multer({storage: storage}).fields([ {name: 'image1', maxCount: 1}, {name: 'image2', maxCount: 1}, {name: 'image3', maxCount: 1},{name: 'image4', maxCount: 1} ]);
 CourseSchema.statics.course_gif_path = course_gif;
 
 
