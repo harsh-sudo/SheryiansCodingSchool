@@ -7,6 +7,6 @@ module.exports.getHome = (req, res)=>{
     }
     return res.render('home', {
         title: 'Sheryians Coding School',
-        req: null
+        request: null
     });
 }
