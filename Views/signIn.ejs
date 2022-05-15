@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -7,23 +8,50 @@
     <title>
         <%= title %>
     </title>
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css" rel="stylesheet">
     <link rel="stylesheet" href="/css/signIn.css">
 </head>
 
 <body>
     <div id="main">
-        <div id="nav">
-            <h1>SignIN</h1>
+        <div id="fullscreen-nav">
+            <h4><a href="/">Home</a></h4>
+            <h4><a href="/Courses">Courses</a></h4>
+            <h4><a href="/CampusAmbassador">Campus Ambassador</a></h4>
+            <h4><a href="/GirlsWhoCode">Girls Who Code</a></h4>
+            <h5 id="cross"><i class="ri-close-fill"></i></h5>
         </div>
-        <div id="signIn-form">
-            <form action="/signIn/auth-user" method="post">
-                <input type="text" placeholder="Email" required name="email">
-                <input type="password" placeholder="password" required name="password">
-                <br>
-                <button type="submit">SignIn</button>
-            </form>
+        <div id="left-panel">
+            <div id="nav">
+                <img src="../Assets/images/Sheryians Logo.png" alt="">
+                <i id="menu-icon" class="ri-menu-3-line"></i>
+            </div>
+            <div id="sign-in-page">
+                <p>Welcome Champ!</p>
+                <h1>Login your account</h1>
+                <form action="/signIn/auth-user" method="post">
+                    <h5>Email</h5>
+                    <input type="text" placeholder="lavda@lassan.cum" required name="email"> <br>
+                    <h5>Password</h5>
+                    <input type="password" placeholder="••••••••••••" required name="password">
+                    <br>
+                    <button type="submit">Login</button>
+                </form>
+                <a href="/lund">Create New Account</a>
+            </div>
+        </div>
+        <div id="right-panel">
+            <img src="../Assets/images/IMG_20210327_065111-01.jpeg" alt="">
         </div>
     </div>
+    <script>
+        document.querySelector("#menu-icon").addEventListener("click", function () {
+            document.querySelector("#fullscreen-nav").style.left = "0vw"
+        })
+        document.querySelector("#cross").addEventListener("click", function () {
+            document.querySelector("#fullscreen-nav").style.left = "-100vw"
+        })
+    </script>
 </body>
 
 </html>
