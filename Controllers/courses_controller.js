@@ -1,4 +1,5 @@
 const db = require('../config/mongoose');
+const user = require('../models/user');
 const Course = require('../Models/Courses');
 
 module.exports.addCourse = async function(req, res){
@@ -167,8 +168,10 @@ module.exports.getCourses = function(req, res) {
             console.log(err);
             return;
         }
-        // console.log(course);
-        res.render('courses', {
+        console.log(req.url)
+        // res.session.current_url = req.url;
+        req.session.returnTo = req.originalUrl; 
+        return res.render('courses', {
             title: 'Courses',
             courses: course
         });
@@ -181,7 +184,6 @@ module.exports.getlvCourses = function(req, res) {
             console.log(err);
             return;
         }
-        // console.log(course);
         res.render('lvcourses', {
             title: 'Courses', 
             courses: course
@@ -190,17 +192,56 @@ module.exports.getlvCourses = function(req, res) {
 };
 
 module.exports.enrollCourse = function(req, res) {
+    console.log(req.params.id);
+    let check = 0;
     Course.findOne({
-        course_id: req.body.course_id
+        _id: req.params.id
     }, (err, course) => {
         if(err){
             console.log(err);
             return;
         }
-        res.render('enrollCourse', {
-            title: 'Enroll Course',
-            course: course
-        });
-    }
-    );
+
+    user.find({_id:req.user.id,enrolledCourses:{$in:[req.params.id]}}).populate('enrolledCourses').exec((err, course)=>{
+        if(err){
+            console.log(err);
+            return;
+        }
+            if(course.length > 0){
+                console.log(course);
+                console.log('hello');
+                return res.redirect('back');
+            }else{
+            user.findOneAndUpdate({
+                _id: req.user._id
+            }, {
+                $push: {
+                    enrolledCourses: req.params.id
+                }
+            }, (err, user) => {
+                if(err){
+                    console.log(err);
+                    return;
+                }
+                return res.redirect('back');
+            });
+        }
+    });
+});
+};
+
+module.exports.cancelEnrollment = function(req, res) {
+    user.findOneAndUpdate({
+        _id: req.user._id
+    }, {
+        $pull: {
+            enrolledCourses: req.params.id
+        }
+    }, (err, user) => {
+        if(err){
+            console.log(err);
+            return;
+        }
+        return res.redirect('back');
+    });
 }

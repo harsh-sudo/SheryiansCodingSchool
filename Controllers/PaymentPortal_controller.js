@@ -4,12 +4,24 @@ const razorpayInstance = new Razorpay({
     key_id: 'rzp_test_HysbsaSqSaFLE1',
     key_secret: 'JvVplKEZ47gl2iWh7NqbblCc'
 });
+const courses = require('../Models/Courses');
 
 module.exports.getPaymentPortal = (req, res) => {
-    res.render('PaymentPortal', {
-        title: 'Payment Portal'
-    });
-}
+    courses.findOne({
+        _id: req.params.id
+    }, (err, course) => {
+        if(err){
+            console.log(err);
+            return;
+        }
+        
+        res.render('PaymentPortal', {
+            title: 'Payment Portal',
+            course: course
+        });
+    }
+)}
+
 
 module.exports.checkOut = (req, res) => {
     var options = {

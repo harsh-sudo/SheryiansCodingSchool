@@ -14,7 +14,7 @@
 <body>
     <div id="main">
         <div id="fullscreen-nav">
-            <h4><a href="#">Home</a></h4>
+            <h4><a href="/">Home</a></h4>
             <h4><a href="/Courses">Courses</a></h4>
             <h4><a href="/CampusAmbassador">Campus Ambassador</a></h4>
             <h4><a href="/GirlsWhoCode">Girls Who Code</a></h4>
@@ -29,7 +29,7 @@
                 </a>
             </div>
             <div id="right-main-nav">
-                <a href="">
+                <a href="/">
                     <h4>Home</h4>
                 </a>
                 <a href="/Courses">
@@ -71,16 +71,18 @@
                     </div>
                 </div>
                 <div id="right-page2">
+                    <% for(let i of course[0].enrolledCourses){ %> 
                     <div class="card" id="card1">
-                        <div id="course1-img" class="course-img"><img src="" alt="course1-img"></div>
+                        <div id="course1-img" class="course-img"><img src="<%= i.image %>" alt="course1-img"></div>
                         <div id="course1-datails" class="course-details">
-                            <h3 class="course-name" id="course1-name">Sabse achha HTML</h3>
-                            <p class="course-para" id="course1-para">Lorem ipsum, dolor sit amet consectetur adipisicing
-                                elit. Fuga, accusantium?</p>
-                            <button class="fee-btn">Pay fees</button>
+                            <h3 class="course-name" id="course1-name"><%= i.course_name %></h3>
+                            <p class="course-para" id="course1-para"><%= i.description %></p>
+                            <button onclick="window.location.href='/paymentPortal/<%= i._id%>'" class="fee-btn">Pay fees</button>
+                            <button id="cancelenroll" class="fee-btn" style="background-color:rgb(254, 90, 90);  padding: 1.4vh 1vw;" onclick="window.location.href='/Courses/enroll/CancelEnrollment/<%= i._id %>'">Cancel Enrollment</button>
                         </div>
                     </div>
-                    <div class="card" id="card2">
+                    <% } %>
+                    <!-- <div class="card" id="card2">
                         <div id="course2-img" class="course-img"><img src="" alt="course2-img"></div>
                         <div id="course2-datails" class="course-details">
                             <h3 class="course-name" id="course2-name">Us se bhi achha CSS</h3>
@@ -106,7 +108,7 @@
                                 elit. Fuga, accusantium?</p>
                             <button class="fee-btn">Pay fees</button>
                         </div>
-                    </div>
+                    </div> -->
                 </div>
             </div>
         </div>
@@ -118,17 +120,18 @@
         document.querySelector("#cross").addEventListener("click", function () {
             document.querySelector("#fullscreen-nav").style.left = "-100vw"
         })
+
         // scroller.scrollTo(document.querySelector('#page2'));
         const rightPage1 = document.querySelector("#right-page1");
         const rightPage2 = document.querySelector("#right-page2");
-        const sel1 = document.querySelector("#sel1")
-        const sel2 = document.querySelector("#sel2")
+        const sel1 = document.querySelector("#sel1");
+        const sel2 = document.querySelector("#sel2");
+
         document.querySelector("#left-panel #op1").addEventListener("click",function(){
             rightPage1.style.opacity = 1;
             rightPage2.style.opacity = 0;
             sel1.style.opacity = 1;
             sel2.style.opacity = 0;
-
         })
         document.querySelector("#op2").addEventListener("click",function(){
             rightPage1.style.opacity = 0;
@@ -136,7 +139,12 @@
             sel1.style.opacity = 0;
             sel2.style.opacity = 1;
         })
+
+        document.querySelector("#cancelenroll").addEventListener("click",function(){
+            alert("Are you sure you want to cancel your enrollment?");
+        })
+        
+        console.log(localStorage.flag);
     </script>
 </body>
-
 </html>

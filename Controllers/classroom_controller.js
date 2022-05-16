@@ -1,16 +1,15 @@
-// const user = require('../Models/user');
+const user = require('../models/user');
 const courses = require('../Models/Courses');
 
 module.exports.getClassroom = (req, res)=>{
-    courses.find({}, (err, courses)=>{
+    user.find({_id:req.user.id}).populate('enrolledCourses').exec((err, course)=>{
         if(err){
-            console.log('Error in finding courses in classroom');
+            console.log(err);
             return;
         }
         return res.render('classroom', {
-            title: 'Sheryians Coding School',
-            courses: courses,
-            request: req
+            title: 'Classroom',
+            course: course
         });
     });
 }

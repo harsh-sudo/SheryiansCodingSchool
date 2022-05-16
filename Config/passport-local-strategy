@@ -36,10 +36,11 @@ passport.checkAuthentication = (req,res,next)=>{
 passport.setAuthenticatedUser = (req,res,next)=>{
     if(req.isAuthenticated()){  // req.isAuthenticated() will return true if user is logged in
         res.locals.user = req.user; // req.user contains the user object
+        // console.log(req);
     }
     next();
 }
-
+ 
 passport.serializeUser((user,done)=>{
     done(null,user.id);
 });

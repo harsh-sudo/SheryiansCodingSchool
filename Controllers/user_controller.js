@@ -2,7 +2,7 @@ const User = require('../models/user');
 
 module.exports.signIn = (req,res)=>{
     if(req.isAuthenticated()){
-        res.redirect('/adminPanel');
+        res.redirect('back');
     }
     res.render('signIn',{
         title:"Sign In"
@@ -56,9 +56,9 @@ module.exports.signout = (req,res)=>{
 }
 
 module.exports.createSession = (req,res)=>{
-    console.log(req.user.admin);
     if(req.user.admin === true){
     return res.redirect('/adminPanel');
     }
-    return res.redirect('/');
+    res.redirect(req.session.returnTo);
+    delete req.session.returnTo;
 } 

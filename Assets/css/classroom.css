@@ -450,6 +450,7 @@ html {
 }
 .card .course-details .course-name{
     font-size: 1.7vw;
+    min-height: 8vh;
     font-weight: 500;
     margin: 1vh 0;
 }
@@ -469,10 +470,11 @@ html {
     border-radius: 50px;
     cursor: pointer;
     background-color: #2181ff;
-    margin-top: 2vh;
+    margin: 2vh 0.5vw;
     transition: all cubic-bezier(0.19, 1, 0.22, 1) 0.5s;
     box-shadow: 0px 1px 10px rgba(33, 129, 255, 0.3)
 }
+
 .card .course-details .fee-btn:hover{
     transform: scale(1.05);
 }

@@ -5,7 +5,7 @@ const PaymentPortal_controller = require('../controllers/PaymentPortal_controlle
 
 
 
-router.get('/', PaymentPortal_controller.getPaymentPortal); // get payment portal
+router.get('/:id', PaymentPortal_controller.getPaymentPortal); // get payment portal
 router.post('/checkOut', PaymentPortal_controller.checkOut); // make payment
 
 module.exports = router; // export router 
