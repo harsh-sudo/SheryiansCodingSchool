@@ -71,7 +71,7 @@ html,body {
 
 #right-main-nav {
     transition: all cubic-bezier(0.19, 1, 0.22, 1) 1s;
-    width: 45vw;
+    width: 50vw;
     height: 100%;
     display: flex;
     justify-content: space-between;
@@ -82,7 +82,6 @@ html,body {
 
 #right-main-nav a {
     font-size: 1.2vw;
-
 }
 
 #right-main-nav>i {
