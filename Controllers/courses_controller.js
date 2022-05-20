@@ -184,6 +184,7 @@ module.exports.getlvCourses = function(req, res) {
             console.log(err);
             return;
         }
+        req.session.returnTo = req.originalUrl;
         res.render('lvcourses', {
             title: 'Courses', 
             courses: course
@@ -201,7 +202,6 @@ module.exports.enrollCourse = function(req, res) {
             console.log(err);
             return;
         }
-
     user.find({_id:req.user.id,enrolledCourses:{$in:[req.params.id]}}).populate('enrolledCourses').exec((err, course)=>{
         if(err){
             console.log(err);
@@ -216,9 +216,11 @@ module.exports.enrollCourse = function(req, res) {
                 _id: req.user._id
             }, {
                 $push: {
-                    enrolledCourses: req.params.id
+                   enrolledCourses: req.params.id,
+                   "feeStatus": {course_id:req.params.id,status:"pending"}
                 }
-            }, (err, user) => {
+            },
+            (err, user) => {
                 if(err){
                     console.log(err);
                     return;
@@ -235,7 +237,8 @@ module.exports.cancelEnrollment = function(req, res) {
         _id: req.user._id
     }, {
         $pull: {
-            enrolledCourses: req.params.id
+            enrolledCourses: req.params.id,
+            "feeStatus": {course_id:req.params.id,status:"pending"}
         }
     }, (err, user) => {
         if(err){

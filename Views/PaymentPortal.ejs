@@ -61,16 +61,22 @@ document.getElementById('rzp-button1').onclick = function(e){
         // alert(response.razorpay_order_id);
         // alert(response.razorpay_signature);
         var settings = {
-        "url": "/api/payment/verify",
+        "url": "/api/payment/verify/<%=course._id%>",
         "method": "POST",
         "timeout": 0,
         "headers": {
             "Content-Type": "application/json"
         },
-        "data": JSON.stringify({response}),
+        "data": JSON.stringify({response})
         }   
         //creates new orderId everytime
 $.ajax(settings).done(function (response) {
+    if (typeof response.razorpay_payment_id == 'undefined' ||  response.razorpay_payment_id < 1) {
+        redirect_url = '/classroom/<%= user._id %>';
+        } else {
+        alert("Unsuccessful Payment");
+        }
+        location.href = redirect_url;
     alert(JSON.stringify(response));
 });
     },

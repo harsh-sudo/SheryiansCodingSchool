@@ -255,10 +255,25 @@
         document.querySelector("#cross").addEventListener("click",function(){
             document.querySelector("#fullscreen-nav").style.left = "-100vw"
         })
-        document.querySelector('#page1 button').addEventListener('click', () => {
-            scroller.scrollTo(document.querySelector('#page2'));
-        });
         scroller.scrollTo(document.querySelector('#page2'));
+
+        // document.querySelector('#page1 button').addEventListener('click', () => {
+        //     scroller.scrollTo(document.querySelector('#page2'));
+        // });
+
+
+        // document.addEventListener("DOMContentLoaded", function(event) { 
+        //     var scrollpos = localStorage.getItem('scrollpos');
+        //     scroller.scrollTo(0, scrollpos);
+        // });
+
+        // scroller.on("scroll", function(dets){
+        //     localStorage.setItem('scrollpos', dets.scroll.y+"px");
+        // })
+
+
     </script>
+
 </body>
+
 </html>

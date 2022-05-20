@@ -30,7 +30,6 @@ module.exports.checkOut = (req, res) => {
         receipt: "order_rcptid_11"
       };
       razorpayInstance.orders.create(options, function(err, order) {
-        // console.log(order);
         res.send({orderId:order.id});
       });
 } 
