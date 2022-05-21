@@ -11,6 +11,10 @@ html , body{
 #main{
     height: 100%;
     width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
 }
 
 #pay-box{
@@ -18,10 +22,6 @@ html , body{
     width: 50vw;
     background-color: rgb(253, 99, 43);
     color:white;
-    position: relative;
-    top: 50%;
-    left:50%;
-    transform: translate(-50%,-50%);
     border-radius: 3vh;
 }
 

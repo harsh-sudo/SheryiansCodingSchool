@@ -1,3 +1,8 @@
+@font-face {
+    font-family: gilroy;
+    src: url("/fonts/Gilroy-Medium.otf");
+}
+
 * {
     margin: 0;
     padding: 0;
@@ -325,6 +330,8 @@ html {
 
 #left-panel #user-options h3 a{
     color: #444;
+    display: flex;
+    align-items: center;
     text-decoration: none;
 }
 #left-panel #user-options h3 i {
@@ -404,6 +411,8 @@ form h1 span{
     border: 2px solid rgb(69, 69, 69);
     border-radius: 4px;
     width: 22vw;
+    position: relative;
+    background-color: transparent;
     z-index: 10;
     margin: 0 1vw;
     padding: 1.7vh 5vw 1.7vh 1vw;
@@ -440,6 +449,8 @@ form h1 span{
     padding: 1.4vh 5vw 1.4vh 1vw;
     width: 22vw;
     margin: 0 1vw;
+    position: relative;
+    background-color: transparent;
     padding: 1.7vh 5vw 1.7vh 1vw;
 }
 
@@ -471,8 +482,10 @@ form h1 span{
     border-radius: 4px;
     padding: 1.4vh 5vw 1.4vh 1vw;
     width: 22vw;
+    background-color: transparent;
     margin: 0 1vw;
     padding: 1.7vh 5vw 1.7vh 1vw;
+    position: relative;
 }
 
 #phone input:focus {
@@ -505,6 +518,8 @@ form h1 span{
     border: 2px solid rgb(69, 69, 69);
     border-radius: 4px;
     width: 46vw;
+    background-color: transparent;
+    position: relative;
     padding: 1.7vh 1vw 1.7vh 1vw;
 }
 
@@ -599,7 +614,6 @@ form h1 span{
 
 .card .course-details .course-name {
     font-size: 1.7vw;
-    min-height: 8vh;
     font-weight: 500;
     margin: 1vh 0;
 }
@@ -621,11 +635,11 @@ form h1 span{
     border-radius: 50px;
     cursor: pointer;
     background-color: #2181ff;
-    margin: 2vh 0.5vw;
+    margin-top: 2vh;
     transition: all cubic-bezier(0.19, 1, 0.22, 1) 0.5s;
     box-shadow: 0px 1px 10px rgba(33, 129, 255, 0.3)
 }
 
-.card .course-details .fee-btn:hover{
+.card .course-details .fee-btn:hover {
     transform: scale(1.05);
 }
