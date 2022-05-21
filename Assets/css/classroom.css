@@ -404,6 +404,8 @@ form h1 span{
     border: 2px solid rgb(69, 69, 69);
     border-radius: 4px;
     width: 22vw;
+    position: relative;
+    background-color: transparent;
     z-index: 10;
     margin: 0 1vw;
     padding: 1.7vh 5vw 1.7vh 1vw;
@@ -440,6 +442,8 @@ form h1 span{
     padding: 1.4vh 5vw 1.4vh 1vw;
     width: 22vw;
     margin: 0 1vw;
+    position: relative;
+    background-color: transparent;
     padding: 1.7vh 5vw 1.7vh 1vw;
 }
 
@@ -471,8 +475,10 @@ form h1 span{
     border-radius: 4px;
     padding: 1.4vh 5vw 1.4vh 1vw;
     width: 22vw;
+    background-color: transparent;
     margin: 0 1vw;
     padding: 1.7vh 5vw 1.7vh 1vw;
+    position: relative;
 }
 
 #phone input:focus {
@@ -505,6 +511,8 @@ form h1 span{
     border: 2px solid rgb(69, 69, 69);
     border-radius: 4px;
     width: 46vw;
+    background-color: transparent;
+    position: relative;
     padding: 1.7vh 1vw 1.7vh 1vw;
 }
 
