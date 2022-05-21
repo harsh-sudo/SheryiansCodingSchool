@@ -27,6 +27,8 @@ router.post('/addCampusAmbassador', campusAmbassador.addCampusAmbassador); // ad
 router.post('/findCampusAmbassador', campusAmbassador.findCampusAmbassador); // find campus ambassador for editing
 router.post('/updateCampusAmbassador/:id', campusAmbassador.updateCampusAmbassador); // update campus ambassador
 router.post('/deleteCampusAmbassador', campusAmbassador.deleteCampusAmbassador); // delete campus ambassador
+router.get('/coursesdata', adminPanelController.getCourseData); // get course data
+router.post('/coursesStudentData', adminPanelController.getCourseStudentData); // get course data
 
 
 module.exports = router; // export router
