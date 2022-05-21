@@ -8,7 +8,7 @@ module.exports.getCoursesDetails = function(req, res) {
             console.log(err);
             return;
         }
-        console.log(course);
+        req.session.returnTo = req.originalUrl; 
         return res.render('coursesDetails', {
             title: 'Courses',
             course: course

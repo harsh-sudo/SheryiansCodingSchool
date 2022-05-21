@@ -63,7 +63,34 @@
                     </div>
                     <div id="price-n-class">
                         <h3>₹ <%=course.fees%></h3>
-                        <a href="#"><i class="ri-play-fill"></i>Try 3 Classes for free</a>
+                        <% let check_user = 0 %> 
+                        <% let check_tryForFree = 0 %> 
+                        <% if(typeof user === 'undefined'){ %>
+                            <% check_user = 1 %> 
+                            <% } else{ %>
+                            <% for(let j in user.enrolledCourses){ %> 
+                                <% if(user.enrolledCourses[j].toString() === course._id.toString()){ %> 
+                                        <% check_tryForFree = 1 %>
+                                        <% break %> 
+                                <% } %> 
+                            <% } %> 
+                        <% } %> 
+                        <a <% if(check_user === 1){ %>
+                            href = "/signIn"
+                       <% } else{ %>  
+                        <% if(check_tryForFree != 0){ %>
+                            href=""
+                            style="background-color: #79c979; cursor: no-drop;"
+                            <% } else{ %>
+                                href="/Courses/enroll/<%= course._id %>"
+                            <% } %>
+                        <% } %> ><i class="ri-play-fill"></i>
+                        <% if(check_tryForFree != 0){ %>
+                            Enrolled
+                        <% } else { %>
+                            Try for Free
+                        <% } %>
+                        </a>
                     </div>
                     <div id="details">
                         <h3>Details</h3>
