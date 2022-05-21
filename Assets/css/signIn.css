@@ -108,13 +108,12 @@ html,body {
     color: #111;
     font-size: 1vw;
     font-weight: 600;
-    margin-top: 2.5vh;
+    margin-top: 2.6vh;
 }
 
-#sign-in-page a:hover {
+#create_ac:hover{
     text-decoration: underline;
 }
-
 form input {
     padding: 1vh 1vw;
     width: 100%;
@@ -138,9 +137,13 @@ form button {
     font-weight: 600;
     cursor: pointer;
     font-size: 1.2vw;
-    margin-top: 2vh;
+    margin-top: 2.5vh;
+    transition: all cubic-bezier(0.19, 1, 0.22, 1) 0.3s;
 }
 
+form button:focus{
+    transform: scale(0.95);
+}
 form h5 {
     text-align: left;
     margin-top: 1vh;
@@ -195,6 +198,49 @@ form h5 {
 #fullscreen-nav h4 a:hover {
     color: #000;
     font-weight: 500;
+}
+#gitgoog{
+    margin-top: -1.2vh;
+    display: flex;
+    padding: 1vh 2vw;
+    align-items: center;
+}
+#google_link{
+    background: linear-gradient(rgb(255, 85, 67),rgb(214, 16, 16));
+    padding: 1.4vh 1.3vw;
+    color: white !important;
+    border-radius: 5px;
+    font-size: 1.1vw !important;
+    margin-right: 2vw;
+    display: flex;
+    align-items: center;
+    transition: all cubic-bezier(0.19, 1, 0.22, 1) 0.3s;
+}
+#google_link i{
+    font-weight: 100;
+    font-size: 1.3vw;
+    margin-right: 1.5vw;
+}
+#google_link:focus{
+    transform: scale(0.95);
+}
+#github_link{
+    background: linear-gradient(rgb(71, 71, 71),rgb(12, 12, 12));
+    padding: 1.4vh 1.3vw;
+    color: white !important;
+    border-radius: 5px;
+    font-size: 1.1vw !important;
+    display: flex;
+    align-items: center;
+    transition: all cubic-bezier(0.19, 1, 0.22, 1) 0.3s;
+}
+#github_link i{
+    font-weight: 100;
+    font-size: 1.4vw;
+    margin-right: 1.5vw;
+}
+#github_link:focus{
+    transform: scale(0.95);
 }
 
 @media (max-width:600px) {
