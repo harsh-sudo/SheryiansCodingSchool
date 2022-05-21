@@ -22,7 +22,7 @@ html,body {
     width: 100%;
 }
 
-#main {
+#main{
     overflow-x: hidden;
     scroll-behavior: smooth;
 }
