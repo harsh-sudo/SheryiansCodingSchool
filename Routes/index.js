@@ -10,6 +10,21 @@ router.use(cookieParser());
 // get and post of all routes
 // router.get('/',passport.checkAuthentication,homeController.getHome); // get home with authentication
 router.get('/',homeController.getHome); // get home with authentication
+router.get('/google',passport.authenticate('google',{ scope: ['profile','email']}),(req,res)=>{
+    res.redirect('/classroom');
+});
+router.get('/google/callback',passport.authenticate('google',{failureRedirect:'/'}),(req,res)=>{
+    res.redirect(req.session.returnTo || '/classroom');
+    delete req.session.returnTo;
+});
+
+router.get('/auth/github',passport.authenticate('github'));
+router.get('/auth/github/callback',passport.authenticate('github',{failureRedirect:'/'}),(req,res)=>{
+    res.redirect(req.session.returnTo || '/classroom');
+    delete req.session.returnTo;
+});
+
+router.use(passport.setAuthenticatedUser);
 router.use('/signin', require('./user')); // use user routes
 router.use('/signOut', require('./user')); // use user routes
 router.use('/signup', require('./user')); // use user routes

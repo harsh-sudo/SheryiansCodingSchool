@@ -25,13 +25,14 @@ const razorpayInstance = new Razorpay({
 
 const port = process.env.PORT || 7000; // set port
 
+const user = require('./models/user'); // import user model
+
 
 app.set('view engine', 'ejs'); // set view engine to ejs
 app.use('views', express.static(__dirname + '/views')); // set views folder
 app.use(express.static('Assets')); // set assets folder
 app.use('/Assets', express.static(__dirname + '/Assets')); // set assets folder
 app.use(express.json());
-
 
 
 app.use(cookieParser());
@@ -51,25 +52,47 @@ app.use(session({
     })
 }));
 
+
 app.use(passport.initialize());
 app.use(passport.session());
 app.use(passport.setAuthenticatedUser);
 
-app.post("/api/payment/verify",(req,res)=>{
 
+
+app.post("/api/payment/verify/:id",(req,res)=>{
+    console.log(req.params.id);
     let body=req.body.response.razorpay_order_id + "|" + req.body.response.razorpay_payment_id;
    
      var crypto = require("crypto");
      var expectedSignature = crypto.createHmac('sha256', 'JvVplKEZ47gl2iWh7NqbblCc')
-                                     .update(body.toString())
-                                     .digest('hex');
-                                     console.log("sig received " ,req.body.response.razorpay_signature);
-                                     console.log("sig generated " ,expectedSignature);
-     var response = {"signatureIsValid":"false"}
-     if(expectedSignature === req.body.response.razorpay_signature)
-      response={signatureIsValid:"true"}
-         res.send(response);
-     });
+                                    .update(body.toString())
+                                    .digest('hex');
+                                    console.log("sig received " ,req.body.response.razorpay_signature);
+                                    console.log("sig generated " ,expectedSignature);
+    var response = {"signatureIsValid":"false"}
+    if(expectedSignature === req.body.response.razorpay_signature){
+        response={signatureIsValid:"true"};
+        user.findOne({_id:req.user._id},(err,user)=>{ 
+            if(err){
+                console.log(err);
+            }
+            else{
+                for(let i of user.feeStatus){
+                    if(i.course_id === req.params.id){
+                        i.status = "paid";
+                    }
+                }
+            }
+            user.save((err)=>{
+                if(err){
+                    console.log(err)
+                    return;
+                }
+            });
+        })
+    } 
+    res.send(response);
+});
 
 app.use('/',require('./Routes')); // use index.js
 

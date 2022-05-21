@@ -56,7 +56,7 @@ const CourseSchema = new mongoose.Schema({
             description:String,
             image:String
         }
-    ]
+    ] 
 },{
     timestamps:true
 });

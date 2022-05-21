@@ -82,7 +82,34 @@
                     <div class="card-part<%= part_count %>" id="card1-part1">
                         <img src="<%= i.image %> " alt="">
                         <button> ₹<%=i.fees%> </button>
-                        <button onclick="window.location.href='/Courses/enroll/<%= i._id %>'" id = "buy-now-button">Try For Free</button>
+                        <% let check_user = 0 %> 
+                        <% let check_tryForFree = 0 %> 
+                        <% if(typeof user === 'undefined'){ %>
+                            <% check_user = 1 %> 
+                            <% } else{ %>
+                            <% for(let j in user.enrolledCourses){ %> 
+                                <% if(user.enrolledCourses[j].toString() === i._id.toString()){ %> 
+                                        <% check_tryForFree = 1 %>
+                                        <% break %> 
+                                <% } %> 
+                            <% } %> 
+                        <% } %> 
+                        <button id = "buy-now-button"<% if(check_user === 0){ %> 
+                        onclick="window.location.href='/Courses/enroll/<%= i._id %>'"
+                        <% if(check_tryForFree != 0){ %>
+                            disabled
+                            style="background-color: #79c979; cursor: no-drop;"
+                        <% } %>
+                        <% } else{ %>
+                            onclick="window.location.href='/signIn'"
+                        <% } %> >
+                    
+                            <% if(check_tryForFree === 0){ %> 
+                                Try For Free
+                            <% } else{ %>
+                                Enrolled
+                            <% } %> 
+                        </button>
                         <button onclick="window.location.href='/Courses/CoursesDetails/<%=i.course_id%>'" id = "view-in-detail">Details</button>
                     </div>
                     <% part_count++ %> 
@@ -232,6 +259,18 @@
         document.querySelector('#page1 button').addEventListener('click', () => {
             scroller.scrollTo(document.querySelector('#page2'));
         });
+
+
+        document.addEventListener("DOMContentLoaded", function(event) { 
+            var scrollpos = localStorage.getItem('scrollpos');
+            scroller.scrollTo(0, scrollpos);
+        });
+
+        scroller.on("scroll", function(dets){
+            localStorage.setItem('scrollpos', dets.scroll.y+"px");
+        })
+
+
     </script>
 
 </body>
