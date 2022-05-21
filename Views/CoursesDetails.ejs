@@ -12,28 +12,51 @@
 <body>
     <div id="main">
         <div id="fullscreen-nav">
-            <h4><a href="#">Home</a></h4>
-            <h4><a href="/Courses">Courses</a></h4>
-            <h4><a href="/CampusAmbassador">Campus Ambassador</a></h4>
-            <h4><a href="/GirlsWhoCode">Girls Who Code</a></h4>
+            <h4><a href="/best-design-of-the-month">Best Designs Of The Month</a></h4>
+            <h4><a href="/design-inspiration">Design Inspirations</a></h4>
+            <h4><a href="/best-fonts">Best Fonts</a></h4>
+            <h4><a href="/challenges">Challenges</a></h4>
             <h5 id="cross"><i class="ri-close-fill"></i></h5>
         </div>
-        <div id="page1">
-            <div id="nav">
-                <div id="part1">
-                    <a href="#">Sheryians Coding School</a>
-                    <div id="line"></div>
-                    <h3>Academy</h3>
-                </div>
-                <div id="part2">
-                    <a href="#">Home</a>
-                    <a href="#">About</a>
-                    <a href="#">Pricing</a>
-                </div>
-                <div id="part3">
-                    <i id="icon" class="ri-menu-3-line"></i>
-                </div>
+        <div id="nav-main">
+            <div id="left-main-nav">
+                <img src="/images/Sheryians Logo.png" alt="">
+                <div id="nav-main-line"></div>
+                <a href="/">
+                    <h4>Sheryians Coding School</h4>
+                </a>
             </div>
+            <div id="right-main-nav">
+                <a href="/">
+                    <h4>Home</h4>
+                </a>
+                <a href="/Courses">
+                    <h4>Courses</h4>
+                </a>
+                <a href="/CampusAmbassador">
+                    <h4>Campus Ambassador</h4>
+                </a>
+                <a href="/GirlsWhoCode">
+                    <h4>Girls Who Code</h4>
+                </a>
+                <% if(user){ %>
+                    <a href="/classroom/<%=user._id%>">
+                        <% } else {%>
+                            <a href="/SignIn">
+                                <% } %>
+                                    <h4>
+                                        <% if(user){ %>
+                                            <%= user.name.split(' ')[0]%>
+                                        <% } %>
+                                <% if(!user){ %>
+                                Sign In
+                                <% } %>
+                            </h4>
+                        </a>
+                        <i id="menu-icon" class="ri-menu-3-line"></i>
+                    </div>
+                </div>
+        <div id="page1">
             <div id="main-page-center">
                 <div id="center-part1">
                     <div id="center-image">
@@ -142,10 +165,10 @@
             smooth: true
         });
 
-        document.querySelector("#icon").addEventListener("click", function () {
-            document.querySelector("#fullscreen-nav").style.left = 0;
+        document.querySelector("#menu-icon").addEventListener("click",function(){
+            document.querySelector("#fullscreen-nav").style.left = "0vw"
         })
-        document.querySelector("#cross").addEventListener("click", function () {
+        document.querySelector("#cross").addEventListener("click",function(){
             document.querySelector("#fullscreen-nav").style.left = "-100vw"
         })
     </script>

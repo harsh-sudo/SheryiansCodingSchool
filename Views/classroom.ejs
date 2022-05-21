@@ -12,37 +12,7 @@
 
 <body>
     <div id="main">
-        <div id="fullscreen-nav">
-            <h4><a href="/">Home</a></h4>
-            <h4><a href="/Courses">Courses</a></h4>
-            <h4><a href="/CampusAmbassador">Campus Ambassador</a></h4>
-            <h4><a href="/GirlsWhoCode">Girls Who Code</a></h4>
-            <h5 id="cross"><i class="ri-close-fill"></i></h5>
-        </div>
-        <div id="nav-main">
-            <div id="left-main-nav">
-                <img src="/images/Sheryians Logo.png" alt="Sher">
-                <div id="nav-main-line"></div>
-                <a href="">
-                    <h4><span>Sheryians</span> Coding School</h4>
-                </a>
-            </div>
-            <div id="right-main-nav">
-                <a href="/">
-                    <h4>Home</h4>
-                </a>
-                <a href="/Courses">
-                    <h4>Courses</h4>
-                </a>
-                <a href="/CampusAmbassador">
-                    <h4>Campus Ambassador</h4>
-                </a>
-                <a href="/GirlsWhoCode">
-                    <h4>Girls Who Code</h4>
-                </a>
-                <i id="menu-icon" class="ri-menu-3-line"></i>
-            </div>
-        </div>
+        <%- include('Partials/header.ejs') %> 
         <div id="center">
             <div id="left-panel">
                 <div id="user">
@@ -56,7 +26,7 @@
                 <div id="user-options">
                     <h3 id="op1"><i class="ri-user-6-line"></i>My Profile</h3>
                     <h3 id="op2"><i class="ri-information-line"></i>My Courses</h3>
-                    <h3 id="op3"><a href="#"><i class="ri-logout-box-line"></i>Log out</a></h3>
+                    <h3 id="op3"><a href="/signIn/bye"><i class="ri-logout-box-line"></i>Log out</a></h3>
                 </div>
             </div>
             <div id="right-panel">
@@ -83,7 +53,6 @@
                         <button id="savebtn">Save</button>
                         <button id="cancelbtn">Cancel</button>
                     </div>
-
                 </form>
                 <div id="right-page2">
                     <% let countf = 0 %> 
@@ -103,6 +72,10 @@
                     </div>
                    <% countf++; %>  
                     <% } %>
+                    <% if(course[0].enrolledCourses.length === 0) {%> 
+                        <div style="position: absolute; top:50%; left:50%; transform:translate(-50%,-50%)" id="no-enrolled">
+                            <h2 style="color:rgb(95, 94, 94)"> You've Not Enrolled in any Course </h2> </div>    
+                    <% } %> 
                     <!-- <div class="card" id="card2">
                         <div id="course2-img" class="course-img"><img src="" alt="course2-img"></div>
                         <div id="course2-datails" class="course-details">
