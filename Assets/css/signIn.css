@@ -136,7 +136,7 @@ form button {
     transition: all cubic-bezier(0.19, 1, 0.22, 1) 0.3s;
 }
 
-form button:focus{
+form button:active{
     transform: scale(0.95);
 }
 form h5 {
@@ -216,7 +216,7 @@ form h5 {
     font-size: 1.3vw;
     margin-right: 1.5vw;
 }
-#google_link:focus{
+#google_link:active{
     transform: scale(0.95);
 }
 #github_link{
@@ -234,7 +234,7 @@ form h5 {
     font-size: 1.4vw;
     margin-right: 1.5vw;
 }
-#github_link:focus{
+#github_link:active{
     transform: scale(0.95);
 }
 

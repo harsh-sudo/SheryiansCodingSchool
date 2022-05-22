@@ -58,7 +58,7 @@
                                 <% } else {%>
                                     <a href="/SignIn">
                                         <% } %>
-                                            <h4>
+                                            <h4 id="greeting_user">
                                                 <% if(request){ %>
                                                     <span id="changing-greeting-text">
                                                         <span id="greet-text">
@@ -76,8 +76,11 @@
                                         <% } %>
                                     </h4>
                                 </a>
-                                
+                               
                                 <i id="menu-icon" class="ri-menu-3-line"></i>
+                                <div id="popup_box"><h4>Sarthak Sharma</h4> 
+                                    <button><a href="/">Logout</a></button>
+                                </div>
                             </div>
                         </div>
                         <div id="attention-seeker">
@@ -296,6 +299,13 @@
         })
         document.querySelector("#cross").addEventListener("click", function () {
             document.querySelector("#fullscreen-nav").style.left = "-100vw"
+        })
+        console.log("Hey")
+        document.querySelector("#greeting_user").addEventListener("mouseenter",function(){
+            document.querySelector("#popup_box").style.display = "flex";
+        })
+        document.querySelector("#nav-main").addEventListener("mouseleave",function(){
+            document.querySelector("#popup_box").style.display = "none";
         })
     </script>
     <script src="/js/home.js"></script>
