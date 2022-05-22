@@ -1,0 +1,50 @@
+@font-face {
+    font-family: Gilroy;
+    src: url("/fonts/Gilroy-Medium.otf");
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    font-family: "Gilroy";
+}
+
+html,
+body {
+    height: 100%;
+    width: 100%;
+}
+
+body {
+    overflow-y: hidden;
+    overflow-x: hidden;
+}
+
+.course-student-data{
+    display: flex;
+    justify-content: space-around;
+    background-color: silver;
+    height: 5vh;
+    align-items: center;
+    margin: 2vh;
+}
+
+.course-student-data0{
+    display: flex;
+    justify-content: space-around;
+    background-color: silver;
+    height: 5vh;
+    align-items: center;
+    margin: 2vh;
+}
+
+.course-student-data2{
+    display: none;
+    justify-content: space-around;
+    background-color: silver;
+    height: 5vh;
+    align-items: center;
+    margin: 2vh;
+}

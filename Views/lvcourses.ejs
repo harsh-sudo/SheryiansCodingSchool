@@ -30,28 +30,7 @@
 
 <body>
     <div id="main">
-        <div id="fullscreen-nav">
-            <h4><a href="#">Home</a></h4>
-            <h4><a href="/Courses">Courses</a></h4>
-            <h4><a href="/CampusAmbassador">Campus Ambassador</a></h4>
-            <h4><a href="/GirlsWhoCode">Girls Who Code</a></h4>
-            <h5 id="cross"><i class="ri-close-fill"></i></h5>
-        </div>
-        <!-- This is Wrapper div -->
-        <div id="nav-main">
-            <div id="left-main-nav">
-                <img src="/images/Sheryians Logo.png" alt="">
-                <div id="nav-main-line"></div>
-                <a href=""><h4><span>Sheryians</span> Coding School</h4></a>
-            </div>
-            <div id="right-main-nav">
-                <a href=""><h4>Home</h4></a>
-                <a href="/Courses"><h4>Courses</h4></a>
-                <a href="/CampusAmbassador"><h4>Campus Ambassador</h4></a>
-                <a href="/GirlsWhoCode"><h4>Girls Who Code</h4></a>
-                <i id="menu-icon" class="ri-menu-3-line"></i>
-            </div>
-        </div>
+        <%- include('Partials/header.ejs') %>
         <div id="page1">
             <!-- This is page One for you "Akarsh" -->
             <img id="image1" src="/images/image1.png" alt="">
@@ -241,7 +220,7 @@
             </div>
         </div>
     </div>
-    <script src="/js/home.js"></script>
+    <!-- <script src="/js/home.js"></script> -->
     <script src="https://cdn.jsdelivr.net/npm/locomotive-scroll@3.5.4/dist/locomotive-scroll.min.js"></script>
 
     <script>
