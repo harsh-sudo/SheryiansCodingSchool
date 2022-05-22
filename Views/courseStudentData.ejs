@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%= title %> </title>
+    <link rel="stylesheet" href="/css/courseStudentData.css">
+</head>
+<body>
+    <form action="coursesStudentData" method="post">
+        <input type="text" name="course_name" id="courseName" placeholder="Course Name" required>
+        <input type="text" name="course_id" id="courseName" placeholder="Course_ID" required><br>
+        <input type="submit" value="Find Course">
+    </form>
+    <div id="filter-option">
+        <button onclick="document.querySelectorAll('.course-student-data').forEach((dets)=>{dets.style.display = 'none'}) 
+            document.querySelectorAll('.course-student-data2').forEach((dets)=>{dets.style.display = 'flex'})" id = "Sorta-z">Sort A-Z</button>
+        <button onclick="document.querySelectorAll('.course-student-data').forEach((dets)=>{dets.style.display = 'flex'}) 
+            document.querySelectorAll('.course-student-data2').forEach((dets)=>{dets.style.display = 'none'})" id = "pending-paid">Sort Fee Status</button>
+    </div>                                                              
+    <% if(userdata.length>0){ %> 
+        <ul>
+            <li class="course-student-data0" style="background-color: rgb(32, 32, 32) ; color:white;">
+                <div id="course-student-data-name">
+                    <h4>Student Name</h4>
+                </div>
+                <div id="course-student-data-courseName">
+                    <h4>Course Name</h4>
+                </div>
+                <div id="course-student-data-feeStatus">
+                    <h4>Fee Status</h4>
+                </div>
+            </li>
+            <% for(let i of userdata){ %> 
+                <% for(let j of i.feeStatus){ %> 
+                    <% if(j.course_id.toString() === course_id.toString()){ %>
+                            <li class="course-student-data2">
+                                <div id="course-student-data-name">
+                                    <h4><%= i.name %></h4>
+                                </div>
+                                <div id="course-student-data-courseName">
+                                    <h4><%= course_name %></h4>
+                                </div>
+                                <div id="course-student-data-feeStatus">
+                                    <% if(j.status === "pending"){ %> 
+                                    <h4 style="color: red"><%= j.status %></h4>
+                                    <% }else{ %>
+                                    <h4 style="color: green"><%= j.status %></h4>
+                                    <% } %>
+                                </div>
+                            </li>
+                    <% } %> 
+                <% } %> 
+            <% } %> 
+
+            <% for(let i of userdata){ %> 
+                <% for(let j of i.feeStatus){ %> 
+                    <% if(j.course_id.toString() === course_id.toString()){ %>
+                        <% if(j.status === "pending") {%> 
+                            <li class="course-student-data">
+                                <div id="course-student-data-name">
+                                    <h4><%= i.name %></h4>
+                                </div>
+                                <div id="course-student-data-courseName">
+                                    <h4><%= course_name %></h4>
+                                </div>
+                                <div id="course-student-data-feeStatus">
+                                    <h4 style="color:red"><%= j.status %></h4>
+                                </div>
+                            </li>
+                        <% }%>
+                    <% } %> 
+                <% } %> 
+            <% } %> 
+
+            <% for(let i of userdata){ %> 
+                <% for(let j of i.feeStatus){ %> 
+                    <% if(j.course_id.toString() === course_id.toString()){ %>
+                        <% if(j.status === "paid") { %> 
+                            <li class="course-student-data">
+                                <div id="course-student-data-name">
+                                    <h4><%= i.name %></h4>
+                                </div>
+                                <div id="course-student-data-courseName">
+                                    <h4><%= course_name %></h4>
+                                </div>
+                                <div id="course-student-data-feeStatus">
+                                    <h4 style="color:green"><%= j.status %></h4>
+                                </div>
+                            </li>
+                        <% } %>
+                    <% } %> 
+                <% } %> 
+            <% } %> 
+        </ul>
+    <% } %> 
+</body>
+</html>
