@@ -4,13 +4,14 @@
 <head>
     <style>
         #nav-main {
-            position: relative;
+            position: absolute;
+            z-index: 100;
             padding: 0 2.5vw;
-            background-color: transparent;
+            background-color: white;
             /* border-bottom: 2px solid #444; */
             width: 100vw;
             margin-bottom: 0vh;
-            height: 10vh;
+            height: 8vh;
             display: flex;
             justify-content: space-between;
         }
@@ -138,13 +139,13 @@
             display: inline-block;
             transform: translateY(0vh);
             width: 2.8vw;
-            transition: all cubic-bezier(0.19, 1, 0.22, 1) 1s;
+            animation: a
         }
 
         @media(max-width: 600px) {
 
             #nav-main {
-                position: absolute;
+                position: relative;
                 padding: 0 2.5vw;
                 width: 100vw;
                 margin-bottom: 3vh;
@@ -228,6 +229,27 @@
                 font-weight: 100;
             }
         }
+
+        @keyframes animation {
+            0% {
+                transform: translateY(-2.8vh);
+            }
+            20% {
+                transform: translateY(-5.6vh);
+            }
+            40% {
+                transform: translateY(-8.4vh);
+            }
+            60% {
+                transform: translateY(-11.2vh);
+            }
+            80% {
+                transform: translateY(-14vh);
+            }
+            100% {
+                transform: translateY(-16.8vh);
+            }
+        }   
     </style>
 </head>
 
@@ -235,9 +257,30 @@
     <div id="main">
         <div id="fullscreen-nav">
             <h4><a href="/">Home</a></h4>
-            <h4><a href="/Courses">Courses</a></h4>
-            <h4><a href="/CampusAmbassador">Campus Ambassador</a></h4>
+            <h4><a href="/courses">Courses</a></h4>
             <h4><a href="/GirlsWhoCode">Girls Who Code</a></h4>
+            <h4><a href="/campusAmbassador">Campus Ambassador</a></h4>
+            <% if(typeof user != 'undefined' ){ %>
+                <h4><a href="/classroom/<%= user._id %>">
+                    <% } else { %>
+                        <h4><a href="/SignIn">
+                            <% } %>
+                                <% if(typeof user != 'undefined'){ %>
+                                        <span id="changing-greeting-text">
+                                            <span id="greet-text">
+                                                <h4>Hi</h4>
+                                                <h4>Hey</h4>
+                                                <h4>Oh</h4>
+                                                <h4>Wow</h4>
+                                                <h4>Yo</h4>
+                                            </span>
+                                        </span>,
+                                        <%= user.name.split(' ')[0]%>
+                                        <% } %>
+                                <% if(typeof user === 'undefined'){ %>
+                                    Sign In
+                            <% } %>
+                        </a></h4> 
             <h5 id="cross"><i class="ri-close-fill"></i></h5>
         </div>
         <div id="nav-main">
@@ -288,10 +331,12 @@
                             <i id="menu-icon" class="ri-menu-3-line"></i>
                         </div>
                     </div>
-                    <script>                          
-                        var greet_text = document.querySelector(' #greet-text'); let counter = 0; function greetText() {
-                            let
-                            counter2 = 0; let s = setInterval(() => {
+                    <!-- <script>                          
+                        var greet_text = document.querySelectorAll('#greet-text'); 
+                        let counter = 0;
+                        function greetText() {
+                            let counter2 = 0;
+                             let s = setInterval(() => {
                                 if (counter2 === 3) {
                                     clearInterval(s)
                                     counter2--;
@@ -299,7 +344,9 @@
                                 }
                                 counter2++;
                                 counter -= 2.8;
-                                greet_text.style.transform = `translateY(${counter}vh)`
+                                greet_text.forEach((h)=>{
+                                    h.style.transform = `translateY(${counter}vh)`
+                                })
                                 console.log("hi")
                             }, 2000);
                         }
@@ -313,9 +360,11 @@
                                 }
                                 counter2++;
                                 counter += 2.8;
-                                greet_text.style.transform = `translateY(${counter}vh)`
-                                console.log("hi")
+                                greet_text.forEach((h)=>{
+                                    h.style.transform = `translateY(${counter}vh)`
+                                })
+                                console.log("bye")
                             }, 2000);
                         }
                         greetText();
-                    </script>
+                    </script> -->
