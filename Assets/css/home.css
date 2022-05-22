@@ -17,12 +17,13 @@
     box-sizing: border-box;
 }
 
-html,body {
+html,
+body {
     height: 100%;
     width: 100%;
 }
 
-#main{
+#main {
     overflow-x: hidden;
     scroll-behavior: smooth;
 }
@@ -247,13 +248,13 @@ html,body {
     outline: none;
 }
 
-#attention-seeker-button1 a{
-    color:white;
+#attention-seeker-button1 a {
+    color: white;
     text-decoration: none;
 }
 
-#attention-seeker-button2 a{
-    color:#222;
+#attention-seeker-button2 a {
+    color: #222;
     text-decoration: none;
 }
 
@@ -343,13 +344,13 @@ html,body {
         text-align: center;
         margin-top: -24px;
     }
-    
+
     #attention-seeker-desc h4 {
         font-size: 12px;
         font-weight: 550;
-    
+
     }
-    
+
     #attention-seeker-buttons {
         margin-top: 4vh;
         height: 5vh;
@@ -359,7 +360,7 @@ html,body {
         align-items: center;
         z-index: 10;
     }
-    
+
     #attention-seeker-button1 {
         height: 30px;
         width: 20vw;
@@ -373,14 +374,14 @@ html,body {
         font-size: 8px;
         cursor: pointer;
     }
-    
+
     #attention-seeker-button1:hover {
         background-color: #fff;
         color: rgb(23, 135, 255);
         font-weight: 600;
         border: 2px solid rgb(23, 135, 255);
     }
-    
+
     #attention-seeker-button2 {
         height: 30px;
         width: 20vw;
@@ -393,13 +394,13 @@ html,body {
         cursor: pointer;
         font-size: 7px;
     }
-    
+
     #attention-seeker-button2 h3 {
         align-items: center;
         display: flex;
         align-items: center;
     }
-    
+
     #attention-seeker-button2 h3 i {
         font-size: 12px;
         font-weight: 100;
@@ -407,6 +408,7 @@ html,body {
         transition: all cubic-bezier(0.19, 1, 0.22, 1) 1s;
         color: black;
     }
+
     #background-3d-design {
         position: relative;
         top: 26%;
@@ -416,7 +418,7 @@ html,body {
         width: 100vw;
         transition: all cubic-bezier(0.19, 1, 0.22, 1) 2s;
     }
-    
+
     #mousemove {
         position: relative;
         top: 50%;
@@ -426,16 +428,16 @@ html,body {
         width: 90vw;
         transition: all cubic-bezier(0.19, 1, 0.22, 1) 2s;
     }
-    
+
     #background-3d-design img:nth-child(1) {
         position: absolute;
         top: 80%;
         left: 50%;
-        transform: translate(-50%,0);
+        transform: translate(-50%, 0);
         width: 80vw;
         transition: all cubic-bezier(0.19, 1, 0.22, 1) 2s;
     }
-    
+
     #background-3d-design #mousemove img:nth-child(1) {
         position: absolute;
         top: 70%;
@@ -446,19 +448,19 @@ html,body {
         animation: breathing-reverse 3s infinite;
         animation-direction: alternate-reverse;
     }
-    
+
     #background-3d-design #mousemove img:nth-child(2) {
         position: absolute;
-        top: 28%;       
+        top: 28%;
         z-index: 10;
         left: 50%;
-        transform: translate(-50%,0);
+        transform: translate(-50%, 0);
         width: 85vw;
         transition: all cubic-bezier(0.19, 1, 0.22, 1) 2s;
         /* animation: breathing 3s infinite;
         animation-direction: alternate-reverse; */
     }
-    
+
     #background-3d-design #mousemove img:nth-child(3) {
         position: absolute;
         top: 45%;
@@ -469,7 +471,7 @@ html,body {
         animation: breathing 2.5s infinite;
         animation-direction: alternate-reverse;
     }
-    
+
     #background-3d-design #mousemove img:nth-child(4) {
         position: absolute;
         top: 33%;
@@ -479,7 +481,7 @@ html,body {
         animation: breathing-reverse 2.8s infinite;
         animation-direction: alternate-reverse;
     }
-    
+
     #background-3d-design #mousemove img:nth-child(5) {
         position: absolute;
         top: 13%;
@@ -489,17 +491,17 @@ html,body {
         animation: breathing-reverse 3.2s infinite;
         animation-direction: alternate-reverse;
     }
-    
+
     #background-3d-design #mousemove img:nth-child(6) {
         position: absolute;
         top: 16%;
         left: 52%;
-        width: 18vw;   
+        width: 18vw;
         transition: all cubic-bezier(0.19, 1, 0.22, 1) 2s;
         animation: breathing 2s infinite;
         animation-direction: alternate-reverse;
     }
-    
+
     #background-3d-circle {
         position: absolute;
         top: 50%;
@@ -511,7 +513,7 @@ html,body {
         border-radius: 50%;
         background-color: #d3fff7;
     }
-    
+
 }
 
 
