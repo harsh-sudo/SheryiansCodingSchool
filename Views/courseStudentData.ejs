@@ -8,10 +8,12 @@
     <link rel="stylesheet" href="/css/courseStudentData.css">
 </head>
 <body>
+   <div id="main">
     <form action="coursesStudentData" method="post">
         <input type="text" name="course_name" id="courseName" placeholder="Course Name" required>
         <input type="text" name="course_id" id="courseName" placeholder="Course_ID" required><br>
-        <input type="submit" value="Find Course">
+        <!-- <input type="submit" value="Find Course"> -->
+        <button type="submit">Find Course</button>
     </form>
     <div id="filter-option">
         <button onclick="document.querySelectorAll('.course-student-data').forEach((dets)=>{dets.style.display = 'none'}) 
@@ -44,11 +46,12 @@
                                 </div>
                                 <div id="course-student-data-feeStatus">
                                     <% if(j.status === "pending"){ %> 
-                                    <h4 style="color: red"><%= j.status %></h4>
+                                    <h4 style="color: #ff2020"><%= j.status %></h4>
                                     <% }else{ %>
-                                    <h4 style="color: green"><%= j.status %></h4>
+                                    <h4 style="color: #1ec81e"><%= j.status %></h4>
                                     <% } %>
                                 </div>
+                            </li>
                             </li>
                     <% } %> 
                 <% } %> 
@@ -95,5 +98,6 @@
             <% } %> 
         </ul>
     <% } %> 
+   </div>
 </body>
 </html>
