@@ -22,16 +22,79 @@ body {
     overflow-x: hidden;
 }
 
-.course-student-data{
+#main {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    text-align: center;
+    background-color: rgb(255, 255, 255);
+}
+
+form {
+
+    margin-top: -45vh;
+}
+
+form input {
+    padding: 1.5vh 1.5vw;
+    width: 17vw;
+    border: none;
+    background-color: rgba(0, 0, 0, 0);
+    border-radius: 50px;
+    border: 2px solid aqua;
+    margin: 2vh 2vw;
+}
+
+form input:focus {
+    outline: none;
+}
+form button{
+    border-radius: 50px;
+    border: none;
+    padding: 1.5vh 2vw;
+    cursor: pointer;
+    background:linear-gradient(to right,rgb(255, 56, 56),rgb(255, 125, 125));
+    color: white;
+    transition: all cubic-bezier(0.19, 1, 0.22, 1) 1s;
+}
+form button:active{
+    transform: scale(0.95);
+}
+#filter-option{
+    width: 50vw;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    height: 10vh;
+    margin-top: 3vh;
+}
+#filter-option button{
+    cursor: pointer;
+    padding: 1.5vh 2.5vw;
+    background-color: rgb(32, 221, 255);
+    color: white;
+    font-weight: 600;
+    border: none;
+    transition: all cubic-bezier(0.19, 1, 0.22, 1) 1s;
+    border-radius: 50px;
+}
+#filter-option button:active{
+    transform: scale(0.95);
+}
+.course-student-data {
     display: flex;
     justify-content: space-around;
     background-color: silver;
     height: 5vh;
+    width: 70vw;
     align-items: center;
     margin: 2vh;
 }
 
-.course-student-data0{
+.course-student-data0 {
     display: flex;
     justify-content: space-around;
     background-color: silver;
@@ -45,6 +108,18 @@ body {
     justify-content: space-around;
     background-color: silver;
     height: 5vh;
+    width: 70vw;git 
+    align-items: center;
+    margin: 2vh;
+}
+}
+
+.course-student-data{
+    display: none;
+    justify-content: space-around;
+    background-color: silver;
+    height: 5vh;
+    width: 70vw;
     align-items: center;
     margin: 2vh;
 }
