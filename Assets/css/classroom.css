@@ -145,6 +145,8 @@ form {
     align-items: center;
     position: relative;
     z-index: 10;
+    display: none;
+    opacity: 0;
     flex-wrap: wrap;
     justify-content: flex-start;
     padding: 1vh 1vw;
@@ -354,7 +356,7 @@ form h1 span{
     position: absolute;
     overflow-x: hidden;
     overflow-y: auto;
-    opacity: 0;
+    opacity: 1;
     background-color: hsl(0, 0%, 99%);
     margin-left: 1vw;
     padding: 5vh 2vw 5vh 3vw;

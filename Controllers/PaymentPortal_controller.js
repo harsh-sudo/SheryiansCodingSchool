@@ -1,8 +1,9 @@
 //razorpay
+require('dotenv').config();
 const Razorpay = require('razorpay'); // import razorpay
 const razorpayInstance = new Razorpay({
-    key_id: 'rzp_test_HysbsaSqSaFLE1',
-    key_secret: 'JvVplKEZ47gl2iWh7NqbblCc'
+    key_id: process.env.RAZORPAY_KEY_ID,
+    key_secret: process.env.RAZORPAY_KEY_SECRET
 });
 const courses = require('../Models/Courses');
 
