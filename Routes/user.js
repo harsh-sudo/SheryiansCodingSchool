@@ -5,6 +5,8 @@ const passport = require('passport');
 const userController = require('../controllers/user_controller');
 
 const cookieParser = require('cookie-parser');
+const bodyParser = require('body-parser'); // import body parser
+
 router.use(express.urlencoded({extended:true}));
 router.use(cookieParser()); 
 
