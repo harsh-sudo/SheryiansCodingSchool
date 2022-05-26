@@ -70,7 +70,7 @@ html {
 
 #left-panel #user {
     width: 100%;
-    height: 33%;
+    height: 40%;
     display: flex;
     align-items: center;
     border-radius: 8px 0 0 0;
@@ -84,6 +84,12 @@ html {
     height: 8vw;
     border: 1px solid #333;
     border-radius: 50%;
+}
+
+#left-panel #user #user-upload-profile-dp{
+    /* position: absolute; */
+    opacity: 1;
+    display: inline-block;
 }
 
 #left-panel #user #user-dets h2 {

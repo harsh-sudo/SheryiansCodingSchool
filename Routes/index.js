@@ -24,6 +24,8 @@ router.get('/auth/github/callback',passport.authenticate('github',{failureRedire
     delete req.session.returnTo;
 });
 
+router.post('/UploadProfile_dp',passport.checkAuthentication,homeController.UploadProfile_dp); // get home with authentication
+
 router.use(passport.setAuthenticatedUser);
 router.use('/signin', require('./user')); // use user routes
 router.use('/signOut', require('./user')); // use user routes
