@@ -14,3 +14,23 @@ module.exports.getClassroom = (req, res)=>{
         });
     });
 }
+
+module.exports.updateProfile = (req, res)=>{
+    user.findOne({_id:req.user.id},(err, user)=>{
+        if(err){
+            console.log(err);
+            return;
+        }
+        let name = req.body.firstName+' '+req.body.lastName;
+        user.name = name;
+        user.email = req.body.email;
+        user.phoneNumber = req.body.phoneNumber;
+        user.save((err)=>{
+            if(err){
+                console.log(err);
+                return;
+            }
+            return res.redirect('back');
+        });
+    });
+}

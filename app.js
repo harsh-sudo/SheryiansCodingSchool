@@ -8,6 +8,19 @@ const MongoStore = require('connect-mongo');
 const app = express(); // create express app
 const path = require('path'); // import path
 const bodyParser = require('body-parser'); // import body parser
+const nodemailer = require('nodemailer');
+const {google} = require('googleapis');
+require('dotenv').config();
+
+const CLIENT_ID = process.env.CLIENT_ID;
+const CLIENT_SECRET = process.env.CLIENT_SECRET;
+const REDIRECT_URI = process.env.REDIRECT_URI; ;
+const REFRESH_TOKEN = process.env.REFRESH_TOKEN;
+const oauth2Client = new google.auth.OAuth2(CLIENT_ID, CLIENT_SECRET, REDIRECT_URI);
+oauth2Client.setCredentials({
+    refresh_token: REFRESH_TOKEN
+});
+
 
 //razorPay
 const Razorpay = require('razorpay'); 
@@ -17,10 +30,10 @@ const Razorpay = require('razorpay');
 const razorpayInstance = new Razorpay({
   
     // Replace with your key_id
-    key_id: 'rzp_test_HysbsaSqSaFLE1',
+    key_id:process.env.RAZORPAY_KEY_ID,
   
     // Replace with your key_secret
-    key_secret: 'JvVplKEZ47gl2iWh7NqbblCc'
+    key_secret: process.env.RAZORPAY_KEY_SECRET
 });
 
 const port = process.env.PORT || 7000; // set port
@@ -64,7 +77,7 @@ app.post("/api/payment/verify/:id",(req,res)=>{
     let body=req.body.response.razorpay_order_id + "|" + req.body.response.razorpay_payment_id;
    
      var crypto = require("crypto");
-     var expectedSignature = crypto.createHmac('sha256', 'JvVplKEZ47gl2iWh7NqbblCc')
+     var expectedSignature = crypto.createHmac('sha256',process.env.RAZORPAY_KEY_SECRET)
                                     .update(body.toString())
                                     .digest('hex');
                                     console.log("sig received " ,req.body.response.razorpay_signature);
@@ -80,6 +93,40 @@ app.post("/api/payment/verify/:id",(req,res)=>{
                 for(let i of user.feeStatus){
                     if(i.course_id === req.params.id){
                         i.status = "paid";
+                        async function sendMail(){
+                            try{
+                                const accesstoken = await oauth2Client.getAccessToken(); 
+                                const transport = nodemailer.createTransport({
+                                    service: 'gmail',
+                                    auth: {
+                                        type: 'OAuth2',
+                                        user: 'yoharsh113@gmail.com',
+                                        clientId: CLIENT_ID,
+                                        clientSecret: CLIENT_SECRET,
+                                        refreshToken: REFRESH_TOKEN,
+                                        accessToken: accesstoken
+                                    }
+                                });
+                        
+                                const mailOptions = {
+                                    from: 'sheryianscodingschool@gmail.com',
+                                    to: user.email,
+                                    subject: 'HEHEHE',
+                                    text: 'aab mat chuda aab toh chud gyi'
+                                };
+                        
+                                const result = await transport.sendMail(mailOptions);
+                                return result
+                            }
+                            catch(err){
+                                return err
+                            }
+                        }
+                        sendMail().then(()=>{
+                            console.log('mail sent to :'+user.email);
+                        }).catch((err)=>{
+                            console.log(err);
+                        });
                     }
                 }
             }

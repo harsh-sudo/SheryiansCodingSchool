@@ -19,8 +19,13 @@
                     <div id="user-image">
                         <img src="" alt="">
                     </div>
+                        <form id = "user-upload-profile-dp" action="/UploadProfile_dp" method="post" enctype="multipart/form-data">
+                            <h1>harsh</h1>
+                            <input type="file" name="dp" id="edit-profile-dp" placeholder="Edit" required>
+                            <input type="submit" value="Update Profile">
+                        </form>
                     <div id="user-dets">
-                        <h2 id="user-name">Hey Harshu</h2>
+                        <h2 id="user-name"><%= user.name %> </h2>
                     </div>
                 </div>
                 <div id="user-options">
@@ -30,51 +35,58 @@
                 </div>
             </div>
             <div id="right-panel">
-                <form id="faram" action="">
-                    <h1>Welcome, <span>Sarthak</span>.</h1>
+                <form id="faram" action="/classroom/<%=user._id%>/updateProfile" method="post">
+                    <h1>Welcome, <span><%= user.name.split(' ')[0].toUpperCase()%></span>.</h1>
                     <h3>Account Details</h3>
                     <div id="firstName">
-                        <h5 id="firstnameh5">First Name</h5>
-                        <input id="firstNameInput" type="text">
+                        <input name="firstName" id="firstNameInput" type="text" placeholder="first Name" value="<%= user.name.split(' ')[0]%>">
                     </div>
                     <div id="lastName">
-                        <h5 id="lastnameh5">Last Name</h5>
-                        <input id="lastNameInput" type="text">
+                        <input name="lastName" id="lastNameInput" type="text" value="<%= user.name.split(' ')[1] %>">
                     </div>
                     <div id="email">
-                        <h5 id="emailh5">Email</h5>
-                        <input id="emailInput" type="email">
+                        <input name="email" id="emailInput" type="email" value="<%= user.email %> ">
                     </div>
                     <div id="phone">
-                        <h5 id="phoneh5">Phone</h5>
-                        <input id="phoneInput" type="text">
+                        <input name = "phoneNumber" id="phoneInput" type="text" value="<%= user.phoneNumber %>"  placeholder="Contact No. (WhatsApp)">
                     </div>
                     <div id="btns">
-                        <button id="savebtn">Save</button>
+                        <button type="submit" id="savebtn">Save</button>
                         <button id="cancelbtn">Cancel</button>
                     </div>
                 </form>
+                <script src="https://cdnjs.cloudflare.com/ajax/libs/datejs/1.0/date.min.js" integrity="sha512-/n/dTQBO8lHzqqgAQvy0ukBQ0qLmGzxKhn8xKrz4cn7XJkZzy+fAtzjnOQd5w55h4k1kUC+8oIe6WmrGUYwODA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
                 <div id="right-page2">
                     <% let countf = 0 %> 
+                    <% let countc = 0 %>
                     <% for(let i of course[0].enrolledCourses){ %> 
                     <div class="card" id="card1">
                         <div id="course1-img" class="course-img"><img src="<%= i.image %>" alt="course1-img"></div>
                         <div id="course1-datails" class="course-details">
                             <h3 class="course-name" id="course1-name"><%= i.course_name %></h3>
-                            <p class="course-para" id="course1-para"><%= i.description %></p>
+                            <p class="course-para" id="course1-para"><%= i.subHeading%></p>
+                            <p class="course-para" id="startOn<%= countc %>">
+                                <script>
+                                    var mydate = new Date("<%= i.startOn %>");
+                                    var str = mydate.toString("MMMM dS");
+                                    var starton = document.querySelector('#startOn<%=countc%>');
+                                    starton.innerHTML = "Start On " + str;
+                                </script>
+                            </p>
                             <% if(user.feeStatus[countf].status === "pending") {%> 
-                            <button onclick="window.location.href='/paymentPortal/<%= i._id%>'" class="fee-btn">Pay fees</button>
-                            <button id="cancelenroll" class="fee-btn" style="background-color:rgb(254, 90, 90);  padding: 1.4vh 1vw;" onclick="window.location.href='/Courses/enroll/CancelEnrollment/<%= i._id %>'">Cancel Enrollment</button>
-                            <% } else{ %>
-                            <button class="fee-btn" style="background-color: rgb(76, 199, 76); cursor: not-allowed;" disabled>Paid</button>
-                            <% } %> 
-                        </div>
-                    </div>
-                   <% countf++; %>  
-                    <% } %>
-                    <% if(course[0].enrolledCourses.length === 0) {%> 
+                                <button onclick="window.location.href='/paymentPortal/<%= i._id%>'" class="fee-btn">Pay fees</button>
+                                <button id="cancelenroll" class="fee-btn" style="background-color:rgb(254, 90, 90);  padding: 1.4vh 1vw;" onclick="window.location.href='/Courses/enroll/CancelEnrollment/<%= i._id %>'">Cancel Enrollment</button>
+                                <% } else{ %>
+                                    <button class="fee-btn" style="background-color: rgb(76, 199, 76); cursor: not-allowed;" disabled>Paid</button>
+                                    <% } %> 
+                                </div>
+                            </div>
+                            <% countf++; %>  
+                            <% countc++; %> 
+                        <% } %>
+                            <% if(course[0].enrolledCourses.length === 0) {%> 
                         <div style="position: absolute; top:50%; left:50%; transform:translate(-50%,-50%)" id="no-enrolled">
-                            <h2 style="color:rgb(95, 94, 94)"> You've Not Enrolled in any Course </h2> </div>    
+                            <h2 style="color:rgb(95, 94, 94)"> You've Not Enrolled in any Course </h2></div>    
                     <% } %> 
                     <!-- <div class="card" id="card2">
                         <div id="course2-img" class="course-img"><img src="" alt="course2-img"></div>
@@ -171,8 +183,10 @@
         // })
         document.querySelector("#op1").addEventListener("click",function(){
             document.querySelector("#right-page2").style.opacity = 0;
+            document.querySelector("#right-page2").style.display = 'none';
             document.querySelector("#right-page2").style.zIndex = 9;
             document.querySelector("#faram").style.opacity = 1;
+            document.querySelector("#faram").style.display = 'flex';
             document.querySelector("#faram").style.zIndex = 10;
             document.querySelector("#op1").style.backgroundColor = "white";
         })
@@ -180,8 +194,10 @@
         
          document.querySelector("#op2").addEventListener("click",function(){
             document.querySelector("#right-page2").style.opacity = 1;
+            document.querySelector("#right-page2").style.display = 'initial';
             document.querySelector("#right-page2").style.zIndex = 10;
             document.querySelector("#faram").style.opacity = 0;
+            document.querySelector("#faram").style.display = 'none';
             document.querySelector("#faram").style.zIndex = 9;
         })
 

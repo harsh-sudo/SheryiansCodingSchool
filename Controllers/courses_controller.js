@@ -1,6 +1,21 @@
 const db = require('../config/mongoose');
 const user = require('../models/user');
 const Course = require('../Models/Courses');
+const nodemailer = require('nodemailer');
+const {google} = require('googleapis');
+
+const CLIENT_ID = '508920448317-jl3nrjpps3b4hnna0oe47d65r4c2ffvl.apps.googleusercontent.com';
+const CLIENT_SECRET = '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';
+const REDIRECT_URI = 'https://developers.google.com/oauthplayground';
+const REFRESH_TOKEN = '1//04ffI_XWsRK-cCgYIARAAGAQSNwF-L9Irmo43tJFEMqE9tE86EiMQVFjTOpN6zxLw84nMYKk0dY217gNUsW3lq8U9G3VkYfk81co'
+const oauth2Client = new google.auth.OAuth2(CLIENT_ID, CLIENT_SECRET, REDIRECT_URI);
+oauth2Client.setCredentials({
+    refresh_token: REFRESH_TOKEN
+});
+
+
+
+
 
 module.exports.addCourse = async function(req, res){
     let course = new Course();
@@ -225,7 +240,41 @@ module.exports.enrollCourse = function(req, res) {
                     console.log(err);
                     return;
                 }
-                return res.redirect('back');
+                async function sendMail(){
+                    try{
+                        const accesstoken = await oauth2Client.getAccessToken(); 
+                        const transport = nodemailer.createTransport({
+                            service: 'gmail',
+                            auth: {
+                                type: 'OAuth2',
+                                user: 'yoharsh113@gmail.com',
+                                clientId: CLIENT_ID,
+                                clientSecret: CLIENT_SECRET,
+                                refreshToken: REFRESH_TOKEN,
+                                accessToken: accesstoken
+                            }
+                        });
+                
+                        const mailOptions = {
+                            from: 'sheryianscodingschool@gmail.com',
+                            to: user.email,
+                            subject: 'HEHEHE',
+                            text: 'Maa chuda aab'
+                        };
+                
+                        const result = await transport.sendMail(mailOptions);
+                        return result
+                    }
+                    catch(err){
+                        return err
+                    }
+                }
+                sendMail().then(()=>{
+                    console.log('mail sent to :'+user.email);
+                }).catch((err)=>{
+                    console.log(err);
+                });
+                return res.redirect('/classroom/'+req.user._id);
             });
         }
     });
@@ -245,6 +294,40 @@ module.exports.cancelEnrollment = function(req, res) {
             console.log(err);
             return;
         }
+        async function sendMail(){
+            try{
+                const accesstoken = await oauth2Client.getAccessToken(); 
+                const transport = nodemailer.createTransport({
+                    service: 'gmail',
+                    auth: {
+                        type: 'OAuth2',
+                        user: 'yoharsh113@gmail.com',
+                        clientId: CLIENT_ID,
+                        clientSecret: CLIENT_SECRET,
+                        refreshToken: REFRESH_TOKEN,
+                        accessToken: accesstoken
+                    }
+                });
+        
+                const mailOptions = {
+                    from: 'sheryianscodingschool@gmail.com',
+                    to: user.email,
+                    subject: 'HEHEHE',
+                    text: 'Maa chuda aab'
+                };
+        
+                const result = await transport.sendMail(mailOptions);
+                return result
+            }
+            catch(err){
+                return err
+            }
+        }
+        sendMail().then(()=>{
+            console.log('mail sent to :'+user.email);
+        }).catch((err)=>{
+            console.log(err);
+        });
         return res.redirect('back');
     });
 }
