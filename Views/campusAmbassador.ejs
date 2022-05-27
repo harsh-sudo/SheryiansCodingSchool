@@ -29,56 +29,57 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/locomotive-scroll@3.5.4/dist/locomotive-scroll.css">
     <link rel="stylesheet" href="/css/campusAmbassador.css">
 </head>
+
 <body>
     <div id="main">
         <%- include('Partials/header.ejs') %>
-        <div id="page1">
-            <!-- Aap page1 bana do product design vala -->
-            <h1>Campus Ambassadors.</h1>
-            <h2>of Sheryians Coding School.</h2>
-            <div id="capsule">
-                <img id="persn" src="/images/persn.png" alt="">
-                <img src="/images/gif1-removebg-preview.png" alt="" id="png1">
-                <img src="/images/gif2-removebg-preview.png" alt="" id="png2">
-                <img src="/images/gif3-removebg-preview.png" alt="" id="png3">
-                <img src="/images/gif4-removebg-preview.png" alt="" id="png4">
-                <img src="/images/gif5-removebg-preview.png" alt="" id="png5">
+            <div id="page1">
+                <div id="heading">
+                    <h1>Campus Ambassador</h1>
+                    <h3>of<br><span><a href="#">{ Sheryians Coding School }</a></span></h3>
+                </div>
+                <div id="search-bar">
+                    <input type="text" placeholder="Search...">
+                    <i class="ri-search-2-line"></i>
+                </div>
+                <div id="heroes-div"></div>
             </div>
-        </div>
-        <div id="page2">
-            <!-- i'll code page2 (Tell us how..) -->
-            <h1 id="page2text">Tell us <br>how you <br>really feel.</h1>
-            <div id="page2div">
-                <h3>People tell us how they really feel <br>
-                    join our app to see storiesand support others.
-                </h3>
-                <a href="#"><button id="page2button">Join Now</button></a>
-            </div>
-        </div>
-        <div id="page3">
-            <!-- Ye bhi mai bna dunga stories vala part -->
-            <div id="page3part1">
-                <h1 id="page3part1heading">St<span><img src="/images/Group 14.png" alt=""></span>ries</h1>
-                <div id="page3part1div">
-                    <h3>Lorem ipsum dolor sit, amet consectetur adipisicing. <br>
-                        Lorem ipsum dolor sit amet lofsa consectetur. <br>
-                        Lorem, ipsum dolor sit amet consectetur adipisicing. <br>
-                        Lorem ipsum dolor sit amet.
+            <div id="page2">
+                <!-- i'll code page2 (Tell us how..) -->
+                <h1 id="page2text">Tell us <br>how you <br>really feel.</h1>
+                <div id="page2div">
+                    <h3>People tell us how they really feel <br>
+                        join our app to see storiesand support others.
                     </h3>
+                    <a href="#"><button id="page2button">Join Now</button></a>
                     <button id="page3part1button" onclick="">How are you really?</button>
                 </div>
             </div>
-            <div id="page3part2">
-                <% let counter = 1 %> 
-                <% for(let i of CampusAmbassadors){ %> 
-                <div class="card" id="card<%=counter%>">
-                    <h1><%=i.name%></h1>
-                    <img src="<%= i.image %>"
-                        alt="" id="img<%=counter%>">
+            <div id="page3">
+                <!-- Ye bhi mai bna dunga stories vala part -->
+                <div id="page3part1">
+                    <h1 id="page3part1heading">St<span><img src="/images/Group 14.png" alt=""></span>ries</h1>
+                    <div id="page3part1div">
+                        <h3>Lorem ipsum dolor sit, amet consectetur adipisicing. <br>
+                            Lorem ipsum dolor sit amet lofsa consectetur. <br>
+                            Lorem, ipsum dolor sit amet consectetur adipisicing. <br>
+                            Lorem ipsum dolor sit amet.
+                        </h3>
+                        <button id="page3part1button">How are you really?</button>
+                    </div>
                 </div>
-                <% counter++ %> 
-                <% } %> 
-                <!-- <div class="card" id="card2">
+                <div id="page3part2">
+                    <% let counter=1 %>
+                        <% for(let i of CampusAmbassadors){ %>
+                            <div class="card" id="card<%=counter%>">
+                                <h1>
+                                    <%=i.name%>
+                                </h1>
+                                <img src="<%= i.image %>" alt="" id="img<%=counter%>">
+                            </div>
+                            <% counter++ %>
+                                <% } %>
+                                    <!-- <div class="card" id="card2">
                     <h1>Sarthak Sharma</h1><img
                         src="https://images.unsplash.com/photo-1519345182560-3f2917c472ef?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1887&q=80"
                         alt="" id="img2">
@@ -113,40 +114,41 @@
                         src="https://images.unsplash.com/photo-1469460340997-2f854421e72f?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1887&q=80"
                         alt="" id="img5">
                 </div> -->
-            </div> 
-        </div>
-        <div id="page4">
-            <!-- ye bhi mai bana lunga relent less -->
-            <div id="girldiv"></div>
-            <div id="page4bottom">
-                <h1>Relentless</h1>
-                <div id="page4bottompart2">
-                    <h3>Performance</h3>
-                    <p>Lorem ipsum dolor sit amet consectet. <br>Lorem ipsum dolor sit amet consectet. <br>Lorem
-                        ipsum dolor sit amet.</p>
                 </div>
             </div>
-        </div>
-        <div id="page5">
-            <!-- ye aap bana do our team vala -->
-            <div id="page5part1">
-                <h1 id="page5heading">Our<br>Team</h1>
-                <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quidem minus dolorem quis voluptatibus
-                    fugiat reprehenderit veniam distinctio, provident recusandae porro. </p>
-            </div>
-            <div id="page5part2">
-                <div id="page5part2div">
-                    <h1 id="arrow"><i class="ri-arrow-right-down-line"></i></h1>
-                    <p>&nbsp;&nbsp;&nbsp;Lorem ipsum dolor sit, amet consectetur adipisicing elit. Dolores accusamus
-                        praesentium eaque assumenda exercitationem, sapiente numquam unde liber autem velit cupiditate?
-                    </p>
-                </div>
-                <div id="part5img">
-                    <img src="https://images.unsplash.com/photo-1573165662973-4ab3cf3d3508?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2069&q=80"
-                        alt="">
+            <div id="page4">
+                <!-- ye bhi mai bana lunga relent less -->
+                <div id="girldiv"></div>
+                <div id="page4bottom">
+                    <h1>Relentless</h1>
+                    <div id="page4bottompart2">
+                        <h3>Performance</h3>
+                        <p>Lorem ipsum dolor sit amet consectet. <br>Lorem ipsum dolor sit amet consectet. <br>Lorem
+                            ipsum dolor sit amet.</p>
+                    </div>
                 </div>
             </div>
-        </div>
+            <div id="page5">
+                <!-- ye aap bana do our team vala -->
+                <div id="page5part1">
+                    <h1 id="page5heading">Our<br>Team</h1>
+                    <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quidem minus dolorem quis voluptatibus
+                        fugiat reprehenderit veniam distinctio, provident recusandae porro. </p>
+                </div>
+                <div id="page5part2">
+                    <div id="page5part2div">
+                        <h1 id="arrow"><i class="ri-arrow-right-down-line"></i></h1>
+                        <p>&nbsp;&nbsp;&nbsp;Lorem ipsum dolor sit, amet consectetur adipisicing elit. Dolores accusamus
+                            praesentium eaque assumenda exercitationem, sapiente numquam unde liber autem velit
+                            cupiditate?
+                        </p>
+                    </div>
+                    <div id="part5img">
+                        <img src="https://images.unsplash.com/photo-1573165662973-4ab3cf3d3508?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2069&q=80"
+                            alt="">
+                    </div>
+                </div>
+            </div>
 
     </div>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.10.4/ScrollTrigger.min.js"
@@ -193,22 +195,100 @@
 
         gsap.to(".card", {
             scrollTrigger: {
-                trigger:".card",
+                trigger: ".card",
                 scroller: "#main",
-                start:"top 60%",
-                end:"top 10%",
-                scrub:2,
+                start: "top 60%",
+                end: "top 10%",
+                scrub: 2,
             },
             x: "-137vw",
-            ease:Power0.easeNone
+            ease: Power0.easeNone
 
         });
 
-        document.querySelector("#menu-icon").addEventListener("click",function(){
+        document.querySelector("#menu-icon").addEventListener("click", function () {
             document.querySelector("#fullscreen-nav").style.left = "0vw"
         })
-        document.querySelector("#cross").addEventListener("click",function(){
+        document.querySelector("#cross").addEventListener("click", function () {
             document.querySelector("#fullscreen-nav").style.left = "-100vw"
+        })
+
+
+        var arr = [
+            { name: "Sarthak Sharma", img: "", college: "SIRT" },
+            { name: "Harsh Sharma", img: "", college: "RKDF" },
+            { name: "Adarsh Sharma", img: "", college: "LNCT" },
+            { name: "Dhanesh Sharma", img: "", college: "OCT" },
+            { name: "Vedant Sharma", img: "", college: "TIT" },
+            { name: "Akarsh Sharma", img: "", college: "LAND" },
+            { name: "Pathri Sharma", img: "", college: "SIRT" },
+            { name: "Vibhu Sharma", img: "", college: "SIRT" },
+            { name: "Lavda Sharma", img: "", college: "SIRT" },
+            { name: "Chodu Sharma", img: "", college: "SIRT" },
+            { name: "Gandu Sharma", img: "", college: "SIRT" },
+            { name: "Kuch Sharma", img: "", college: "SIRT" },
+        ]
+        var clutter = "";
+        arr.forEach(function (elem) {
+            clutter += `<div class="hero" id="${(elem.name).split(" ").join("")}">
+    <div class="hero-img"><img
+            src="${elem.img}"
+            alt=""></div>
+    <div class="hero-dets">
+        <h3 class="hero-name">${elem.name}</h3>
+        <h4 class="hero-college">${elem.college}</h4>
+    </div>
+</div>`
+        });
+
+        var heroes = document.querySelector("#heroes-div");
+        heroes.innerHTML = clutter;
+        var newarr = []
+
+        function findmatches(wordtoMatch, aarr) {
+            // console.log(wordtoMatch, aarr);
+            let ans = aarr.filter(unknown => unknown.name.toLowerCase().startsWith(wordtoMatch.toLowerCase()));
+            return ans;
+        }
+
+        function displayMathces() {
+            const matchArray = findmatches(searchinput.value, arr)
+            // console.log(matchArray);
+            const resultHero = matchArray.map(elem => {
+                return `<div class="hero" id="${(elem.name).split(" ").join("")}">
+        <div class="hero-img"><img
+        src="${elem.img}"
+        alt=""></div>
+        <div class="hero-dets">
+        <h3 class="hero-name">${elem.name}</h3>
+            <h4 class="hero-college">${elem.college}</h4>
+        </div>
+        </div>`;
+            }).join('');
+
+            // console.log(resultHero);
+
+            heroes.innerHTML = resultHero;
+        }
+
+        var searchinput = document.querySelector("#search-bar input");
+        searchinput.addEventListener("keyup", displayMathces)
+
+
+        var flag = 0;
+        document.querySelector("#search-bar i").addEventListener("click", function () {
+            if (flag === 0) {
+                document.querySelector("#search-bar input").style.opacity = 1;
+                document.querySelector("#search-bar input").style.width = "235px";
+                document.querySelector("#search-bar").style.width = "auto";
+                document.querySelector("#search-bar i").style.boxShadow = "none"
+                flag = 1;
+            } else {
+                document.querySelector("#search-bar input").style.opacity = 0;
+                document.querySelector("#search-bar input").style.width = "0px";
+                document.querySelector("#search-bar i").style.boxShadow = " 0px 2px 15px rgba(164, 255, 255, 0.5)"
+                flag = 0;
+            }
         })
     </script>
 </body>

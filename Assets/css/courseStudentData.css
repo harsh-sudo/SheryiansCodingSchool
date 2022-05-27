@@ -108,11 +108,11 @@ form button:active{
     justify-content: space-around;
     background-color: silver;
     height: 5vh;
-    width: 70vw;git 
+    width: 70vw;
     align-items: center;
     margin: 2vh;
 }
-}
+
 
 .course-student-data{
     display: none;

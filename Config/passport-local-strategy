@@ -81,21 +81,22 @@ passport.use('local.signup', new LocalStategy({
     passwordField: 'password',
     passReqToCallback: true
 }, (req, email, password, done) => {
-    
     User.findOne({'email': email}, (err, user) => {
-       if(err){
-           return done(err);
-       }
+        if(err){
+            return done(err);
+        }
         
         if(user){
             return done(null, false, req.flash('error', 'Este Email ya esta en uso'));
         }
         const newUser = new User();
+        console.log(req.body.name);
         newUser.name = req.body.name;
         newUser.email = req.body.email;
         newUser.password = req.body.password;
         newUser.phoneNumber = req.body.phoneNumber;        
         newUser.save((err) => {
+            console.log(err)
             done(null, newUser);
         });
     });
