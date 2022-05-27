@@ -3,8 +3,12 @@ const router = express.Router(); // create express router
 const passport = require('passport'); // import passport
 const homeController = require('../controllers/home_controller'); // import home controller
 const cookieParser = require('cookie-parser');
+const bodyParser = require('body-parser'); // import body parser
 router.use(express.urlencoded({extended:true}));
 router.use(cookieParser());
+router.use(bodyParser.urlencoded({extended:false}));
+
+
 
 
 // get and post of all routes
@@ -24,7 +28,7 @@ router.get('/auth/github/callback',passport.authenticate('github',{failureRedire
     delete req.session.returnTo;
 });
 
-router.post('/UploadProfile_dp',passport.checkAuthentication,homeController.UploadProfile_dp); // get home with authentication
+router.post('/UploadProfile_dp',homeController.UploadProfile_dp); // get home with authentication
 
 router.use(passport.setAuthenticatedUser);
 router.use('/signin', require('./user')); // use user routes
