@@ -1,4 +1,5 @@
-const profileDp = require('../models/profile_dp');
+const ProfileDp = require('../models/profile_dp');
+
 
 module.exports.getHome = (req, res)=>{
     console.log(req.user);
@@ -15,24 +16,33 @@ module.exports.getHome = (req, res)=>{
     });
 } 
 
-module.exports.UploadProfile_dp = (req, res)=>{
-    profileDp.findOne({userId:req.user.id},(err, profileDp)=>{
-        if(err){
-            console.log(err);
-            return;
-        }
-        if(!profileDp){
-            profileDp = new profileDp();
-            profileDp.userId = req.user.id;
-        }
-        profileDp.dp = req.file.path;
-        profileDp.save((err)=>{
-            if(err){
-                console.log(err);
-                return;
-            }
-            return res.redirect('back');
-        });
+
+module.exports.UploadProfile_dp = async (req, res)=>{
+    let profile_dp = await ProfileDp.findOne({userId:req.user.id});
+    if(!profile_dp){
+        profile_dp = new ProfileDp();
     }
-)};
+    
+    try{ProfileDp.uploaded_dp(req,res,(err)=>{
+        console.log("upload")
+         console.log(req.file.filename)
+         if(err){
+             console.log(err);
+             return;
+         }
+         profile_dp.dp = ProfileDp.uploaded_dp_path + '/' + req.file.filename;
+         profile_dp.user_id = req.user.id;
+         profile_dp.save((err)=>{
+             if(err){
+                 console.log(err);
+                 return;
+             }
+             return res.redirect('back');
+         });
+     });
+     }catch(err){
+             console.log(err);
+             return;
+         }
+ }
 

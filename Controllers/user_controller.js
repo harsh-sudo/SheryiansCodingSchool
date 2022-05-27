@@ -32,22 +32,22 @@ module.exports.createuser = (req,res)=>{
    
 }
 
-module.exports.authenticate = (req,res)=>{
-    User.findOne({email: req.body.email},(err,user)=>{
-        if(err){
-            console.log(err);
-            return
-        }
-        if(!user){
-            return res.redirect('back');
-        }
-        if(user.password !== req.body.password){
-            return res.redirect('back');
-        }
-        res.cookie('user_id',user._id);
-        return res.redirect('/adminPanel');
-    })
-}
+// module.exports.authenticate = (req,res)=>{
+//     User.findOne({email: req.body.email},(err,user)=>{
+//         if(err){
+//             console.log(err);
+//             return
+//         }
+//         if(!user){
+//             return res.redirect('back');
+//         }
+//         if(user.password !== req.body.password){
+//             return res.redirect('back');
+//         }
+//         res.cookie('user_id',user._id);
+//         return res.redirect('/adminPanel');
+//     })
+// }
 
 module.exports.signout = (req,res)=>{
     res.clearCookie('user_id');

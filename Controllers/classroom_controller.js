@@ -1,5 +1,6 @@
 const user = require('../models/user');
 const courses = require('../Models/Courses');
+const ProfileDp = require('../models/profile_dp');
 
 module.exports.getClassroom = (req, res)=>{
         user.find({_id:req.user.id}).populate('enrolledCourses').exec((err, course)=>{
@@ -7,11 +8,18 @@ module.exports.getClassroom = (req, res)=>{
             console.log(err);
             return;
         }
+        ProfileDp.find({userId:req.user.id},((err, dp)=>{
+            if(err){
+                console.log(err);
+                return;
+            }
         return res.render('classroom', {
             title: 'Classroom',
             course: course,
+            profile_dp: dp,
             fees: req.user.feeStatus
         });
+    }));
     });
 }
 

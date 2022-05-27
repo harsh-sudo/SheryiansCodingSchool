@@ -3,7 +3,7 @@ const mongoose = require('mongoose');
 const multer = require('multer');
 const path = require('path');
 
-const profile_dp = path.join('/Assets/images/profile_dp');
+const profile_dp_path = path.join('/Assets/images/profile_dp');
 
 const Profile_dpSchema = new mongoose.Schema({
     user_id:{
@@ -24,13 +24,13 @@ let storage = multer.diskStorage({
         cb(null, path.join(__dirname, '..', '/Assets/images/profile_dp'));
     },
     filename: function(req, file, cb) {
-        cb(null, req.user.name + '-' + file.fieldname + '_' + Date.now() + path.extname(file.originalname))
+        cb(null, req.user.id + '-' + file.fieldname + '_' + Date.now() + path.extname(file.originalname))
     }
-});
+}); 
  
 //statics
-Profile_dpSchema.statics.uploaded_dp = multer({storage: storage}).single('image');
-Profile_dpSchema.statics.uploaded_dp_path = profile_dp;
+Profile_dpSchema.statics.uploaded_dp = multer({storage: storage, limits: { fieldSize: 10 * 1024 * 1024 }}).single('dp');
+Profile_dpSchema.statics.uploaded_dp_path = profile_dp_path;
 
 const profileDp= mongoose.model('profileDp',Profile_dpSchema);
 

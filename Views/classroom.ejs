@@ -17,15 +17,11 @@
             <div id="left-panel">
                 <div id="user">
                     <div id="user-image">
-                        <img src="" alt="">
+                        <img src="<%=profile_dp[0].dp%>" alt="">
                     </div>
-                        <form id = "user-upload-profile-dp" action="/UploadProfile_dp" method="post" enctype="multipart/form-data">
-                            <h1>harsh</h1>
-                            <input type="file" name="dp" id="edit-profile-dp" placeholder="Edit" required>
-                            <input type="submit" value="Update Profile">
-                        </form>
+                       
                     <div id="user-dets">
-                        <h2 id="user-name"><%= user.name %> </h2>
+                        <h2 id="user-name"><%=user.name %></h2>
                     </div>
                 </div>
                 <div id="user-options">
@@ -35,26 +31,52 @@
                 </div>
             </div>
             <div id="right-panel">
-                <form id="faram" action="/classroom/<%=user._id%>/updateProfile" method="post">
+                <form id = "user-upload-profile-dp" action="/UploadProfile_dp" method="POST" enctype="multipart/form-data"></form>
+                <form id="faram" action="/classroom/<%=user._id%>/updateProfile" method="post"></form>
+                <div id="faram1">
                     <h1>Welcome, <span><%= user.name.split(' ')[0].toUpperCase()%></span>.</h1>
                     <h3>Account Details</h3>
                     <div id="firstName">
-                        <input name="firstName" id="firstNameInput" type="text" placeholder="first Name" value="<%= user.name.split(' ')[0]%>">
+                        <input name="firstName" form="faram" id="firstNameInput" type="text" placeholder="first Name" value="<%= user.name.split(' ')[0]%>">
                     </div>
                     <div id="lastName">
-                        <input name="lastName" id="lastNameInput" type="text" value="<%= user.name.split(' ')[1] %>">
+                        <input name="lastName" form="faram" id="lastNameInput" type="text" value="<%= user.name.split(' ')[1] %>">
                     </div>
                     <div id="email">
-                        <input name="email" id="emailInput" type="email" value="<%= user.email %> ">
+                        <input name="email" form="faram" id="emailInput" type="email" value="<%= user.email %>">
                     </div>
                     <div id="phone">
-                        <input name = "phoneNumber" id="phoneInput" type="text" value="<%= user.phoneNumber %>"  placeholder="Contact No. (WhatsApp)">
+                        <input name = "phoneNumber" form="faram" id="phoneInput" type="text" value="<%= user.phoneNumber %>"  placeholder="Contact No. (WhatsApp)">
                     </div>
+                    <div id="update_dp">    
+                                <input type="file" form="user-upload-profile-dp" onchange="loadFile(event)" name="dp" id="edit-profile-dp" placeholder="Edit" required>
+                                <div id="user-image">
+                                    <img src="<%= profile_dp[0].dp %>" style="display: inline-block;" id="output" width="100">
+                                </div>
+                                <button class="btn-edit">Edit Image</button>
+                                <button type="submit" form="user-upload-profile-dp">update</button>
+                                <script>
+                                    const fileinput  = document.querySelector('input[type=file]');
+                                    const btnedit  = document.querySelector('.btn-edit');
+
+                                    fileinput.style.visibility = 'hidden';
+                                    
+                                    btnedit.addEventListener('click',()=>{
+                                        fileinput.click();
+                                    });
+
+                                    var loadFile = function(event) {
+                                        var image = document.getElementById('output');
+                                        image.src = URL.createObjectURL(event.target.files[0]);
+                                    };
+                                </script>
+                    </div>
+
                     <div id="btns">
-                        <button type="submit" id="savebtn">Save</button>
+                        <button type="submit" form="faram" id="savebtn">Save</button>
                         <button id="cancelbtn">Cancel</button>
                     </div>
-                </form>
+                </div>
                 <script src="https://cdnjs.cloudflare.com/ajax/libs/datejs/1.0/date.min.js" integrity="sha512-/n/dTQBO8lHzqqgAQvy0ukBQ0qLmGzxKhn8xKrz4cn7XJkZzy+fAtzjnOQd5w55h4k1kUC+8oIe6WmrGUYwODA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
                 <div id="right-page2">
                     <% let countf = 0 %> 
@@ -185,9 +207,9 @@
             document.querySelector("#right-page2").style.opacity = 0;
             document.querySelector("#right-page2").style.display = 'none';
             document.querySelector("#right-page2").style.zIndex = 9;
-            document.querySelector("#faram").style.opacity = 1;
-            document.querySelector("#faram").style.display = 'flex';
-            document.querySelector("#faram").style.zIndex = 10;
+            document.querySelector("#faram1").style.opacity = 1;
+            document.querySelector("#faram1").style.display = 'flex';
+            document.querySelector("#faram1").style.zIndex = 10;
             document.querySelector("#op1").style.backgroundColor = "white";
         })
         
@@ -196,9 +218,9 @@
             document.querySelector("#right-page2").style.opacity = 1;
             document.querySelector("#right-page2").style.display = 'initial';
             document.querySelector("#right-page2").style.zIndex = 10;
-            document.querySelector("#faram").style.opacity = 0;
-            document.querySelector("#faram").style.display = 'none';
-            document.querySelector("#faram").style.zIndex = 9;
+            document.querySelector("#faram1").style.opacity = 0;
+            document.querySelector("#faram1").style.display = 'none';
+            document.querySelector("#faram1").style.zIndex = 9;
         })
 
         // scroller.scrollTo(document.querySelector('#page2'));
