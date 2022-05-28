@@ -4,6 +4,9 @@ module.exports.signIn = (req,res)=>{
     if(req.isAuthenticated()){
         return res.redirect('back');
     }
+    if(req.user){
+        return res.redirect('back')
+    }
     return res.render('signIn',{
         title:"Sign In"
     });

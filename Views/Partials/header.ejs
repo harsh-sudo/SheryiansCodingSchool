@@ -138,7 +138,9 @@
             text-align: right;
             display: inline-block;
             transform: translateY(0vh);
-            width: 2.8vw;
+            width: 2.7vw;
+            animation: slideanimation 7s infinite alternate;
+            animation-delay: 1s;
         }
 
 #popup_box {
@@ -272,24 +274,21 @@
             }
         }
 
-        @keyframes animation {
+        @keyframes slideanimation {
             0% {
+                transform: translateY(0vh);
+            }
+            25% {
                 transform: translateY(-2.8vh);
             }
-            20% {
+            50% {
                 transform: translateY(-5.6vh);
             }
-            40% {
+            75% {
                 transform: translateY(-8.4vh);
             }
-            60% {
-                transform: translateY(-11.2vh);
-            }
-            80% {
-                transform: translateY(-14vh);
-            }
             100% {
-                transform: translateY(-16.8vh);
+                transform: translateY(-11.2vh);
             }
         }   
     </style>
@@ -302,7 +301,7 @@
             <h4><a href="/courses">Courses</a></h4>
             <h4><a href="/GirlsWhoCode">Girls Who Code</a></h4>
             <h4><a href="/campusAmbassador">Campus Ambassador</a></h4>
-            <% if(typeof user != 'undefined' ){ %>
+            <!-- <% if(typeof user != 'undefined' ){ %>
                 <h4><a href="/classroom/<%= user._id %>">
                     <% } else { %>
                         <h4><a href="/SignIn">
@@ -322,7 +321,7 @@
                                 <% if(typeof user === 'undefined'){ %>
                                     Sign In
                             <% } %>
-                        </a></h4> 
+                        </a></h4>  -->
             <h5 id="cross"><i class="ri-close-fill"></i></h5>
         </div>
         <div id="nav-main">

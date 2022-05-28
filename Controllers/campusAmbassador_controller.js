@@ -1,10 +1,24 @@
 const db = require('../config/mongoose');
 const CampusAmbassador = require('../models/CampusAmbassador');
+const sharp = require('sharp');
+const path = require('path');
+const fs = require('fs');
+const { takeCoverage } = require('v8');
 
 module.exports.addCampusAmbassador = async function(req, res) {
     let campusAmbassador = new CampusAmbassador();
 
-    try{CampusAmbassador.uploaded_dp(req,res,(err) => {
+    try{CampusAmbassador.uploaded_dp(req,res,async (err) => {
+        const { filename: image } = req.file;
+        await sharp(req.file.path)
+         .resize(200, 200)
+         .withMetadata()
+         .jpeg({ quality: 90 })
+         .toFile(
+            path.resolve(req.file.destination,'resized',image)
+         )
+         fs.unlinkSync(req.file.path)
+
             if(err){
                 console.log(err);
                 return;
@@ -65,10 +79,23 @@ module.exports.findCampusAmbassador = function(req, res) {
 }
 
 module.exports.updateCampusAmbassador = async (req, res)=>{
-    let campusAmbassador = CampusAmbassador.findOne({
+    let campusAmbassador = await CampusAmbassador.findOne({
         _id:req.params.id
     });
-    try{CampusAmbassador.uploaded_dp(req,res,(err) => {
+    console.log(campusAmbassador)
+    try{CampusAmbassador.uploaded_dp(req,res, async (err) => {
+        if(req.file){
+        fs.unlinkSync(path.join(__dirname, '..', campusAmbassador.image));
+        const { filename: image } = req.file;
+        await sharp(req.file.path)
+         .resize(200,200)
+         .withMetadata()
+         .jpeg({ quality: 90 })
+         .toFile(
+            path.resolve(req.file.destination,'resized',image)
+         )
+         fs.unlinkSync(req.file.path)
+        }
             if(err){
                 console.log(err);
                 return;
@@ -117,9 +144,21 @@ module.exports.getCampusAmbassador = function(req, res) {
         console.log(err);
         return;
     }
+    let campuslund = "[";
+    let count = 0;
+    for(let i of campusAmbassador){ 
+        if(count != 0){
+            campuslund += ','
+        }
+        count++;
+        campuslund += `{"name":"${i.name}","img":${JSON.stringify(i.image)},"college":"${i.college}"}`
+    }
+    campuslund += "]";
+    // console.log(campuslund);
     res.render('campusAmbassador', {
         title: 'Campus Ambassador | Sheryians',
-        CampusAmbassadors: campusAmbassador
+        CampusAmbassadors: campusAmbassador,
+        campuslund: campuslund
     });
 })
 };

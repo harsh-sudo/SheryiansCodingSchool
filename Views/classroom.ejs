@@ -17,7 +17,7 @@
             <div id="left-panel">
                 <div id="user">
                     <div id="user-image">
-                        <img src="<%=profile_dp[0].dp%>" alt="">
+                        <img src="<%=profile_dp.dp%>" alt="">
                     </div>
                        
                     <div id="user-dets">
@@ -51,10 +51,10 @@
                     <div id="update_dp">    
                                 <input type="file" form="user-upload-profile-dp" onchange="loadFile(event)" name="dp" id="edit-profile-dp" placeholder="Edit" required>
                                 <div id="user-image">
-                                    <img src="<%= profile_dp[0].dp %>" style="display: inline-block;" id="output" width="100">
+                                    <img src="<%= profile_dp.dp %>" style="display: inline-block;" id="output" width="100">
                                 </div>
                                 <button class="btn-edit">Edit Image</button>
-                                <button type="submit" form="user-upload-profile-dp">update</button>
+                                <button id="update_dp_btn" type="submit" form="user-upload-profile-dp">update</button>
                                 <script>
                                     const fileinput  = document.querySelector('input[type=file]');
                                     const btnedit  = document.querySelector('.btn-edit');
@@ -74,6 +74,14 @@
 
                     <div id="btns">
                         <button type="submit" form="faram" id="savebtn">Save</button>
+                        <script>
+                            const update_dp_btn = document.querySelector('#update_dp_btn');
+                            const save_btn = document.querySelector('#savebtn');
+
+                            save_btn.addEventListener('click',()=>{
+                                update_dp_btn.click();
+                            });
+                        </script>
                         <button id="cancelbtn">Cancel</button>
                     </div>
                 </div>

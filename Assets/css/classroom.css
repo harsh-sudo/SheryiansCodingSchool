@@ -82,7 +82,7 @@ html {
 #user-image {
     width: 8vw;
     height: 8vw;
-    border: 1px solid #333;
+    /* border: 1px solid #333; */
     border-radius: 50%;
     overflow: hidden;
 }
