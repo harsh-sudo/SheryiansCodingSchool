@@ -3,7 +3,7 @@ const mongoose = require('mongoose');
 const multer = require('multer');
 const path = require('path');
 
-const ambassador_dp = path.join('/Assets/images/campusAmbassador');
+const ambassador_dp = path.join('/Assets/images/campusAmbassador/resized');
 
 const CampusAmbassadorSchema = new mongoose.Schema({
     name:{

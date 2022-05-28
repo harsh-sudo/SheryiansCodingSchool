@@ -8,11 +8,13 @@ module.exports.getClassroom = (req, res)=>{
             console.log(err);
             return;
         }
-        ProfileDp.find({userId:req.user.id},((err, dp)=>{
+        console.log(req.user.id)
+        ProfileDp.findOne({userId:req.user.id},((err, dp)=>{
             if(err){
                 console.log(err);
                 return;
             }
+            console.log(dp.dp);
         return res.render('classroom', {
             title: 'Classroom',
             course: course,

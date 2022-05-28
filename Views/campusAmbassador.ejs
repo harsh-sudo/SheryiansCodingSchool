@@ -149,7 +149,7 @@
                     </div>
                 </div>
             </div>
-
+            <div id="mydata" data-harsh="<%= campuslund %>"></div>
     </div>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.10.4/ScrollTrigger.min.js"
         integrity="sha512-v8B8T8l8JiiJRGomPd2k+bPS98RWBLGChFMJbK1hmHiDHYq0EjdQl20LyWeIs+MGRLTWBycJGEGAjKkEtd7w5Q=="
@@ -213,21 +213,10 @@
             document.querySelector("#fullscreen-nav").style.left = "-100vw"
         })
 
+        let campusarr = document.querySelector("#mydata").getAttribute("data-harsh");
 
-        var arr = [
-            { name: "Sarthak Sharma", img: "", college: "SIRT" },
-            { name: "Harsh Sharma", img: "", college: "RKDF" },
-            { name: "Adarsh Sharma", img: "", college: "LNCT" },
-            { name: "Dhanesh Sharma", img: "", college: "OCT" },
-            { name: "Vedant Sharma", img: "", college: "TIT" },
-            { name: "Akarsh Sharma", img: "", college: "LAND" },
-            { name: "Pathri Sharma", img: "", college: "SIRT" },
-            { name: "Vibhu Sharma", img: "", college: "SIRT" },
-            { name: "Lavda Sharma", img: "", college: "SIRT" },
-            { name: "Chodu Sharma", img: "", college: "SIRT" },
-            { name: "Gandu Sharma", img: "", college: "SIRT" },
-            { name: "Kuch Sharma", img: "", college: "SIRT" },
-        ]
+        console.log(campusarr);
+        var arr = JSON.parse(campusarr)
         var clutter = "";
         arr.forEach(function (elem) {
             clutter += `<div class="hero" id="${(elem.name).split(" ").join("")}">
