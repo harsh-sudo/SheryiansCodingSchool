@@ -27,14 +27,22 @@
                 <i id="menu-icon" class="ri-menu-3-line"></i>
             </div>
             <div id="sign-in-page">
-                <p>Welcome Champ!</p>
-                <h1>Login your account</h1>
+                <p>Welcome Champ! </p>
+                <h1>Login your account </h1>
                 <form action="/signIn/auth-user" method="post">
                     <h5>Email</h5>
                     <input type="text" required name="email">
                     <br>
                     <h5>Password</h5>
                     <input type="password" required name="password">
+                    <% if(request.session.message === 'User Not Found'){ %> 
+                        <a href="/signup/newuser" style="text-decoration: underline; color:red;">User Not Found </a>
+                        <br>
+                        <a href="/signup/newuser" style="text-decoration: underline; color:red;">Create new account</a>
+                    <% } %> 
+                    <% if(request.session.message === 'Incorrect Password'){ %> 
+                        <a href="signIn/forgot" style="text-decoration: underline; color:red;">Forgot Password?</a>
+                    <% } %> 
                     <br>
                     <button type="submit">Login</button>
                 </form>

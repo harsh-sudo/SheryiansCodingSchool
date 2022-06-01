@@ -105,6 +105,15 @@
                     </form>
                 </div>
             </div>
+        <div class="courses-window" id="courses-delete-window">
+            <div id="deleteCourse">
+                <form action="/adminPanel/deleteCampusAmbassador" method="post">
+                    <input type="text" name="name" id="name" placeholder="Student Name" required>
+                    <input type="text" name="phone" id="phone" placeholder="Contact No." required>
+                    <input type="submit" value="Delete Course">
+                </form>
+            </div>
+        </div>
             <div class="campus-window" id="campusAmbassador-add-window">
                 <h5 class="back" id="campusAmbassador-add-window"><i id="campusAmbassador-add-window" class="ri-arrow-left-s-line"></i></h5>
                 <div id="addCampusAmbassador">
@@ -158,15 +167,7 @@
                         <input type="text" name="name" id="name" placeholder="Student Name" required>
                         <input type="text" name="phone" id="phone" placeholder="Contact No." required>
                         <input type="submit" value="Delete Campus Ambassador">
-
-                <div id="deleteCourse">
-                    <form action="/adminPanel/deleteCampusAmbassador" method="post">
-                        <input type="text" name="name" id="name" placeholder="Student Name" required>
-                        <input type="text" name="phone" id="phone" placeholder="Contact No." required>
-                        <input type="submit" value="Delete Course"d>
-                    </form>
                 </div>
-            </div>
         </div>
         <script>
             var courseFeature = document.querySelectorAll(".course-feature");

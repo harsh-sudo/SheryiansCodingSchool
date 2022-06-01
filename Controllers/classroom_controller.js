@@ -9,12 +9,12 @@ module.exports.getClassroom = (req, res)=>{
             return;
         }
         console.log(req.user.id)
-        ProfileDp.findOne({userId:req.user.id},((err, dp)=>{
+        ProfileDp.findOne({user_id:req.user.id},((err, dp)=>{
             if(err){
                 console.log(err);
                 return;
             }
-            console.log(dp.dp);
+            console.log(dp);
         return res.render('classroom', {
             title: 'Classroom',
             course: course,
@@ -33,7 +33,6 @@ module.exports.updateProfile = (req, res)=>{
         }
         let name = req.body.firstName+' '+req.body.lastName;
         user.name = name;
-        user.email = req.body.email;
         user.phoneNumber = req.body.phoneNumber;
         user.save((err)=>{
             if(err){

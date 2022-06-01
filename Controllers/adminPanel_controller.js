@@ -27,6 +27,7 @@ module.exports.getCourseStudentData = function(req, res) {
 Course.findOne({course_id:req.body.course_id}, function(err, course) {
     User.find({enrolledCourses:{$in:[course._id]}}).sort({name: 1}).collation({ locale: "en", caseLevel: true }).populate('enrolledCourses').exec((err, user)=>{
         console.log(user);
+        // console.log("hello");
         if(err){
             console.log(err);
             return;

@@ -876,8 +876,7 @@ html {
 
     #page2button {
         font-size: 11px;
-        width: 105px;
-        height: 25px;
+        padding: 12px 22px;
     }
 
     #page3part1heading {
@@ -908,8 +907,9 @@ html {
     }
 
     #page3part1button {
-        width: 20vw;
-        height: 2.7vh;
+        /* width: 50vw; */
+        padding: 12px 22px;
+        /* height: 2.7vh; */
         border-radius: 50px;
         cursor: pointer;
         color: white;
