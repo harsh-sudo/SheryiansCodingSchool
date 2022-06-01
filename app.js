@@ -3,13 +3,14 @@ const cookieParser = require('cookie-parser');
 const db = require('./config/mongoose'); // import db
 const session = require('express-session');
 const passport = require('passport');
-const passportLocal = require('./config/passport-local-strategy');
+const passportLocal = require('./Config/passport-local-strategy');
 const MongoStore = require('connect-mongo'); 
 const app = express(); // create express app
 const path = require('path'); // import path
 const bodyParser = require('body-parser'); // import body parser
 const nodemailer = require('nodemailer');
 const {google} = require('googleapis');
+const flash = require('connect-flash');
 require('dotenv').config();
 
 const CLIENT_ID = process.env.CLIENT_ID;
@@ -42,20 +43,20 @@ const user = require('./models/user'); // import user model
 
 
 app.set('view engine', 'ejs'); // set view engine to ejs
+
 app.use('views', express.static(__dirname + '/views')); // set views folder
 app.use(express.static('Assets')); // set assets folder
 app.use('/Assets', express.static(__dirname + '/Assets')); // set assets folder
 app.use(express.json());
 
-
 app.use(cookieParser());
 app.use(session({
     name: "SheryiansAdminPanel",
     secret: "Chadiyan",
-    saveUninitialized: false,
+    saveUninitialized: true,
     resave: false,
     cookie: {
-        maxAge: (1000 * 60 * 100)
+        maxAge: (60 * 60 * 500) // 500 minutes
     },
     store: MongoStore.create({
         mongoUrl: 'mongodb://0.0.0.0:27017/campusAmbassador_db', // set mongo url,
@@ -65,6 +66,7 @@ app.use(session({
     })
 }));
 
+app.use(flash());
 
 app.use(passport.initialize());
 app.use(passport.session());
@@ -96,6 +98,7 @@ app.post("/api/payment/verify/:id",(req,res)=>{
                         async function sendMail(){
                             try{
                                 const accesstoken = await oauth2Client.getAccessToken(); 
+                                console.log(accesstoken);
                                 const transport = nodemailer.createTransport({
                                     service: 'gmail',
                                     auth: {
@@ -109,7 +112,7 @@ app.post("/api/payment/verify/:id",(req,res)=>{
                                 });
                         
                                 const mailOptions = {
-                                    from: 'sheryianscodingschool@gmail.com',
+                                    from: 'yoharsh113@gmail.com',
                                     to: user.email,
                                     subject: 'HEHEHE',
                                     text: 'aab mat chuda aab toh chud gyi'

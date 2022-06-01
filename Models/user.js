@@ -43,6 +43,9 @@ const userSchema = new mongoose.Schema({
     }],
     githubId:{
         type:String
+    },
+    reset_token:{
+        type:String
     }
 },{
     timestamps:true

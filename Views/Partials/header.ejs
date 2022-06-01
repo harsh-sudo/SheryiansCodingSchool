@@ -156,6 +156,7 @@
             text-decoration: none;
             color: #444;
             font-weight: 450;
+            transition: all cubic-bezier(0.19, 1, 0.22, 1) 1s;
         }
 
         #fullscreen-nav h4 a:hover {
@@ -345,27 +346,19 @@
             <h4><a href="/courses">Courses</a></h4>
             <h4><a href="/GirlsWhoCode">Girls Who Code</a></h4>
             <h4><a href="/campusAmbassador">Campus Ambassador</a></h4>
-            <!-- <% if(typeof user != 'undefined' ){ %>
+            <% if(typeof user != 'undefined' ){ %>
                 <h4><a href="/classroom/<%= user._id %>">
                     <% } else { %>
                         <h4><a href="/SignIn">
                             <% } %>
                                 <% if(typeof user != 'undefined'){ %>
-                                        <span id="changing-greeting-text">
-                                            <span id="greet-text">
-                                                <h4>Hi</h4>
-                                                <h4>Hey</h4>
-                                                <h4>Oh</h4>
-                                                <h4>Wow</h4>
-                                                <h4>Yo</h4>
-                                            </span>
-                                        </span>,
-                                        <%= user.name.split(' ')[0]%>
+                                        <span>Hi,</span>
+                                        <%= user.name%>
                                         <% } %>
                                 <% if(typeof user === 'undefined'){ %>
                                     Sign In
                             <% } %>
-                        </a></h4>  -->
+                        </a></h4> 
             <h5 id="cross"><i class="ri-close-fill"></i></h5>
         </div>
         <div id="nav-main">
@@ -417,16 +410,15 @@
                             <div id="popup_box">
                                 <% if(typeof user==='undefined' ){ %>
                                     <h4>Please Login</h4>
-                                    <% } %>
-                                        <% if(typeof user !='undefined' ){ %>
-                                            <h4>
-                                                <%= user.name %>
-                                            </h4>
-                                            <% } %>
-                                                <% if(typeof user !='undefined' ){ %>
-                                                    <button><a href="/classroom/<%= user._id %>">My Account</a></button>
-                                                    <% } %>
-                                                        <button><a href="/signIn/bye">Logout</a></button>
+                                <% } %>
+                                <% if(typeof user != 'undefined'){ %>
+                                    <h4><%= user.name %> </h4>
+                                <% } %> 
+                                
+                                <% if(typeof user != 'undefined'){ %> 
+                                <button><a href="/classroom/<%= user._id %>">My Account</a></button>
+                                <% } %> 
+                                <button><a href="/signIn/bye">Logout</a></button>
                             </div>
             </div>
         </div>

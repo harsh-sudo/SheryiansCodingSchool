@@ -104,7 +104,7 @@ form button:active{
 }
 
 .course-student-data2{
-    display: none;
+    display: flex;
     justify-content: space-around;
     background-color: silver;
     height: 5vh;

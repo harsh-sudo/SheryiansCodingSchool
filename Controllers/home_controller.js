@@ -4,6 +4,8 @@ const ProfileDp = require('../models/profile_dp');
 module.exports.getHome = (req, res)=>{
     console.log(req.user);
     if(req.user){
+        // req.session.message = "hello";
+        console.log(req.session.message)
         return res.render('home', {
             title: 'Sheryians Coding School',
             request: req
@@ -18,7 +20,7 @@ module.exports.getHome = (req, res)=>{
 
 
 module.exports.UploadProfile_dp = async (req, res)=>{
-    let profile_dp = await ProfileDp.findOne({userId:req.user.id});
+    let profile_dp = await ProfileDp.findOne({user_id:req.user.id});
     if(!profile_dp){
         profile_dp = new ProfileDp();
     }
