@@ -14,7 +14,7 @@ module.exports.getClassroom = (req, res)=>{
                 console.log(err);
                 return;
             }
-            console.log(dp.dp);
+            // console.log(dp.dp);
         return res.render('classroom', {
             title: 'Classroom',
             course: course,
