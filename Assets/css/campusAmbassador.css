@@ -33,7 +33,14 @@ body {
 
 body {
     overflow-x: hidden;
-
+}
+body::-webkit-scrollbar{
+    width: 8px;
+    mix-blend-mode: difference;
+}
+body::-webkit-scrollbar-thumb{
+    background-color: rgba(67, 67, 67, 0.449);
+    border-radius: 30px;
 }
 
 html {
@@ -678,38 +685,42 @@ html {
         min-height: 100vh;
         width: 100%;
     }
-
+    body{
+        overflow-x: hidden;
+        width: 100vw;
+    }
+    body::-webkit-scrollbar{
+        width: 0px;
+    }
     #page1>#heading {
         position: absolute;
         left: 50%;
         background-color: #fff;
         cursor: default;
-        top: 12%;
+        top: 7%;
         height: 100px;
         -webkit-transform: translate(-50%, 0);
         -ms-transform: translate(-50%, 0);
         transform: translate(-50%, 0);
         text-align: center;
         width: 90vw;
-
     }
 
     #heading>h1 {
-        font-size: 9.2vw;
+        font-size: 9.5vw;
         font-weight: 600;
-        font-family: "helvetica";
         font-family: monument;
     }
 
     #heading>h3 {
         font-size: 3.6vw;
-        margin-top: 4px;
+        margin-top: 7px;
         font-family: "helvetica";
     }
 
     #heading>h3 span {
         font-weight: 550;
-        line-height: 53px;
+        line-height: 60px;
     }
 
     #heading>h3 span a {
@@ -733,7 +744,7 @@ html {
         position: absolute;
         left: 50%;
         z-index: 99;
-        top: 36%;
+        top: 33%;
         -webkit-transform: translate(-50%, 0%);
             -ms-transform: translate(-50%, 0%);
                 transform: translate(-50%, 0%);
@@ -780,7 +791,7 @@ html {
         width: 100vw;
         white-space: nowrap;
         position: absolute;
-        top: 44%;
+        top: 42%;
         display: inline-block;
         overflow-y: hidden;
         overflow-x: auto !important;
@@ -822,8 +833,10 @@ html {
                 box-shadow: 0 0px 0px rgba(0, 0, 0, 0);
     }
     .hero .hero-img {
-        height: 64%;
-        width: 83%;
+        /* height: 64%;
+        width: 83%; */
+        height: 140px;
+        width: 140px;
         margin-left: auto;
         margin-right: auto;
         border-radius: 50%;
@@ -843,8 +856,8 @@ html {
     }
 
     .hero .hero-name {
-        font-size: 14px;
-        margin-top: 3.5vh;
+        font-size: 15px;
+        margin-top: 3vh;
         font-weight: 600;
         color: #333;
     }
@@ -854,29 +867,64 @@ html {
         margin-top: 6px;
         font-weight: 700;
         color: #555;
+        text-transform: uppercase;
     }
 
     .hero:hover .hero-name {
         color: #111;
     }
-
+    #page2 {
+        height: 100vh;
+        width: 100vw;
+        position: relative;
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-box-align: center;
+        -ms-flex-align: center;
+        align-items: center;
+        -ms-flex-pack: distribute;
+        justify-content: space-around;
+        -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+        margin-top: -20vh;
+    }
     #page2text {
-        font-size: 100px;
+        font-size: 105px;
         line-height: 90px;
     }
 
     #page2div {
         text-align: center;
+        margin-top: -13vh;
     }
 
     #page2div h3 {
-        font-size: 18px;
+        font-size: 16px;
         line-height: 20px;
+
     }
 
     #page2button {
+        margin-top: 7vh;
+        border-radius: 50px;
+/*         padding: 11px 15px; */
+        cursor: pointer;
+        color: #222;
+        border: 1.6px solid #222;
+        background-color: transparent;
         font-size: 11px;
         padding: 12px 22px;
+        font-weight: 600;
+        -webkit-transition: all cubic-bezier(0.19, 1, 0.22, 1) 0.7s;
+        -o-transition: all cubic-bezier(0.19, 1, 0.22, 1) 0.7s;
+        transition: all cubic-bezier(0.19, 1, 0.22, 1) 0.7s;
+    }
+    #page3 {
+        height: 100vh;
+        width: 100vw;
+        position: relative;
+        background-color: #222;
     }
 
     #page3part1heading {
@@ -906,22 +954,26 @@ html {
         margin-left: -6px;
     }
 
+
+
     #page3part1button {
         /* width: 50vw; */
         padding: 12px 22px;
         /* height: 2.7vh; */
+
+        margin-top: 3vh;
+/*         padding: 11px 20px; */
         border-radius: 50px;
         cursor: pointer;
         color: white;
         border: 1.6px solid rgb(255, 255, 255);
         background-color: transparent;
-        font-size: 9px;
-        font-weight: 200;
+        font-size: 10px;
+        font-weight: 600;
         -webkit-transition: all cubic-bezier(0.19, 1, 0.22, 1) 0.7s;
         -o-transition: all cubic-bezier(0.19, 1, 0.22, 1) 0.7s;
         transition: all cubic-bezier(0.19, 1, 0.22, 1) 0.7s;
     }
-
     .card {
         width: 45vw;
         height: 54vh;

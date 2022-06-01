@@ -150,43 +150,9 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.10.4/gsap.min.js"
         integrity="sha512-VEBjfxWUOyzl0bAwh4gdLEaQyDYPvLrZql3pw1ifgb6fhEvZl9iDDehwHZ+dsMzA0Jfww8Xt7COSZuJ/slxc4Q=="
         crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-    <script src="https://cdn.jsdelivr.net/npm/locomotive-scroll@3.5.4/dist/locomotive-scroll.min.js"></script>
     <script>
         gsap.registerPlugin(ScrollTrigger);
-        const locoScroll = new LocomotiveScroll({
-            el: document.querySelector("#main"),
-            smooth: true,
-
-            // for tablet smooth
-            tablet: { smooth: true },
-
-            // for mobile
-            smartphone: { smooth: true }
-        });
-        locoScroll.on("scroll", ScrollTrigger.update);
-
-        ScrollTrigger.scrollerProxy("#main", {
-            scrollTop(value) {
-                return arguments.length
-                    ? locoScroll.scrollTo(value, 0, 0)
-                    : locoScroll.scroll.instance.scroll.y;
-            },
-            getBoundingClientRect() {
-                return {
-                    top: 0,
-                    left: 0,
-                    width: window.innerWidth,
-                    height: window.innerHeight
-                };
-            }
-        });
-
-        ScrollTrigger.addEventListener("refresh", () => locoScroll.update());
-
-        ScrollTrigger.refresh();
-
-
-        gsap.to(".card", {
+         gsap.to(".card", {
             scrollTrigger: {
                 trigger: ".card",
                 scroller: "#main",

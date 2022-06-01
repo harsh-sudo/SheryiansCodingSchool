@@ -71,6 +71,13 @@ html,body {
     object-fit: cover;
     object-position: center;
 }
+#right-panel-img{
+    height: 100%;
+    width: 100%;
+    background-size: cover;
+    background-position: center;
+    background-image: url(../images/login_page_image.png);
+}
 
 #sign-in-page {
     height: 100vh;
@@ -267,18 +274,18 @@ form h5 {
     #left-panel #nav {
         position: absolute;
         display: flex;
-        height: 70px;
+        height: 60px;
         display: flex;
+        align-items: center;
         justify-content: space-between;
         z-index: 99;
-        align-items: center;
-        padding: 0 40px;
+        padding: 0 30px 0 27px;
         width: 100vw;
         top: 0;
     }
 
     #nav img {
-        height: 4vh;
+        height: 3.6vh;
     }
 
     #nav i {
@@ -289,32 +296,36 @@ form h5 {
     }
 
     #right-panel {
-        width: 92vw;
+        width: 100vw;
         height: 80vh;
-        position: relative;
+        position: absolute;
+        /* z-index: 9999; */
     }
 
-    #right-panel img {
+    #right-panel-img {
         width: 100%;
-        height: 100%;
-        z-index: 9;
-        object-fit: cover;
-        object-position: center;
+        height: 90%;
+        background-size: cover;
+        background-position: center;
+        background-image: url(../images/portrait-login.png);
     }
 
     #sign-in-page {
-        height: 37vh;
+        /* height: 42vh; */
+        height: 320px;
         z-index: 99;
-        width: 70%;
+        width: 75%;
         position: relative;
         display: flex;
         justify-content: center;
         align-items: center;
-        border: 2px solid rgb(24, 227, 254);
+
         border-radius: 10px;
         text-align: center;
         flex-direction: column;
         z-index: 9;
+        margin-top: -8vh;
+        padding: 2vh 2vw;
         /* background-color: red; */
     }
 
@@ -322,17 +333,17 @@ form h5 {
         position: relative;
         width: 41vw;
 
-        /* background-color: blue; */
     }
 
     #sign-in-page p {
-        font-size: 2.5vw;
-        margin-bottom: 0.5vh;
+        font-size: 2.8vw;
+        margin-bottom: 1vh;
         font-weight: 500;
+        margin-top: 1vh;
     }
 
     #sign-in-page h1 {
-        font-size: 4.3vw;
+        font-size: 4.7vw;
         margin-bottom: 2vh;
         font-weight: 650;
     }
@@ -340,9 +351,9 @@ form h5 {
     #sign-in-page a {
         text-decoration: none;
         color: #111;
-        font-size: 2.4vw;
+        font-size: 2.5vw;
         font-weight: 600;
-        margin-top: 2.5vh;
+        margin-top: 1.7vh;
     }
 
     #sign-in-page a:hover {
@@ -380,7 +391,7 @@ form h5 {
         text-align: left;
         margin-top: 1vh;
         font-weight: 600;
-        font-size: 2.2vw;
+        font-size: 2.5vw;
         color: #616161;
     }
     #fullscreen-nav h5 {
@@ -396,4 +407,49 @@ form h5 {
         margin: 1vh 0;
         font-weight: 500;
     }
+    #gitgoog{
+        margin-top: -0.5vh;
+        display: flex;
+        /* background-color: red; */
+        padding: 1vh 2vw;
+        align-items: center;
+    }
+    #google_link{
+        background: linear-gradient(rgb(255, 85, 67),rgb(214, 16, 16));
+        padding: 1vh 2.3vw;
+        color: white !important;
+        border-radius: 5px;
+        font-size: 2.6vw !important;
+        margin-right: 8vw;
+        display: flex;
+        align-items: center;
+        transition: all cubic-bezier(0.19, 1, 0.22, 1) 0.3s;
+    }
+    #google_link i{
+        font-weight: 100;
+        font-size: 2.4vw;
+        margin-right: 1.5vw;
+    }
+    #google_link:active{
+        transform: scale(0.95);
+    }
+    #github_link{
+        background: linear-gradient(rgb(71, 71, 71),rgb(12, 12, 12));
+        padding: 1vh 2.3vw;
+        color: white !important;
+        border-radius: 5px;
+        font-size: 2.6vw !important;
+        display: flex;
+        align-items: center;
+        transition: all cubic-bezier(0.19, 1, 0.22, 1) 0.3s;
+    }
+    #github_link i{
+        font-weight: 100;
+        font-size: 2.8vw;
+        margin-right: 1.5vw;
+    }
+    #github_link:active{
+        transform: scale(0.95);
+    }
+    
 }
