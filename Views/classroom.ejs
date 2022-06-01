@@ -17,10 +17,17 @@
             <div id="left-panel">
                 <div id="user">
                     <div id="user-image">
-                        <img src="<%=profile_dp.dp%>" alt="">
+                        <% if(profile_dp != null){ %> 
+                            <img src="<%=profile_dp.dp%>" alt="">
+                        <% } else{ %> 
+                            <img src="/images/default_dp.jpg" alt="No Profile Dp No Profile Dp No Profile Dp No Profile Dp No Profile Dp">
+                        <% } %> 
+                        <div id="user-profile-edit-btn">
+                            <button onclick="document.querySelector('#op1').click()"><i class="ri-pencil-fill"></i></button>
+                        </div>
                     </div>
                        
-                    <div id="user-dets">
+                    <div id="user-dets"> 
                         <h2 id="user-name"><%=user.name %></h2>
                     </div>
                 </div>
@@ -43,7 +50,7 @@
                         <input name="lastName" form="faram" id="lastNameInput" type="text" value="<%= user.name.split(' ')[1] %>">
                     </div>
                     <div id="email">
-                        <input name="email" form="faram" id="emailInput" type="email" value="<%= user.email %>">
+                        <input name="email" form="faram" id="emailInput" type="email" value="<%= user.email %>" readonly>
                     </div>
                     <div id="phone">
                         <input name = "phoneNumber" form="faram" id="phoneInput" type="text" value="<%= user.phoneNumber %>"  placeholder="Contact No. (WhatsApp)">
@@ -51,10 +58,14 @@
                     <div id="update_dp">    
                                 <input type="file" form="user-upload-profile-dp" onchange="loadFile(event)" name="dp" id="edit-profile-dp" placeholder="Edit" required>
                                 <div id="user-image">
-                                    <img src="<%= profile_dp.dp %>" style="display: inline-block;" id="output" width="100">
+                                    <% if(profile_dp != null){ %> 
+                                        <img src="<%= profile_dp.dp %>" style="display: inline-block;" id="output" width="100">
+                                    <% } else{ %> 
+                                        <img src="/images/default_dp.jpg" id="output" alt="No Profile Dp No Profile Dp No Profile Dp No Profile Dp No Profile Dp">
+                                    <% } %> 
                                 </div>
                                 <button class="btn-edit">Edit Image</button>
-                                <button id="update_dp_btn" type="submit" form="user-upload-profile-dp">update</button>
+                                <button button id="update_dp_btn" type="submit" form="user-upload-profile-dp">update</button>
                                 <script>
                                     const fileinput  = document.querySelector('input[type=file]');
                                     const btnedit  = document.querySelector('.btn-edit');

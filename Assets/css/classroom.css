@@ -454,3 +454,9 @@ html {
 .card .course-details .fee-btn:hover {
     transform: scale(1.05);
 }
+
+#user-profile-edit-btn {
+    position: absolute;
+    top:21%;
+    left:60%;
+}

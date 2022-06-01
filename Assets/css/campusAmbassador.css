@@ -908,12 +908,13 @@ html {
     #page2button {
         margin-top: 7vh;
         border-radius: 50px;
-        padding: 11px 15px;
+/*         padding: 11px 15px; */
         cursor: pointer;
         color: #222;
         border: 1.6px solid #222;
         background-color: transparent;
         font-size: 11px;
+        padding: 12px 22px;
         font-weight: 600;
         -webkit-transition: all cubic-bezier(0.19, 1, 0.22, 1) 0.7s;
         -o-transition: all cubic-bezier(0.19, 1, 0.22, 1) 0.7s;
@@ -956,8 +957,12 @@ html {
 
 
     #page3part1button {
+        /* width: 50vw; */
+        padding: 12px 22px;
+        /* height: 2.7vh; */
+
         margin-top: 3vh;
-        padding: 11px 20px;
+/*         padding: 11px 20px; */
         border-radius: 50px;
         cursor: pointer;
         color: white;
