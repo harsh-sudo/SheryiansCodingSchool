@@ -326,11 +326,13 @@ body {
         height: 17vh;
         display: flex;
         justify-content: center;
+
         align-items: center;
+        padding: 0 5vw;
     }
 
     .container p {
-        font-size: 31px;
+        font-size: 33px;
         /* font-size: 6rem; */
         padding: 0.5rem;
         font-weight: 900;
