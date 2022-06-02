@@ -7,6 +7,7 @@
             src: url("/fonts/Gilroy-Medium.otf");
             font-family: "Gilroy";
         }
+
         @font-face {
             src: url("/fonts/bandeins.ttf");
             font-family: "bandeins";
@@ -26,14 +27,17 @@
             src: url("/fonts/Shaloems.ttf");
             font-family: "Shaloems";
         }
+
         @font-face {
             src: url("/fonts/Vanguard_CF.ttf");
             font-family: "Vanguard CF";
         }
+
         @font-face {
             src: url("/fonts/Montserrat-Medium.ttf");
             font-family: "Montserrat";
         }
+
         @font-face {
             src: url("/fonts/MonumentExtended-Ultrabold.otf");
             font-family: "Monument";
@@ -238,6 +242,8 @@
                 height: 8vh;
                 display: flex;
                 justify-content: space-between;
+                overflow-x: hidden;
+
             }
 
             #left-main-nav {
@@ -346,20 +352,20 @@
             <h4><a href="/courses">Courses</a></h4>
             <h4><a href="/GirlsWhoCode">Girls Who Code</a></h4>
             <h4><a href="/campusAmbassador">Campus Ambassador</a></h4>
-            <% if(typeof user != 'undefined' ){ %>
+            <% if(typeof user !='undefined' ){ %>
                 <h4><a href="/classroom/<%= user._id %>">
-                    <% } else { %>
-                        <h4><a href="/SignIn">
-                            <% } %>
-                                <% if(typeof user != 'undefined'){ %>
-                                        <span>Hi,</span>
-                                        <%= user.name%>
-                                        <% } %>
-                                <% if(typeof user === 'undefined'){ %>
-                                    Sign In
-                            <% } %>
-                        </a></h4> 
-            <h5 id="cross"><i class="ri-close-fill"></i></h5>
+                        <% } else { %>
+                            <h4><a href="/SignIn">
+                                    <% } %>
+                                        <% if(typeof user !='undefined' ){ %>
+                                            <span>Hi,</span>
+                                            <%= user.name%>
+                                                <% } %>
+                                                    <% if(typeof user==='undefined' ){ %>
+                                                        Sign In
+                                                        <% } %>
+                                </a></h4>
+                            <h5 id="cross"><i class="ri-close-fill"></i></h5>
         </div>
         <div id="nav-main">
             <div id="left-main-nav">
@@ -382,7 +388,7 @@
                 <a href="/GirlsWhoCode">
                     <h4>Girls Who Code</h4>
                 </a>
-                <% if(typeof user != 'undefined' ){ %>
+                <% if(typeof user !='undefined' ){ %>
                     <a href="/classroom/<%= user._id %>">
                         <% } else { %>
                             <a href="/SignIn">
@@ -401,7 +407,7 @@
                                             <%= user.name.split(' ')[0]%>
                                         </h4>
                                         <% } %>
-                                    <% if(typeof user === 'undefined'){ %>
+                                    <% if(typeof user === ' undefined'){ %>
                                                 <h4>Sign In</h4>
                                                 <% } %>
                             </a>
@@ -410,15 +416,17 @@
                             <div id="popup_box">
                                 <% if(typeof user==='undefined' ){ %>
                                     <h4>Please Login</h4>
-                                <% } %>
-                                <% if(typeof user != 'undefined'){ %>
-                                    <h4><%= user.name %> </h4>
-                                <% } %> 
-                                
-                                <% if(typeof user != 'undefined'){ %> 
-                                <button><a href="/classroom/<%= user._id %>">My Account</a></button>
-                                <% } %> 
-                                <button><a href="/signIn/bye">Logout</a></button>
+                                    <% } %>
+                                        <% if(typeof user !='undefined' ){ %>
+                                            <h4>
+                                                <%= user.name %>
+                                            </h4>
+                                            <% } %>
+
+                                                <% if(typeof user !='undefined' ){ %>
+                                                    <button><a href="/classroom/<%= user._id %>">My Account</a></button>
+                                                    <% } %>
+                                                        <button><a href="/signIn/bye">Logout</a></button>
                             </div>
             </div>
         </div>
