@@ -16,11 +16,13 @@
         <div id="center">
             <div id="left-panel">
                 <div id="user">
-                    <div id="user-image">
+                    <div id="user-image" style="background-color: none;">
                         <% if(profile_dp != null){ %> 
                             <img src="<%=profile_dp.dp%>" alt="">
                         <% } else{ %> 
-                            <img src="/images/default_dp.jpg" alt="No Profile Dp No Profile Dp No Profile Dp No Profile Dp No Profile Dp">
+                            <div id="no-user-img">
+                                <h1><%= user.name.split("")[0] %></h1>
+                            </div>
                         <% } %> 
                         <div id="user-profile-edit-btn">
                             <button onclick="document.querySelector('#op1').click()"><i class="ri-pencil-fill"></i></button>
@@ -32,9 +34,9 @@
                     </div>
                 </div>
                 <div id="user-options">
-                    <h3 id="op1"><i class="ri-user-6-line"></i>My Profile</h3>
-                    <h3 id="op2"><i class="ri-information-line"></i>My Courses</h3>
-                    <h3 id="op3"><a href="/signIn/bye"><i class="ri-logout-box-line"></i>Log out</a></h3>
+                    <h3 id="op1"><div class="leftline" id="leftline1"></div><i class="ri-user-6-line"></i>My Profile</h3>
+                    <h3 id="op2"><div class="leftline" id="leftline2"></div><i class="ri-information-line"></i>My Courses</h3>
+                    <h3 id="op3"><div class="leftline" id="leftline3"></div><a href="/signIn/bye"><i class="ri-logout-box-line"></i>Log out</a></h3>
                 </div>
             </div>
             <div id="right-panel">
@@ -61,11 +63,13 @@
                                     <% if(profile_dp != null){ %> 
                                         <img src="<%= profile_dp.dp %>" style="display: inline-block;" id="output" width="100">
                                     <% } else{ %> 
-                                        <img src="/images/default_dp.jpg" id="output" alt="No Profile Dp No Profile Dp No Profile Dp No Profile Dp No Profile Dp">
+                                        <div id="no-user-img">
+                                            <h1><%= user.name.split("")[0] %></h1>
+                                        </div>
                                     <% } %> 
                                 </div>
-                                <button class="btn-edit">Edit Image</button>
-                                <button button id="update_dp_btn" type="submit" form="user-upload-profile-dp">update</button>
+                                <button class="btn-edit">Edit</button>
+                                <button id="update_dp_btn" type="submit" form="user-upload-profile-dp">Update</button>
                                 <script>
                                     const fileinput  = document.querySelector('input[type=file]');
                                     const btnedit  = document.querySelector('.btn-edit');
@@ -173,8 +177,6 @@
             document.querySelector("#lastnameh5").style.left = "7%"
             document.querySelector("#lastnameh5").style.fontSize = "14px"
             document.querySelector("#lastnameh5").style.zIndex = "11"
-
-
         })
         // document.querySelector("#lastNameInput").addEventListener("focusout", function () {
         //     document.querySelector("#lastnameh5").style.top = "25%"
@@ -230,6 +232,8 @@
             document.querySelector("#faram1").style.display = 'flex';
             document.querySelector("#faram1").style.zIndex = 10;
             document.querySelector("#op1").style.backgroundColor = "white";
+            document.querySelector("#leftline1").style.opacity = "1";
+            document.querySelector("#leftline2").style.opacity = "0";
         })
         
         
@@ -240,6 +244,8 @@
             document.querySelector("#faram1").style.opacity = 0;
             document.querySelector("#faram1").style.display = 'none';
             document.querySelector("#faram1").style.zIndex = 9;
+            document.querySelector("#leftline1").style.opacity = "0";
+            document.querySelector("#leftline2").style.opacity = "1";
         })
 
         // scroller.scrollTo(document.querySelector('#page2'));

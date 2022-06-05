@@ -92,7 +92,18 @@ html {
     object-fit: cover !important;
     background-position: center;
 }
-
+#no-user-img{
+    height: 100%;
+    width: 100%;
+    background-color: salmon;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+#user-image #no-user-img h1{
+    color: white;
+    font-size: 3vw;
+}
 #left-panel #user #user-upload-profile-dp{
     /* position: absolute; */
     opacity: 1;
@@ -115,7 +126,20 @@ html {
     flex-direction: column;
     background: linear-gradient(to right bottom, rgb(238, 247, 255), rgb(225, 240, 255));
 }
+#user-profile-edit-btn button{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0.8vw 0.8vw;
+    color: white;
+    position: absolute;
+    left: -1vw;
+    top: -1vh;
+    border-radius: 50%;
+    background:linear-gradient(to right bottom,#45a2ff,#64cbff) ;
+    border: none;
 
+}
 #left-panel #user-options h3 {
     width: 100%;
     color: #444;
@@ -145,12 +169,24 @@ html {
 }
 
 #left-panel #user-options h3:hover {
-    background: linear-gradient(to right, rgb(248, 251, 255), rgb(213, 236, 255));
-    transform: scale(1.09);
+    background: linear-gradient(to right, rgb(248, 251, 255), rgb(220, 239, 255));
+    transform: scale(1);
     color: #000;
     border-radius: 5px;
 }
 
+.leftline{
+    position: absolute;
+    left: 0;
+    width: 9px;
+    height: 100%;
+    /* border-radius: 50px; */
+    background-color: rgb(61, 181, 255);
+    opacity: 0;
+}
+#leftline2{
+    opacity: 1;
+}
 #faram1{
     height: 90%;
     width: 90%;
@@ -337,9 +373,19 @@ html {
 
 #update_dp{
     position: relative;
-    margin-top: -10vh;
+    margin-top: -12vh;
 }
-
+#update_dp button{
+    margin-top: 2vh;
+    margin-right: 1vw;
+    padding: 0.85vw 1.5vw;
+    border-radius: 6px;
+    border: none;
+    color: white;
+    font-weight: 600;
+    font-size:1vw;
+    background: linear-gradient(to right bottom, #2ba7ff,#6fcaff);
+}
 
 #btns {
     width: 21vw;
