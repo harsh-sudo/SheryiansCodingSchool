@@ -33,19 +33,12 @@
         <%- include('Partials/header.ejs') %>
         <div id="page1">
             <!-- This is page One for you "Akarsh" -->
-            <img id="image1" src="/images/image1.png" alt="">
-            <img id="image2" src="/images/image2.png" alt="">
-            <img id="image3" src="/images/image3.png" alt="">
-            <img id="image4" src="/images/image4.png" alt="">
-            <img id="image5" src="/images/image5.png" alt="">
-            <img id="image6" src="/images/image6.png" alt="">
-            <img id="image7" src="/images/image7.png" alt="">
-            <img id="image8" src="/images/image8.png" alt="">
-            <img id="image9" src="/images/image9.png" alt="">
-            <img id="image10" src="/images/image10.png" alt="">
-
-            <h1>SHERYIANS <br>CREATIVE COURSES</h1>
-            <button><a href="#">GET COURSES</a></button>
+            <div id="landing-page">
+                <div id="landing-page-heading"></div>
+                <button><a href="#">GET COURSES</a></button>
+                <div id="landing-page-img"></div>
+            </div>
+            
         </div>
         <div id="page2">
             <div id="page2-top-text">
@@ -59,7 +52,7 @@
                     <div class="course-card" id="card<%=card_count%>">
                     <div class="card-part<%= part_count %>" id="card1-part1">
                         <img src="<%= i.image %> " alt="">
-                        <button> ₹<%=i.fees%> </button>
+                        <button id="course-fee-btn"> ₹<%=i.fees%> </button>
                         <% let check_user = 0 %> 
                         <% let check_tryForFree = 0 %> 
                         <% if(typeof user === 'undefined'){ %>
@@ -88,7 +81,7 @@
                                 Enrolled
                             <% } %> 
                         </button>
-                        <button onclick="window.location.href='/Courses/CoursesDetails/<%=i.course_id%>'" id = "view-in-detail">Details</button>
+                        <button id="course-dets-btn" onclick="window.location.href='/Courses/CoursesDetails/<%=i.course_id%>'" id = "view-in-detail">Details</button>
                     </div>
                     <% part_count++ %> 
                     <div class="card-part<%= part_count %>" id="card1-part1">
@@ -233,7 +226,7 @@
         document.querySelector("#cross").addEventListener("click",function(){
             document.querySelector("#fullscreen-nav").style.left = "-100vw"
         })
-        scroller.scrollTo(document.querySelector('#page2'));
+        // scroller.scrollTo(document.querySelector('#page2'));
         document.querySelector('#page1 button').addEventListener('click', () => {
             scroller.scrollTo(document.querySelector('#page2'));
         });

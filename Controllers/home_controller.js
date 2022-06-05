@@ -1,4 +1,7 @@
 const ProfileDp = require('../models/profile_dp');
+const sharp = require('sharp');
+const path = require('path');
+const fs = require('fs');
 
 
 module.exports.getHome = (req, res)=>{
@@ -25,9 +28,21 @@ module.exports.UploadProfile_dp = async (req, res)=>{
         profile_dp = new ProfileDp();
     }
     
-    try{ProfileDp.uploaded_dp(req,res,(err)=>{
-        console.log("upload")
-         console.log(req.file.filename)
+    try{ProfileDp.uploaded_dp(req,res,async (err)=>{
+        console.log(req.file);
+        const { filename: image } = req.file;
+        await sharp(req.file.path)
+         .resize(200, 200)
+         .withMetadata()
+         .jpeg({ quality: 90 })
+         .toFile(
+            path.resolve(req.file.destination,'resized',image)
+         )
+            fs.unlinkSync(req.file.path)
+         if(profile_dp.dp){
+            //  console.log("hellllooo",path.join(__dirname, '..',profile_dp.dp))
+            fs.unlinkSync(path.join(__dirname, '..',profile_dp.dp))
+         }
          if(err){
              console.log(err);
              return;

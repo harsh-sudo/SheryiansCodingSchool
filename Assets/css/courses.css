@@ -496,6 +496,7 @@ body {
     background-color: #ff7835;
     cursor: pointer;
     font-size: 0.9vw;
+    z-index: 99;
 }
 
 #view-in-detail {
@@ -1420,7 +1421,6 @@ body {
         background-size: cover;
         background-position: center;
         position: absolute;
-
         left: 52%;
         top: 3%;
         background-image: url(../images/phoneHeading.png);
@@ -1429,13 +1429,13 @@ body {
     
     #landing-page-img {
         height: 40%;
-        width: 93%;
+        width: 100%;
         position: absolute;
         background-position: center;
         background-size: cover;
         background-image: url(../images/phone.png);
         left: 50%;
-        top: 50%;
+        top: 45%;
         transform: translate(-50%,0%);
     }
     #landing-page>button{

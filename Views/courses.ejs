@@ -68,13 +68,11 @@
                         <button id = "buy-now-button"<% if(check_user === 0){ %> 
                         onclick="window.location.href='/Courses/enroll/<%= i._id %>'"
                         <% if(check_tryForFree != 0){ %>
-                            disabled
                             style="background-color: #79c979; cursor: no-drop;"
                         <% } %>
                         <% } else{ %>
                             onclick="window.location.href='/signIn'"
                         <% } %> >
-                    
                             <% if(check_tryForFree === 0){ %> 
                                 Try For Free
                             <% } else{ %>

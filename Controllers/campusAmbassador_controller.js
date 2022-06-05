@@ -18,7 +18,6 @@ module.exports.addCampusAmbassador = async function(req, res) {
             path.resolve(req.file.destination,'resized',image)
          )
          fs.unlinkSync(req.file.path)
-
             if(err){
                 console.log(err);
                 return;
@@ -82,7 +81,7 @@ module.exports.updateCampusAmbassador = async (req, res)=>{
     let campusAmbassador = await CampusAmbassador.findOne({
         _id:req.params.id
     });
-    console.log(campusAmbassador)
+    // console.log(campusAmbassador)
     try{CampusAmbassador.uploaded_dp(req,res, async (err) => {
         if(req.file){
         fs.unlinkSync(path.join(__dirname, '..', campusAmbassador.image));
