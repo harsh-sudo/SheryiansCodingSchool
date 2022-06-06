@@ -496,6 +496,8 @@ body {
     background-color: #ff7835;
     cursor: pointer;
     font-size: 0.9vw;
+    z-index: 99;
+
 }
 
 #view-in-detail {
@@ -564,7 +566,7 @@ body {
 
 .course-card .card-part2>p {
     font-size: 1.1vw;
-    padding: 1vh 1vw 0 0;
+    padding: 1vh 1.5vw 0 0;
 }
 
 .course-card #card1-part1 img {
@@ -1328,6 +1330,7 @@ body {
         color: white;
         font-weight: 600;
         background-color: #ff7835;
+        z-index: 99;
         cursor: pointer;
         font-size: 12px;
     }

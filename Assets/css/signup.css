@@ -120,9 +120,12 @@ body {
 #sign-in-page a {
     text-decoration: none;
     color: #111;
-    font-size: 1vw;
+    font-size: 1.1vw;
     font-weight: 600;
     margin-top: 2.6vh;
+}
+#sign-in-page a:hover{
+    text-decoration: underline;
 }
 
 #create_ac:hover {
@@ -133,7 +136,7 @@ form input {
     padding: 1vh 1vw;
     width: 100%;
     background-color: white;
-    margin: 1vh 0;
+    margin: 0.8vh 0;
     border: none;
     border-bottom: 3px solid rgb(24, 227, 254);
 }
@@ -587,7 +590,8 @@ form h5 {
 #some-options>a {
     text-decoration: none;
     color: #111;
-    font-size: 1.2vh;
+    font-weight: 600;
+    font-size: 1.35vh;
 }
 
 #ptr-btns {

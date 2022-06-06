@@ -12,38 +12,52 @@
 
 <body>
     <div id="main">
-        <%- include('Partials/header.ejs') %> 
-        <div id="center">
-            <div id="left-panel">
-                <div id="user">
-                    <div id="user-image" style="background-color: none;">
-                        <% if(profile_dp != null){ %> 
-                            <img src="<%=profile_dp.dp%>" alt="">
-                        <% } else{ %> 
-                            <div id="no-user-img">
-                                <h1><%= user.name.split("")[0] %></h1>
-                            </div>
-                        <% } %> 
-                        <div id="user-profile-edit-btn">
-                            <button onclick="document.querySelector('#op1').click()"><i class="ri-pencil-fill"></i></button>
+        <%- include('Partials/header.ejs') %>
+            <div id="center">
+                <div id="left-panel">
+                    <div id="user">
+                        <div id="user-image" style="background-color: none;">
+                            <% if(profile_dp !=null){ %>
+                                <img src="<%=profile_dp.dp%>" alt="">
+                                <% } else{ %>
+                                    <div id="no-user-img">
+                                        <h1>
+                                            <%= user.name.split("")[0] %>
+                                        </h1>
+                                    </div>
+                                    <% } %>
+                                        <div id="user-profile-edit-btn">
+                                            <button onclick="document.querySelector('#op1').click()"><i
+                                                    class="ri-pencil-fill"></i></button>
+                                        </div>
+                        </div>
+
+                        <div id="user-dets">
+                            <h2 id="user-name">
+                                <%=user.name %>
+                            </h2>
                         </div>
                     </div>
-                       
-                    <div id="user-dets"> 
-                        <h2 id="user-name"><%=user.name %></h2>
+                    <div id="user-options">
+                        <h3 id="op1">
+                            <div class="leftline" id="leftline1"></div><i class="ri-user-6-line"></i>My Profile
+                        </h3>
+                        <h3 id="op2">
+                            <div class="leftline" id="leftline2"></div><i class="ri-information-line"></i>My Courses
+                        </h3>
+                        <h3 id="op3">
+                            <div class="leftline" id="leftline3"></div><a href="/signIn/bye"><i
+                                    class="ri-logout-box-line"></i>Log out</a>
+                        </h3>
                     </div>
                 </div>
-                <div id="user-options">
-                    <h3 id="op1"><div class="leftline" id="leftline1"></div><i class="ri-user-6-line"></i>My Profile</h3>
-                    <h3 id="op2"><div class="leftline" id="leftline2"></div><i class="ri-information-line"></i>My Courses</h3>
-                    <h3 id="op3"><div class="leftline" id="leftline3"></div><a href="/signIn/bye"><i class="ri-logout-box-line"></i>Log out</a></h3>
-                </div>
-            </div>
-            <div id="right-panel">
-                <form id = "user-upload-profile-dp" action="/UploadProfile_dp" method="POST" enctype="multipart/form-data"></form>
-                <form id="faram" action="/classroom/<%=user._id%>/updateProfile" method="post"></form>
-                <div id="faram1">
-                    <h1>Welcome, <span><%= user.name.split(' ')[0].toUpperCase()%></span>.</h1>
+                <div id="right-panel">
+                    <form id="user-upload-profile-dp" action="/UploadProfile_dp" method="POST"
+                        enctype="multipart/form-data"></form>
+                    <form id="faram" action="/classroom/<%=user._id%>/updateProfile" method="post"></form>
+                    <div id="faram1">
+                        <h1>Welcome, <span>
+                                <%= user.name.split(' ')[0].toUpperCase()%></span>.</h1>
                     <h3>Account Details</h3>
                     <div id="firstName">
                         <input name="firstName" form="faram" id="firstNameInput" type="text" placeholder="first Name" value="<%= user.name.split(' ')[0]%>">
@@ -71,16 +85,13 @@
                                 <button class="btn-edit">Edit</button>
                                 <button id="update_dp_btn" type="submit" form="user-upload-profile-dp">Update</button>
                                 <script>
-                                    const fileinput  = document.querySelector('input[type=file]');
-                                    const btnedit  = document.querySelector('.btn-edit');
-
-                                    fileinput.style.visibility = 'hidden';
-                                    
-                                    btnedit.addEventListener('click',()=>{
+                                    const fileinput = document.querySelector(' input[type=file]'); const
+                                        btnedit = document.querySelector('.btn-edit'); fileinput.style.visibility = 'hidden';
+                                    btnedit.addEventListener('click', () => {
                                         fileinput.click();
                                     });
 
-                                    var loadFile = function(event) {
+                                    var loadFile = function (event) {
                                         var image = document.getElementById('output');
                                         image.src = URL.createObjectURL(event.target.files[0]);
                                     };
@@ -93,47 +104,63 @@
                             const update_dp_btn = document.querySelector('#update_dp_btn');
                             const save_btn = document.querySelector('#savebtn');
 
-                            save_btn.addEventListener('click',()=>{
+                            save_btn.addEventListener('click', () => {
                                 update_dp_btn.click();
                             });
                         </script>
                         <button id="cancelbtn">Cancel</button>
                     </div>
                 </div>
-                <script src="https://cdnjs.cloudflare.com/ajax/libs/datejs/1.0/date.min.js" integrity="sha512-/n/dTQBO8lHzqqgAQvy0ukBQ0qLmGzxKhn8xKrz4cn7XJkZzy+fAtzjnOQd5w55h4k1kUC+8oIe6WmrGUYwODA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+                <script src="https://cdnjs.cloudflare.com/ajax/libs/datejs/1.0/date.min.js"
+                    integrity="sha512-/n/dTQBO8lHzqqgAQvy0ukBQ0qLmGzxKhn8xKrz4cn7XJkZzy+fAtzjnOQd5w55h4k1kUC+8oIe6WmrGUYwODA=="
+                    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
                 <div id="right-page2">
-                    <% let countf = 0 %> 
-                    <% let countc = 0 %>
-                    <% for(let i of course[0].enrolledCourses){ %> 
-                    <div class="card" id="card1">
-                        <div id="course1-img" class="course-img"><img src="<%= i.image %>" alt="course1-img"></div>
-                        <div id="course1-datails" class="course-details">
-                            <h3 class="course-name" id="course1-name"><%= i.course_name %></h3>
-                            <p class="course-para" id="course1-para"><%= i.subHeading%></p>
-                            <p class="course-para" id="startOn<%= countc %>">
-                                <script>
-                                    var mydate = new Date("<%= i.startOn %>");
-                                    var str = mydate.toString("MMMM dS");
-                                    var starton = document.querySelector('#startOn<%=countc%>');
-                                    starton.innerHTML = "Start On " + str;
-                                </script>
-                            </p>
-                            <% if(user.feeStatus[countf].status === "pending") {%> 
-                                <button onclick="window.location.href='/paymentPortal/<%= i._id%>'" class="fee-btn">Pay fees</button>
-                                <button id="cancelenroll" class="fee-btn" style="background-color:rgb(254, 90, 90);  padding: 1.4vh 1vw;" onclick="window.location.href='/Courses/enroll/CancelEnrollment/<%= i._id %>'">Cancel Enrollment</button>
-                                <% } else{ %>
-                                    <button class="fee-btn" style="background-color: rgb(76, 199, 76); cursor: not-allowed;" disabled>Paid</button>
-                                    <% } %> 
+                    <% let countf=0 %>
+                        <% let countc=0 %>
+                            <% for(let i of course[0].enrolledCourses){ %>
+                                <div class="card" id="card1">
+                                    <div id="course1-img" class="course-img"><img src="<%= i.image %>"
+                                            alt="course1-img"></div>
+                                    <div id="course1-datails" class="course-details">
+                                        <h3 class="course-name" id="course1-name">
+                                            <%= i.course_name %>
+                                        </h3>
+                                        <p class="course-para" id="course1-para">
+                                            <%= i.subHeading%>
+                                        </p>
+                                        <h4 class="course-date" id="startOn<%= countc %>">
+                                            <script>
+                                                var mydate = new Date("<%= i.startOn %>");
+                                                var str = mydate.toString("MMMM dS");
+                                                var starton = document.querySelector('#startOn<%=countc%>');
+                                                starton.innerHTML = "Starting On <span>" + str + "</span>";
+                                            </script>
+                                        </h4>
+                                        <% if(user.feeStatus[countf].status==="pending" ) {%>
+                                            <button onclick="window.location.href='/paymentPortal/<%= i._id%>'"
+                                                class="fee-btn">Pay fees</button>
+                                            <button id="cancelenroll" class="fee-btn"
+                                                style="background-color:rgb(254, 90, 90);  padding: 1.4vh 1vw;"
+                                                onclick="window.location.href='/Courses/enroll/CancelEnrollment/<%= i._id %>'">Cancel
+                                                Enrollment</button>
+                                            <% } else{ %>
+                                                <button class="fee-btn"
+                                                    style="background-color: rgb(76, 199, 76); cursor: not-allowed;"
+                                                    disabled>Paid</button>
+                                                <% } %>
+                                    </div>
                                 </div>
-                            </div>
-                            <% countf++; %>  
-                            <% countc++; %> 
-                        <% } %>
-                            <% if(course[0].enrolledCourses.length === 0) {%> 
-                        <div style="position: absolute; top:50%; left:50%; transform:translate(-50%,-50%)" id="no-enrolled">
-                            <h2 style="color:rgb(95, 94, 94)"> You've Not Enrolled in any Course </h2></div>    
-                    <% } %> 
-                    <!-- <div class="card" id="card2">
+                                <% countf++; %>
+                                    <% countc++; %>
+                                        <% } %>
+                                            <% if(course[0].enrolledCourses.length===0) {%>
+                                                <div style="position: absolute; top:50%; left:50%; transform:translate(-50%,-50%)"
+                                                    id="no-enrolled">
+                                                    <h2 style="color:rgb(95, 94, 94)"> You've Not Enrolled in any Course
+                                                    </h2>
+                                                </div>
+                                                <% } %>
+                                                    <!-- <div class="card" id="card2">
                         <div id="course2-img" class="course-img"><img src="" alt="course2-img"></div>
                         <div id="course2-datails" class="course-details">
                             <h3 class="course-name" id="course2-name">Us se bhi achha CSS</h3>
@@ -161,6 +188,63 @@
                         </div>
                     </div> -->
                 </div>
+            </div>
+    </div>
+    </div>
+    <div id="main2">
+        <div id="ptr-upper-div">
+            <div id="ptr-user-info">
+                <h2>Account Info</h2>
+                <h5>Change, Update or Delete your account info.</h5>
+                <div id="ptr-user-personal">
+                    <div id="ptr-name-img">
+                        <div id="ptr-user-image">
+                            <img src="" alt="">
+                        </div>
+                        <div id="ptr-username-designation">
+                            <h2>Harsh Sharma</h2>
+                            <h4>Student</h4>
+                        </div>
+                    </div>
+                    <div id="ptr-user-btns">
+                        <button id="ptr-edit-info-btn">Edit Info <i class="ri-pencil-fill"></i></button>
+                        <button id="ptr-logout-btn"><a href="/signIn/bye">Logout <i
+                                    class="ri-shut-down-line"></i></a></button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="ptr-lower-div">
+            <div id="ptr-course-div">
+                <h2>Your Enrolled Courses</h2>
+                <div id="ptr-courses-container">
+                    <div class="ptr-course-card">
+                        <div class="ptr-course-card-img">
+                            <img src="" alt="">
+                        </div>
+                        <div class="ptr-course-card-dets">
+                            <h2 id="ptr-course-card-name">Choot maarna seekhe matra 15 dino me (100% guaranty)</h2>
+                            <div id="ptr-course-dets-btns">
+                                <button class="ptr-fee-btn">Pay Fee</button>
+                                <button class="ptr-enroll-btn">Cancel Enrollment</button>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+            <div id="ptr-account-div">
+                <h2>Your Personal Information</h2>
+                <div id="ptr-account-info-container">
+                    <h5>Full Name</h5>
+                    <input type="text" id="account-holder-name">
+                    <h5>Email</h5>
+                    <input type="email" id="account-holder-email">
+                    <h5>Contact No. (WhatsApp)</h5>
+                    <input type="text" id="account-holder-contact">
+
+                </div>
+                <button id="ptr-update-ac">Update Now</button>
             </div>
         </div>
     </div>
@@ -218,13 +302,13 @@
             document.querySelector("#phoneh5").style.zIndex = "11"
 
         })
-        
+
         // document.querySelector("#phoneInput").addEventListener("focusout", function () {
         //     document.querySelector("#phoneh5").style.top = "25%"
         //     document.querySelector("#phoneh5").style.left = "8%"
         //     document.querySelector("#phoneh5").style.fontSize = "11px"
         // })
-        document.querySelector("#op1").addEventListener("click",function(){
+        document.querySelector("#op1").addEventListener("click", function () {
             document.querySelector("#right-page2").style.opacity = 0;
             document.querySelector("#right-page2").style.display = 'none';
             document.querySelector("#right-page2").style.zIndex = 9;
@@ -235,9 +319,9 @@
             document.querySelector("#leftline1").style.opacity = "1";
             document.querySelector("#leftline2").style.opacity = "0";
         })
-        
-        
-         document.querySelector("#op2").addEventListener("click",function(){
+
+
+        document.querySelector("#op2").addEventListener("click", function () {
             document.querySelector("#right-page2").style.opacity = 1;
             document.querySelector("#right-page2").style.display = 'initial';
             document.querySelector("#right-page2").style.zIndex = 10;
@@ -266,6 +350,20 @@
         //     sel1.style.opacity = 0;
         //     sel2.style.opacity = 1;
         // })
+
+        var toggle = 0;
+        document.querySelector("#ptr-edit-info-btn").addEventListener("click", function () {
+            if (toggle === 0) {
+                document.querySelector("#ptr-account-div").style.display = "initial";
+                document.querySelector("#ptr-course-div").style.display = "none";
+                toggle = 1;
+            } else {
+                document.querySelector("#ptr-account-div").style.display = "none";
+                document.querySelector("#ptr-course-div").style.display = "initial";
+                toggle = 0;
+            }
+        })
     </script>
 </body>
+
 </html>

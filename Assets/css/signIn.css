@@ -586,7 +586,8 @@ form h5 {
 #some-options>a {
     text-decoration: none;
     color: #111;
-    font-size: 1.2vh;
+    font-weight: 600;
+    font-size: 1.35vh;
 }
 
 #ptr-btns {
