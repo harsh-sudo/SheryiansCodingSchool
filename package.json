@@ -4,8 +4,10 @@
   "description": "Sheryians_Web",
   "main": "app.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "server": "nodemon"
+    "start": "node app.js"
+  },
+  "engines": {
+    "node": "12.18.3"
   },
   "keywords": [
     "social"

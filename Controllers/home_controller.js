@@ -1,4 +1,4 @@
-const ProfileDp = require('../models/profile_dp');
+const ProfileDp = require('../Models/profile_dp.js');
 const sharp = require('sharp');
 const path = require('path');
 const fs = require('fs');
@@ -9,13 +9,13 @@ module.exports.getHome = (req, res)=>{
     if(req.user){
         // req.session.message = "hello";
         console.log(req.session.message)
-        return res.render('home', {
+        return res.render('home.ejs', {
             title: 'Sheryians Coding School',
             request: req
         });
     }
     req.session.returnTo = req.originalUrl; 
-    return res.render('home', {
+    return res.render('home.ejs', {
         title: 'Sheryians Coding School',
         request: null
     });

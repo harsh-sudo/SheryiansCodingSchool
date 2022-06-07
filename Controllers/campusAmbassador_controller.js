@@ -1,5 +1,5 @@
-const db = require('../config/mongoose');
-const CampusAmbassador = require('../models/CampusAmbassador');
+const db = require('../Config/mongoose.js');
+const CampusAmbassador = require('../Models/CampusAmbassador.js');
 const sharp = require('sharp');
 const path = require('path');
 const fs = require('fs');

@@ -1,6 +1,6 @@
-const user = require('../models/user');
-const courses = require('../Models/Courses');
-const ProfileDp = require('../models/profile_dp');
+const user = require('../Models/user.js');
+const courses = require('../Models/Courses.js');
+const ProfileDp = require('../Models/profile_dp.js');
 
 module.exports.getClassroom = (req, res)=>{
         user.find({_id:req.user.id}).populate('enrolledCourses').exec((err, course)=>{
