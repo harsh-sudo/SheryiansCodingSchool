@@ -38,8 +38,10 @@
             <div id="page2">
                 <div id="page2-left">
                     <div class="scroll">
-                        <div class="m-scroll"><span>&nbsp; Shery Girls Who Code, Create, Design and Develop &nbsp;</span><span> &nbsp;Shery Girls Who Code, Create, Design and Develop&nbsp; </span></div>
-                      </div>
+                        <div class="m-scroll"><span>&nbsp; Shery Girls Who Code, Create, Design and Develop
+                                &nbsp;</span><span> &nbsp;Shery Girls Who Code, Create, Design and Develop&nbsp; </span>
+                        </div>
+                    </div>
                     <p id="page2-left-para">Girls Who Code is a movement by Sheryians in which we're trying to balance
                         out
                         the ratio between men and women in tech, We're continously doing Free Events and Workshops, so
@@ -111,7 +113,13 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.10.4/gsap.min.js"
         integrity="sha512-VEBjfxWUOyzl0bAwh4gdLEaQyDYPvLrZql3pw1ifgb6fhEvZl9iDDehwHZ+dsMzA0Jfww8Xt7COSZuJ/slxc4Q=="
         crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdn.jsdelivr.net/npm/locomotive-scroll@3.5.4/dist/locomotive-scroll.min.js"></script>
     <script>
+
+        const scroller = new LocomotiveScroll({
+            el: document.querySelector("#main"),
+            smooth: true
+        });
 
         document.querySelector("#menu-icon").addEventListener("click", function () {
             document.querySelector("#fullscreen-nav").style.left = "0vw"
