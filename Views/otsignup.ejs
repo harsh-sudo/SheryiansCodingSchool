@@ -9,7 +9,7 @@
         <%= title %>
     </title>
     <link href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css" rel="stylesheet">
-    <link rel="stylesheet" href="/css/signIn.css">
+    <link rel="stylesheet" href="/css/signup.css">
 </head>
 
 <body>
@@ -29,29 +29,143 @@
             <div id="sign-in-page">
                 <p>Welcome Champ!</p>
                 <h1>Register your account</h1>
-                <form action="/signup/createuser" method="post">
-                    <input type="text" name="name" placeholder="Name">
+                <form id="land-form" action="/signup/createuser" method="post">
+                    <h5>Name</h5>
+                    <input type="text" required name="name">
                     <br>
-                    <input type="email" name="email" placeholder="Email">
+                    <h5>Email</h5>
+                    <input type="email" required name="email">
                     <br>
-                    <input type="text" name="phoneNumber" placeholder="Contact No. (whatsApp)">
+                    <h5>Contact No. (WhatsApp)</h5>
+                    <input type="text" required name="phoneNumber">
                     <br>
-                    <input type="password" name="password" placeholder="Password">
-                    <br>
+                    <h5>Password</h5>
+                    <input type="password" required name="password">
                     <button type="submit">Sign Up</button>
                 </form>
+                <a href="/SignIn">Account Already Exist !</a>
+                <div id="gitgoog">
+                    <a id="google_link" href="/google"><i class="ri-google-fill"></i>Google</a>
+                    <a id="github_link" href="/auth/github"><i class="ri-github-fill"></i>Github</a>
+                </div>
             </div>
         </div>
         <div id="right-panel">
-            <img src="../Assets/images/IMG_20210327_065111-01.jpeg" alt="">
+            <div id="right-panel-img"></div>
         </div>
+    </div>
+    <div id="main2">
+        <div id="fullscreen-nav-ptr">
+            <h4><a href="/">Home</a></h4>
+            <h4><a href="/Courses">Courses</a></h4>
+            <h4><a href="/CampusAmbassador">Campus Ambassador</a></h4>
+            <h4><a href="/GirlsWhoCode">Girls Who Code</a></h4>
+            <h4><a href="/">SignIn</a></h4>
+            <h5 id="cross-ptr"><i class="ri-close-fill"></i></h5>
+        </div>
+        <div id="nav-ptr">
+            <div id="nav-ptr-part1">
+                <img src="../Assets/images/Sheryians Logo.png" alt="">
+                <h3>The Sheryians Coding School</h3>
+            </div>
+            <i id="menu-icon-ptr" class="ri-menu-3-line"></i>
+        </div>
+        <div id="main2-content">
+            <img id="login-top-img" src="../Assets/images/register-user.png" alt="">
+            <img src="../Assets/images/login-page-lower.png" alt="" id="login-lower-circle">
+            <form id="ptr-form" action="/signup/createuser" method="post">
+                <h5>Name</h5>
+                <input type="text" required name="name">
+                <br>
+                <h5>Email</h5>
+                <input type="email" required name="email">
+                <br>
+                <h5>Contact No. (WhatsApp)</h5>
+                <input type="text" required name="phoneNumber">
+                <br>
+                <h5>Password</h5>
+                <input type="password" required name="password">
+                <button type="submit"><i class="ri-arrow-right-line"></i></button>
+            </form>
+            <div id="some-options">
+                <a href="/SignIn">Account Already Exist !</a>
+                <div id="ptr-btns">
+                    <a href="/google" id="ptr-google-link"><i class="ri-google-fill"></i>Google</a>
+                    <a href="/auth/github" id="ptr-github-link"><i class="ri-github-fill"></i>Github</a>
+                </div>
+            </div>
+            <h4 id="user-rev-head">User Reviews</h4>
+            <div id="reviews-div">
+                <div class="review-div-in">
+                    <img src="https://images.unsplash.com/photo-1529626455594-4ff0802cfb7e?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1887&q=80"
+                        alt="" class="review-img">
+                    <h5 class="reviewer-name">Lavda</h5>
+                    <div class="star-div">
+                        <i class="ri-star-s-fill"></i>
+                        <i class="ri-star-s-fill"></i>
+                        <i class="ri-star-s-fill"></i>
+                    </div>
+                    <p class="reviewer-review">Yeh saare milke bc hamko chutiya bana rahe hai</p>
+                </div>
+                <div class="review-div-in">
+                    <img src="https://images.unsplash.com/photo-1529626455594-4ff0802cfb7e?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1887&q=80"
+                        alt="" class="review-img">
+                    <h5 class="reviewer-name">Lavda</h5>
+                    <div class="star-div">
+                        <i class="ri-star-s-fill"></i>
+                        <i class="ri-star-s-fill"></i>
+                        <i class="ri-star-s-fill"></i>
+                    </div>
+                    <p class="reviewer-review">Bas ek sarthak bhaiya sexy hai baki sab ...</p>
+                </div>
+                <div class="review-div-in">
+                    <img src="https://images.unsplash.com/photo-1529626455594-4ff0802cfb7e?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1887&q=80"
+                        alt="" class="review-img">
+                    <h5 class="reviewer-name">Lavda</h5>
+                    <div class="star-div">
+                        <i class="ri-star-s-fill"></i>
+                        <i class="ri-star-s-fill"></i>
+                        <i class="ri-star-s-fill"></i>
+                    </div>
+                    <p class="reviewer-review">Yeh saare milke bc hamko chutiya bana rahe hai</p>
+                </div>
+            </div>
+            <button id="swipe-left-button"><i class="ri-arrow-drop-left-line"></i></button>
+            <button id="swipe-right-button"><i class="ri-arrow-drop-right-line"></i></button>
+        </div>
+
     </div>
     <script>
         document.querySelector("#menu-icon").addEventListener("click", function () {
             document.querySelector("#fullscreen-nav").style.left = "0vw"
         })
+        document.querySelector("#menu-icon-ptr").addEventListener("click", function () {
+            document.querySelector("#fullscreen-nav-ptr").style.left = "0vw"
+        })
         document.querySelector("#cross").addEventListener("click", function () {
             document.querySelector("#fullscreen-nav").style.left = "-100vw"
+        })
+        document.querySelector("#cross-ptr").addEventListener("click", function () {
+            document.querySelector("#fullscreen-nav-ptr").style.left = "-100vw"
+        })
+        var position = 0;
+        document.querySelector("#swipe-right-button").addEventListener("click", function () {
+            if (position < window.screen.availWidth * 2) {
+                document.querySelector("#reviews-div").scrollTo({
+                    top: 0,
+                    left: `${position += window.screen.availWidth}`,
+                    behavior: "smooth"
+                })
+            }
+        })
+        document.querySelector("#swipe-left-button").addEventListener("click", function () {
+            if (position > 0) {
+                document.querySelector("#reviews-div").scrollTo({
+                    top: 0,
+                    left: `${position -= window.screen.availWidth}`,
+                    behavior: "smooth"
+                })
+            }
         })
     </script>
 </body>
