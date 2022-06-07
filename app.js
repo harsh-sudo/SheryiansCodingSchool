@@ -42,7 +42,7 @@ const port = process.env.PORT || 7000; // set port
 const user = require('./Models/user.js'); // import user model
 
 
-app.set('view engine', 'js'); // set view engine to ejs
+app.set('view engine', 'ejs'); // set view engine to ejs
 
 // app.use('/Views', express.static(__dirname + '/Views')); // set views folder
 // console.log(path.join(__dirname, "/Views"))
