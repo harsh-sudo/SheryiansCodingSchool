@@ -52,7 +52,7 @@ let storage = multer.diskStorage({
         cb(null, path.join(__dirname, '..', '/Assets/images/campusAmbassador'));
     },
     filename: function(req, file, cb) {
-        cb(null, req.body.name + '-' + file.fieldname + '_' + Date.now() + path.extname(file.originalname))
+        cb(null, req.body.name + '-' + file.fieldname + path.extname(file.originalname))
     }
 });
 

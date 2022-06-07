@@ -3,7 +3,7 @@ const mongoose = require('mongoose');
 const multer = require('multer');
 const path = require('path');
 
-const profile_dp_path = path.join('/Assets/images/profile_dp');
+const profile_dp_path = path.join('/Assets/images/profile_dp/resized');
 
 const Profile_dpSchema = new mongoose.Schema({
     user_id:{
@@ -24,7 +24,7 @@ let storage = multer.diskStorage({
         cb(null, path.join(__dirname, '..', '/Assets/images/profile_dp'));
     },
     filename: function(req, file, cb) {
-        cb(null, req.user.id + '-' + file.fieldname + '_' + Date.now() + path.extname(file.originalname))
+        cb(null, req.user.id + '-' + file.fieldname + file.originalname + path.extname(file.originalname))
     }
 }); 
  
