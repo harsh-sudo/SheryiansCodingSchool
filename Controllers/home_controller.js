@@ -40,8 +40,10 @@ module.exports.UploadProfile_dp = async (req, res)=>{
          )
             fs.unlinkSync(req.file.path)
          if(profile_dp.dp){
+            if(profile_dp.dp.search('google') == -1){
             //  console.log("hellllooo",path.join(__dirname, '..',profile_dp.dp))
             fs.unlinkSync(path.join(__dirname, '..',profile_dp.dp))
+            }
          }
          if(err){
              console.log(err);
