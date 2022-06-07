@@ -15,6 +15,8 @@ module.exports.getClassroom = (req, res)=>{
                 return;
             }
             console.log(dp);
+        req.session.returnTo = req.originalUrl; 
+        console.log(req.session.returnTo);
         return res.render('classroom', {
             title: 'Classroom',
             course: course,
@@ -34,6 +36,7 @@ module.exports.updateProfile = (req, res)=>{
         let name = req.body.firstName+' '+req.body.lastName;
         user.name = name;
         user.phoneNumber = req.body.phoneNumber;
+        req.session.returnTo = req.originalUrl; 
         user.save((err)=>{
             if(err){
                 console.log(err);

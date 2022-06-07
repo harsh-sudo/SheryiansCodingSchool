@@ -78,7 +78,7 @@
                                         <img src="<%= profile_dp.dp %>" style="display: inline-block;" id="output" width="100">
                                     <% } else{ %> 
                                         <div id="no-user-img">
-                                            <h1><%= user.name.split("")[0] %></h1>
+                                            <h1><%= user.name.split("")[0]%></h1>
                                         </div>
                                     <% } %> 
                                 </div>
@@ -151,8 +151,8 @@
                                     </div>
                                 </div>
                                 <% countf++; %>
-                                    <% countc++; %>
-                                        <% } %>
+                                <% countc++; %>
+                            <% } %>
                                             <% if(course[0].enrolledCourses.length===0) {%>
                                                 <div style="position: absolute; top:50%; left:50%; transform:translate(-50%,-50%)"
                                                     id="no-enrolled">
@@ -199,10 +199,18 @@
                 <div id="ptr-user-personal">
                     <div id="ptr-name-img">
                         <div id="ptr-user-image">
-                            <img src="" alt="">
+                            <% if(profile_dp != null){ %> 
+                                <img src="<%= profile_dp.dp %>" style="display: inline-block;" id="output" width="100">
+                            <% } else{ %>
+                                <div id="no-user-img">
+                                    <h1 style="color:white;">
+                                        <%= user.name.split("")[0].toUpperCase()%>
+                                    </h1>
+                                </div>
+                            <% } %>
                         </div>
                         <div id="ptr-username-designation">
-                            <h2>Harsh Sharma</h2>
+                            <h2><%=user.name%></h2>
                             <h4>Student</h4>
                         </div>
                     </div>
@@ -218,33 +226,89 @@
             <div id="ptr-course-div">
                 <h2>Your Enrolled Courses</h2>
                 <div id="ptr-courses-container">
+                    <% let countf1=0 %>
+                    <% let countc1=0 %>
+                    <% for(let i of course[0].enrolledCourses){ %> 
                     <div class="ptr-course-card">
                         <div class="ptr-course-card-img">
-                            <img src="" alt="">
+                            <img src="<%= i.image %>" alt="">
                         </div>
                         <div class="ptr-course-card-dets">
-                            <h2 id="ptr-course-card-name">Choot maarna seekhe matra 15 dino me (100% guaranty)</h2>
+                            <h2 id="ptr-course-card-name"><%= i.course_name %> <br> <%= i.subHeading%></h2>
+                            <h2 style="color: rgb(53, 154, 255); margin-top: 2vh;" id="startOn1<%= countc1 %>">
+                                <script>
+                                    var mydate = new Date("<%= i.startOn %>");
+                                    var str = mydate.toString("MMMM dS");
+                                    var starton = document.querySelector('#startOn1<%=countc1%>');
+                                    starton.innerHTML = "Starting On <span>" + str + "</span>";
+                                </script>
+                            </h2>
                             <div id="ptr-course-dets-btns">
-                                <button class="ptr-fee-btn">Pay Fee</button>
-                                <button class="ptr-enroll-btn">Cancel Enrollment</button>
+                                <% if(user.feeStatus[countf1].status==="pending" ) {%>
+                                    <button onclick="window.location.href='/paymentPortal/<%= i._id%>'" class="ptr-fee-btn">Pay Fee</button>
+                                    <button class="ptr-enroll-btn" onclick="window.location.href='/Courses/enroll/CancelEnrollment/<%= i._id %>'">Cancel Enrollment</button>
+                                <% }  else{  %> 
+                                    <button class="ptr-fee-btn" disabled>Pay Fee</button>
+                                <% } %> 
                             </div>
                         </div>
+                        <% countf1++; %>
+                        <% countc1++; %>
                     </div>
-
+                    <% } %>
                 </div>
+                
+                <% if(course[0].enrolledCourses.length===0) {%>
+                    <div style="position: absolute; top:70%; left:20vw"
+                        id="no-enrolled">
+                        <p style="color:rgb(95, 94, 94)"> You've Not Enrolled in any Course
+                        </p>
+                    </div>
+                    <% } %>
             </div>
             <div id="ptr-account-div">
+                <form id="user-upload-profile-dpp" action="/UploadProfile_dp" method="POST"
+                enctype="multipart/form-data"></form>
+                <form id="faramP" action="/classroom/<%=user._id%>/updateProfile" method="post"></form>
                 <h2>Your Personal Information</h2>
                 <div id="ptr-account-info-container">
-                    <h5>Full Name</h5>
-                    <input type="text" id="account-holder-name">
+                    <h5>First Name</h5>
+                    <input name="firstName" form="faramP" type="text" id="account-holder-name" value="<%= user.name.split(' ')[0]%>">
+                    <h5>Last Name</h5>
+                    <input name="lastName" form="faramP" type="text" id="account-holder-name" value="<%= user.name.split(' ')[1]%>">
                     <h5>Email</h5>
-                    <input type="email" id="account-holder-email">
+                    <input name="email" form="faramP" type="email" id="account-holder-email" value="<%= user.email %>" readonly>
                     <h5>Contact No. (WhatsApp)</h5>
-                    <input type="text" id="account-holder-contact">
+                    <input name = "phoneNumber"  form="faramP" type="text" id="account-holder-contact" value="<%= user.phoneNumber %>" placeholder="Contact No. (WhatsApp)">
+                    <div style="margin-top: -5vh;" id="update_dp">    
+                        <input type="file" form="user-upload-profile-dpp" onchange="loadFile(event)" name="dp" id="edit-profile-dp1" placeholder="Edit" required>
+                        <div style="height: 20vw; width:20vw" id="user-image">
+                            <% if(profile_dp != null){ %> 
+                                <img src="<%= profile_dp.dp %>" style="display: inline-block;" id="output1" width="100">
+                            <% } else{ %>  
+                                <div id="no-user-img">
+                                    <h1><%= user.name.split("")[0]%></h1>
+                                </div>
+                            <% } %> 
+                        </div>
+                        <button style="font-size: 4vw; padding: 10px 12px;" id="p-btn-edit">Edit</button>
+                        <button style="font-size: 4vw; padding: 10px 12px;" id="update_dp_btn" type="submit" form="user-upload-profile-dpp">Update</button>
+                        <script>
+                            const fileinput1 = document.querySelector('#edit-profile-dp1');
+                            const btnedit1 = document.querySelector('#p-btn-edit');
+                            fileinput1.style.visibility = 'hidden';
+                            btnedit1.addEventListener('click', () => {
+                                fileinput1.click();
+                            });
 
+                            var loadFile = function (event) {
+                                var image = document.getElementById('output1');
+                                image.src = URL.createObjectURL(event.target.files[0]);
+                            };
+                        </script>
+            </div>
                 </div>
-                <button id="ptr-update-ac">Update Now</button>
+                <button type="submit" form="faramP" id="ptr-update-ac">Update Now</button>
             </div>
         </div>
     </div>
