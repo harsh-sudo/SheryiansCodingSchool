@@ -1,4 +1,4 @@
-const courses = require('../Models/Courses');
+const courses = require('../Models/Courses.js');
 
 module.exports.getCoursesDetails = function(req, res) {
     courses.findOne({

@@ -1,6 +1,6 @@
 const express = require('express'); // import express
 const router = express.Router(); // create express router
-const PaymentPortal_controller = require('../controllers/PaymentPortal_controller'); // import payment portal controller
+const PaymentPortal_controller = require('../Controllers/PaymentPortal_controller.js'); // import payment portal controller
 
 
 

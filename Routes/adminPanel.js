@@ -1,15 +1,15 @@
 const express = require('express'); // import express
 const router = express.Router(); // create express router
-const adminPanelController = require('../controllers/adminPanel_controller'); // import adminPanel controller
-const courses = require('../controllers/courses_controller'); // import courses controller
-const campusAmbassador = require('../controllers/campusAmbassador_controller'); // import campusAmbassador controller
+const adminPanelController = require('../Controllers/adminPanel_controller.js'); // import adminPanel controller
+const courses = require('../Controllers/courses_controller.js'); // import courses controller
+const campusAmbassador = require('../Controllers/campusAmbassador_controller.js'); // import campusAmbassador controller
 const bodyParser = require('body-parser'); // import body parser
 
-const Course = require('../Models/Courses');
+const Course = require('../Models/Courses.js');
 
 
 const passport = require('passport'); // import passport
-const homeController = require('../controllers/home_controller'); // import home controller
+const homeController = require('../Controllers/home_controller.js'); // import home controller
 const cookieParser = require('cookie-parser');
 router.use(express.urlencoded({extended:true}));
 router.use(cookieParser());

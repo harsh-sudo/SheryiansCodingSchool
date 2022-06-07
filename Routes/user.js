@@ -3,8 +3,7 @@ const router  = express.Router();
 const passport = require('passport');
 const flash = require('connect-flash');
 
-const userController = require('../controllers/user_controller');
-
+const userController = require('../Controllers/user_controller.js');
 const cookieParser = require('cookie-parser');
 const bodyParser = require('body-parser'); // import body parser
 

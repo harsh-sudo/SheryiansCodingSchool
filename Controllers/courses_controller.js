@@ -1,6 +1,6 @@
-const db = require('../config/mongoose');
-const user = require('../models/user');
-const Course = require('../Models/Courses');
+const db = require('../Config/mongoose.js');
+const user = require('../Models/user.js');
+const Course = require('../Models/Courses.js');
 const nodemailer = require('nodemailer');
 const {google} = require('googleapis');
 require('dotenv').config();

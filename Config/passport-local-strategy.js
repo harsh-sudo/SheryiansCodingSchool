@@ -2,9 +2,9 @@ const { response } = require('express');
 const flash = require('express-flash');
 const passport = require('passport')
 const passportLocal = require('passport-local')
-const User = require('../models/user')
+const User = require('../Models/user.js')
 
-const ProfileDp = require('../models/profile_dp');
+const ProfileDp = require('../Models/profile_dp.js');
 
 const LocalStategy = passportLocal.Strategy;
 const GoogleStrategy = require('passport-google-oauth20').Strategy;

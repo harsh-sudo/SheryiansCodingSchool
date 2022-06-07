@@ -1,6 +1,6 @@
 const express = require('express'); // import express
 const router = express.Router(); // create express router
-const courses = require('../controllers/courses_controller'); // import courses controll
+const courses = require('../Controllers/courses_controller.js'); // import courses controll
 const passport = require('passport'); // import passport
 
 

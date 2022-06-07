@@ -1,7 +1,7 @@
 const express = require('express'); // import express
 const router = express.Router(); // create express router 
 const passport = require('passport'); // import passport
-const homeController = require('../controllers/home_controller'); // import home controller
+const homeController = require('../Controllers/home_controller.js'); // import home controller
 const cookieParser = require('cookie-parser');
 const bodyParser = require('body-parser'); // import body parser
 router.use(express.urlencoded({extended:true}));
