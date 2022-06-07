@@ -689,7 +689,7 @@ html {
 }
 
 #ptr-course-div {
-    /* display: none; */
+    /* display: initial; */
 }
 
 #ptr-account-div {
