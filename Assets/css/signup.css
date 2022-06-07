@@ -380,6 +380,7 @@ form h5 {
     left: 50%;
     top: 8%;
     height: 39vh;
+    /* height: 84.2vw; */
     /* height: 34.8%; */
     /* height: 287px; */
     transform: translate(-50%, 0);
@@ -405,12 +406,12 @@ form h5 {
     width: 29vh;
     z-index: 11;
     padding: 0 4vw;
-
+    /* background-color: red; */
 }
 
 #ptr-form input {
     border-bottom: 2px solid hsl(210deg 86% 62%);
-    padding: 0.5vh 1vw;
+    padding: 1vw 1vw;
     width: 100%;
     background-color: white;
     margin: 0.25vh 0;
@@ -440,6 +441,7 @@ form h5 {
     left: 50%;
     transform: translate(-50%, 0);
     margin-top: 1.7vh;
+    margin-top: 3vw;
     background: linear-gradient(120deg, rgb(150, 216, 255), rgb(94, 201, 255));
 }
 
