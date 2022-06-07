@@ -13,7 +13,7 @@ const GithubStrategy = require('passport-github').Strategy;
 passport.use(new GithubStrategy({
     clientID: '7daf8bcbf245ab14d55f',
     clientSecret: '9c24d0a9577816a6820d47172ca59623caf73b4c',
-    callbackURL: "http://localhost:7000/auth/github/callback"
+    callbackURL: "https://sheryianscodingschool.herokuapp.com/auth/github/callback"
     },function(accessToken, refreshToken, profile, done) {
         User.findOne({githubId: profile.id}, function (err, user) {
             if(user){
@@ -35,7 +35,7 @@ passport.use(new GithubStrategy({
 passport.use(new GoogleStrategy({
     clientID: '508920448317-q9o3cu7f5hkn8711sbqvt8broa8hbpl5.apps.googleusercontent.com',
     clientSecret: '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',
-    callbackURL: "http://localhost:7000/google/callback",
+    callbackURL: "https://sheryianscodingschool.herokuapp.com/google/callback",
     passReqToCallback:true
 },(req,accessToken,refreshToken,profile,done)=>{
     console.log(profile);
